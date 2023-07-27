@@ -1,6 +1,7 @@
---- 
+---
+import "../style/reset.css";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,32 +9,56 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="page">
+      <slot />
+    </div>
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    /* --color-h: 255;
+    --color-s: 60%;
+    --color-l: 60%;
+    --blue-hsl: 255, 60%, 60%;
+    --overlay-blue: hsla(var(--color-h), var(--color-s), var(--color-l), 0.2); 
+    --overlay-blue: hsla(var(--blue-hsl), 0.2);
+    --blue-hsl: 227, 60%, 60%;
+    --overlay-blue: hsla(var(--hsl-blue), 0.2);
+    --hsl-blue: hsl(225, 60%, 60%);
+  --overlay-blue: var(--hsl-blue); */
+
+    --blue-hsl: 227, 60%, 60%;
+    ---hsl-blue: hsl(var(--blue-hsl));
+    --overlay-blue: hsla(227, 66%, 55%, 0.2);
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+
+  .page {
+    min-height: 100vh;
+    background: linear-gradient(
+        210deg,
+        hsla(227, 66%, 55%, 0.2),
+        transparent 40%
+      ),
+      radial-gradient(hsla(260, 66%, 55%, 0.2), transparent 30%) no-repeat -60vw -10vh /
+        105vw 210vh;
+  }
 </style>
