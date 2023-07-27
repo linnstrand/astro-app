@@ -1,18 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import Duck from "../components/Duck.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <h1>My Astro Test</h1>
-    <Duck title="A duck" />
     <ul role="list" class="link-card-grid">
-      <Card
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
+      <Card title="First step" body="Select your UI lib! ❤️" />
     </ul>
   </main>
 </Layout>
@@ -43,14 +38,6 @@ import Duck from "../components/Duck.astro";
     margin-bottom: 1em;
   }
   .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
   }
   .link-card-grid {
     display: grid;

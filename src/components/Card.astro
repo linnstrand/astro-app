@@ -18,14 +18,16 @@ const { title, body } = Astro.props;
 <style>
   .link-card {
     list-style: none;
-    display: flex;
-    padding: 1px;
-    border-radius: 7px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    width: 100%;
-    color: white;
-    background-color: #23262d;
-    opacity: 0.8;
+    margin-bottom: 2rem;
+    color: hsl(220, 44%, 80%);
+    border: 1px solid hsla(230, 66%, 40%, 0.25);
+    background: linear-gradient(
+      200deg,
+      hsla(230, 66%, 40%, 0.2),
+      transparent 40%
+    );
+    border-radius: 8px;
+    padding: calc(1.5rem - 1px);
   }
   h2 {
     margin: 0;
