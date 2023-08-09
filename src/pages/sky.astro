@@ -11,25 +11,40 @@ import Cloud from "../components/cloud.astro";
   <div class="absolute top-1/4 bottom-1/2 right-2 w-72 h-36">
     <Cloud />
   </div>
-  <div class="cloud-footer">
-    <div class="cloud-part absolute w-1/2 -bottom-32 -right-4">
+
+  <div class="cloud-footer bg-gradient-to-b from-transparent to-white to-70%">
+    <div
+      class="cloud-part absolute w-1/2 opacity-50 bottom-4 rotate-180 -left-1/4"
+    >
       <Cloud />
     </div>
-    <div class="cloud-part absolute w-1/2 -bottom-12 -left-4 rotate-180">
+    <div
+      class="cloud-part absolute w-1/2 max-w-2xl -bottom-32 right-2 opacity-90"
+    >
       <Cloud />
     </div>
+    <div
+      class="cloud-part absolute w-1/2 max-w-2xl -bottom-10 -left-6 rotate-180 opacity-90"
+    >
+      <Cloud />
+    </div>
+  </div>
+  <div class="absolute w-1/2 h-96 opacity-50 rotate-180 -right-24 -bottom-4">
+    <Cloud />
   </div>
 </CloudLayout>
 
 <style>
   .cloud-part {
     height: 18rem;
+    min-width: 38rem;
   }
   .cloud-footer {
     position: absolute;
-    background: rgba(255, 255, 255);
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 50px;
+    height: 120px;
     bottom: 0;
     text-align: center;
   }
@@ -37,23 +52,23 @@ import Cloud from "../components/cloud.astro";
   .cloud-footer::before {
     content: "";
     background-color: white;
-    border-radius: 15% 20% 0 0 / 60% 50% 0 0;
+    border-radius: 50% 60% 0 0 / 90% 80% 0 0;
     display: block;
-    height: 100px;
-    bottom: 0;
+    height: 8em;
+    bottom: 1em;
     position: absolute;
-    transform: translate(100%, 10%);
-    width: 55%;
+    width: 12em;
+    z-index: 2;
   }
 
   .cloud-footer::after {
     content: "";
     background-color: white;
-    border-radius: 30% 30% 0 0 / 50% 60% 0 0;
+    border-radius: 25% 40% 0 0 / 100% 100% 0 0;
     display: block;
-    height: 100px;
+    height: 7em;
     position: absolute;
-    transform: translate(-4%, -50%);
-    width: 55%;
+    bottom: -1em;
+    width: 24em;
   }
 </style>
