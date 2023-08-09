@@ -5,13 +5,27 @@ import Cloud from "../components/cloud.astro";
 ---
 
 <CloudLayout title="Welcome to Astro.">
-  <div class="absolute top-1/2 bottom-1/2">
+  <div class="absolute top-1/2 bottom-1/2 w-80 h-40">
     <Cloud />
   </div>
-  <div class="cloud-footer"><Cloud /></div>
+  <div class="absolute top-1/4 bottom-1/2 right-2 w-72 h-36">
+    <Cloud />
+  </div>
+  <div class="cloud-footer">
+    <div class="cloud-part absolute -bottom-32 right-0">
+      <Cloud />
+    </div>
+    <div class="cloud-part absolute -bottom-32 left-0">
+      <Cloud />
+    </div>
+  </div>
 </CloudLayout>
 
 <style>
+  .cloud-part {
+    height: 18rem;
+    width: 38rem;
+  }
   .cloud-footer {
     position: absolute;
     background: rgba(255, 255, 255);
@@ -24,43 +38,23 @@ import Cloud from "../components/cloud.astro";
   .cloud-footer::before {
     content: "";
     background-color: white;
-    border-radius: 110% 50% 0 0;
+    border-radius: 15% 20% 0 0 / 60% 50% 0 0;
     display: block;
     height: 120px;
     bottom: 0;
     position: absolute;
-    transform: translate(85%, 0%);
-    width: 55%;
+    transform: translate(100%, 10%);
+    width: 50%;
   }
 
   .cloud-footer::after {
     content: "";
     background-color: white;
-    border-radius: 150% 200%;
+    border-radius: 30% 30% 0 0 / 50% 60% 0 0;
     display: block;
-    height: 50px;
+    height: 150px;
     position: absolute;
     transform: translate(-4%, -50%);
     width: 50%;
-  }
-
-  .cloud {
-    position: absolute;
-    background: rgba(255, 255, 255);
-    width: 300px;
-    height: 110px;
-    border-radius: 150px;
-    /* box-shadow: 10px 10px rgba(0, 0, 0, 0.2); */
-  }
-
-  .cloud::before {
-    content: "";
-    background: rgba(255, 255, 255);
-    position: absolute;
-    width: 130px;
-    height: 157px;
-    border-radius: 50%;
-    top: -80px;
-    right: 40px;
   }
 </style>
