@@ -12,10 +12,10 @@ import Cloud from "../components/cloud.astro";
     <Cloud />
   </div>
   <div class="cloud-footer">
-    <div class="cloud-part absolute -bottom-32 right-0">
+    <div class="cloud-part absolute w-1/2 -bottom-32 -right-4">
       <Cloud />
     </div>
-    <div class="cloud-part absolute -bottom-32 left-0">
+    <div class="cloud-part absolute w-1/2 -bottom-12 -left-4 rotate-180">
       <Cloud />
     </div>
   </div>
@@ -24,7 +24,6 @@ import Cloud from "../components/cloud.astro";
 <style>
   .cloud-part {
     height: 18rem;
-    width: 38rem;
   }
   .cloud-footer {
     position: absolute;
@@ -40,11 +39,11 @@ import Cloud from "../components/cloud.astro";
     background-color: white;
     border-radius: 15% 20% 0 0 / 60% 50% 0 0;
     display: block;
-    height: 120px;
+    height: 100px;
     bottom: 0;
     position: absolute;
     transform: translate(100%, 10%);
-    width: 50%;
+    width: 55%;
   }
 
   .cloud-footer::after {
@@ -52,9 +51,9 @@ import Cloud from "../components/cloud.astro";
     background-color: white;
     border-radius: 30% 30% 0 0 / 50% 60% 0 0;
     display: block;
-    height: 150px;
+    height: 100px;
     position: absolute;
     transform: translate(-4%, -50%);
-    width: 50%;
+    width: 55%;
   }
 </style>
