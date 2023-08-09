@@ -4,45 +4,55 @@ import Card from "../components/Card.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
-    <h1>My Astro Test</h1>
-    <ul role="list" class="link-card-grid">
-      <Card title="First step" body="Select your UI lib! ❤️" />
-    </ul>
+  <main class="text-white text-center w-screen justify-center px-2">
+    <h1 class="heading-2 text-4xl text-center p-6 col-span-2">Project</h1>
+    <div class="row-start-3 row-span-2 col-start-3 col-span-2 bg-blue-500/25">
+    </div>
+    <div class="row-start-5 col-span-2 col-start-7 bg-cyan-800 m-1 hover:m-0">
+    </div>
+    <div class="row-start-2 col-start-1 col-span-2 align-self-center">
+      Frontend
+    </div>
+    <div class="row-start-2 col-start-4 col-span-2 align-self-center">
+      Backend
+    </div>
+    <div class="row-start-2 col-start-7 col-span-2 align-self-center">Data</div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
   </main>
 </Layout>
 
 <style>
   main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .instructions {
-  }
-  .link-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
+    min-height: 100vh;
+    grid-template-columns: repeat(8, 11%);
+    grid-template-rows: min-content 5em repeat(6, 12%);
+    grid-gap: 10px;
+  }
+  main:before,
+  main:after {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    content: "";
+    width: calc(100% / 3);
+    z-index: 0;
+    border: 1px solid hsla(230, 66%, 40%, 0.25);
+  }
+  main:after {
+    right: 0;
+    border: 1px solid hsla(230, 66%, 40%, 0.25);
+  }
+
+  .link-card {
+    list-style: none;
+    border: 1px solid hsla(230, 66%, 40%, 0.25);
+    background: linear-gradient(
+      200deg,
+      hsla(230, 66%, 40%, 0.2),
+      transparent 40%
+    );
   }
 </style>

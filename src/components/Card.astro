@@ -7,34 +7,22 @@ interface Props {
 const { title, body } = Astro.props;
 ---
 
-<li class="link-card">
-  <h2>
+<li class="link-card mb-2 rounded-lg p-5">
+  <h2 class="text-xl">
     {title}
   </h2>
-  <p>
+  <p class="pt-2">
     {body}
   </p>
 </li>
 <style>
   .link-card {
     list-style: none;
-    margin-bottom: 2rem;
-    color: hsl(220, 44%, 80%);
     border: 1px solid hsla(230, 66%, 40%, 0.25);
     background: linear-gradient(
       200deg,
       hsla(230, 66%, 40%, 0.2),
       transparent 40%
     );
-    border-radius: 8px;
-    padding: calc(1.5rem - 1px);
-  }
-  h2 {
-    margin: 0;
-    font-size: 1.25rem;
-  }
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
   }
 </style>
