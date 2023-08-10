@@ -1,20 +1,21 @@
 ---
-const { variant } = Astro.props;
+const { class: className } = Astro.props;
+console.log(className);
 ---
 
 <>
-  <div class=`cloud ${variant || 'cloud-1'}`></div>
+  <div class=`cloud ${className}`></div>
 </>
 
 <style>
   .cloud {
     position: absolute;
-    background: rgba(255, 255, 255);
+    background: var(--cloud-color);
     width: 100%;
     height: 66%;
     border-radius: 30% 30% / 80% 80%;
     text-align: center;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2), 10px 10px rgba(0, 0, 0, 0.2);
   }
 
   .cloud-1::before,
@@ -23,7 +24,7 @@ const { variant } = Astro.props;
   .cloud-2::after {
     content: "";
     background: inherit;
-    background: rgba(255, 255, 255);
+    background: var(--cloud-color);
     position: absolute;
   }
 
