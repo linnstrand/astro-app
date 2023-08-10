@@ -5,70 +5,102 @@ import Cloud from "../components/cloud.astro";
 ---
 
 <CloudLayout title="Welcome to Astro.">
-  <div class="absolute top-1/2 bottom-1/2 w-80 h-40">
-    <Cloud />
+  <div
+    class="absolute top-6 left-6 text-7xl text-white font-bold"
+    style="text-shadow: 5px 5px rgba(0, 0, 0, 0.2);"
+  >
+    Frontend Developer
   </div>
-  <div class="absolute top-1/4 bottom-1/2 right-2 w-72 h-36">
+  <div class="absolute top-1/2 bottom-1/2 w-80 h-40 left-2 flex justify-center">
+    <Cloud variant="cloud-2" />
+  </div>
+
+  <div
+    class="absolute top-1/4 bottom-1/2 right-4 w-72 h-36 flex justify-center"
+  >
     <Cloud />
   </div>
 
-  <div class="cloud-footer bg-gradient-to-b from-transparent to-white to-70%">
+  <div
+    class="cloud-footer background bg-gradient-to-b from-transparent to-white to-70%"
+  >
     <div
-      class="cloud-part absolute w-1/2 opacity-50 bottom-4 rotate-180 -left-1/4"
+      class="cloud-part absolute w-1/2 max-w-xl -left-6 opacity-90 skew-x-16"
     >
       <Cloud />
     </div>
-    <div
-      class="cloud-part absolute w-1/2 max-w-2xl -bottom-32 right-2 opacity-90"
-    >
-      <Cloud />
+    <div class="cloud-part absolute w-1/2 max-w-xl left-96 opacity-90">
+      <Cloud variant="cloud-2" />
     </div>
     <div
-      class="cloud-part absolute w-1/2 max-w-2xl -bottom-10 -left-6 rotate-180 opacity-90"
+      class="cloud-part absolute w-1/2 max-w-6xl opacity-50 -bottom-24 -skew-x-6 left-2"
+    >
+      <Cloud variant="cloud-2" />
+    </div>
+    <div
+      class="cloud-part absolute w-1/2 h-96 opacity-50 -right-24 scale-125 -skew-x-2"
     >
       <Cloud />
     </div>
   </div>
-  <div class="absolute w-1/2 h-96 opacity-50 rotate-180 -right-24 -bottom-4">
-    <Cloud />
-  </div>
+
+  <div class="cloud-footer group-1"></div>
 </CloudLayout>
 
 <style>
+  .cloud-text {
+    color: var(--contrast-color);
+    font-weight: bold;
+    font-size: 20px;
+    max-width: 8em;
+    text-align: center;
+  }
+
   .cloud-part {
-    height: 18rem;
+    height: 16rem;
     min-width: 38rem;
   }
+
   .cloud-footer {
-    position: absolute;
+    position: fixed;
     display: flex;
-    justify-content: center;
-    width: 100%;
     height: 120px;
+    bottom: 0;
+  }
+
+  .background {
+    width: 100%;
+  }
+
+  .group-1 {
+    width: 100%;
+    max-width: 1400px;
     bottom: 0;
     text-align: center;
   }
 
-  .cloud-footer::before {
+  .background::before,
+  .background::after {
+    opacity: 0.7;
     content: "";
     background-color: white;
-    border-radius: 50% 60% 0 0 / 90% 80% 0 0;
     display: block;
-    height: 8em;
-    bottom: 1em;
     position: absolute;
-    width: 12em;
-    z-index: 2;
   }
 
-  .cloud-footer::after {
-    content: "";
-    background-color: white;
-    border-radius: 25% 40% 0 0 / 100% 100% 0 0;
-    display: block;
-    height: 7em;
-    position: absolute;
+  .background::before {
+    border-radius: 60% 60% 0 0 / 80% 70% 0 0;
+    height: 10em;
+    bottom: 1em;
+    width: 16em;
+    left: -4em;
+  }
+
+  .background::after {
+    border-radius: 60%;
+    height: 10em;
     bottom: -1em;
-    width: 24em;
+    width: 16em;
+    right: 40%;
   }
 </style>

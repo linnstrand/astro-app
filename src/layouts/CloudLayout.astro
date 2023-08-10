@@ -26,30 +26,11 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --blue-hsl: 227, 60%, 60%;
-    --accent: 230, 80%, 50%;
-    --accent-light: 230, 80%, 80%;
-    --accent-dark: 230, 80%, 20%;
-
-    ---hsl-blue: hsl(var(--blue-hsl));
-    --overlay-blue: hsla(227, 66%, 55%, 0.2);
-
-    --accent-50: hsl(230 80% 50%);
-    --accent-90: hsl(230 80% 80%);
-    --accent-20: hsl(230 80% 20%);
+    --base-color: #64c7ff;
+    --contrast-color: #347faa;
   }
   body {
-    background: #64c7ff;
+    background: var(--base-color);
     overflow: hidden;
-  }
-
-  .page {
-    background: linear-gradient(
-        210deg,
-        hsla(var(--blue-hsl), 0.2),
-        transparent 40%
-      ),
-      radial-gradient(hsla(260, 66%, 55%, 0.2), transparent 30%) no-repeat -60vw -10vh /
-        105vw 210vh;
   }
 </style>
