@@ -1,42 +1,58 @@
 ---
-const { class: className } = Astro.props;
-console.log(className);
+const { class: className, variant, color } = Astro.props;
 ---
 
-<>
-  <div class=`cloud ${className}`></div>
-</>
+<div class=`w-96 h-64 ${className}`>
+  <div
+    class=`cloud flex justify-center items-center ${variant} ${color || "default-color"}`
+  >
+    <span class="text-2xl font-bold text-cyan-600 mb-4">
+      <slot />
+    </span>
+  </div>
+</div>
 
 <style>
   .cloud {
     position: absolute;
-    background: var(--cloud-color);
     width: 100%;
-    height: 66%;
+    height: 50%;
     border-radius: 30% 30% / 80% 80%;
+    top: 40%;
     text-align: center;
-    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2), 10px 10px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2), 10px 10px rgba(0, 0, 0, 0.2),
+      inset 2px 9px 0px 0px rgb(255, 255, 255);
   }
 
+  .cloud-2 {
+    top: 30%;
+    height: 55%;
+  }
+
+  .default-color {
+    background: var(--cloud-color);
+  }
   .cloud-1::before,
   .cloud-1::after,
   .cloud-2::before,
   .cloud-2::after {
     content: "";
     background: inherit;
-    background: var(--cloud-color);
     position: absolute;
+    box-shadow: inset 2px 9px 0px 0px rgb(255, 255, 255);
+    z-index: -1;
   }
 
-  .cloud::before {
+  .cloud-1::before {
     width: 40%;
     height: 140%;
     border-radius: 50%;
-    top: -75%;
+    top: -70%;
     right: 15%;
   }
 
-  .cloud::after {
+  .cloud-1::after {
     width: 35%;
     height: 80%;
     border-radius: 60% 50% / 80% 30%;
@@ -53,9 +69,10 @@ console.log(className);
   }
 
   .cloud-2::after {
-    width: 35;
+    width: 35%;
     height: 90%;
     border-radius: 50%;
     top: -40%;
+    left: 20%;
   }
 </style>
