@@ -1,24 +1,37 @@
 import { useMemo, useRef, useLayoutEffect } from "react";
 import * as d3 from "d3";
 import {
-  GraphParams,
-  sortByValue,
-  DataPartition,
-  DataSun,
+  sortByHeight,
   RectanglePoints,
+  Data,
+  getDiscreteColors,
+  setBranchColor,
 } from "./util";
 
-export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
+interface GraphParams {
+  data: Data;
+  size: number;
+}
+
+export const Sunburst = ({ data, size }: GraphParams) => {
   const ref = useRef<SVGSVGElement>(null);
   const radius = size / 6;
 
-  const root: DataPartition = useMemo(() => {
-    const hirarchy = d3.hierarchy(data);
-    sortByValue(hirarchy);
-    const partition = d3
-      .partition<DataSun>()
-      .size([2 * Math.PI, hirarchy.height + 1])(hirarchy) as DataPartition;
+  const colorSetter = getDiscreteColors(data.children?.length || 0 + 1);
 
+  const rootNode: d3.HierarchyRectangularNode<Data> = useMemo(() => {
+    const hirarchy = d3.hierarchy(data);
+    hirarchy
+      .count()
+      // .sum((d) => (d.children?.length || 1) + 1)
+      .sort((a, b) => (b.value || 0) - (a.value || 0));
+    sortByHeight(hirarchy);
+
+    const partition = d3
+      .partition<Data>()
+      .size([2 * Math.PI, hirarchy.height + 1])(
+      hirarchy
+    ) as d3.HierarchyRectangularNode<Data>;
     partition.children?.forEach((d) =>
       setBranchColor(d, colorSetter(d.data.name))
     );
@@ -27,7 +40,7 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
 
   // for every datum, add a slice to the arc
   const setArc = d3
-    .arc<DataPartition>()
+    .arc<d3.HierarchyRectangularNode<Data>>()
     .startAngle((d) => d.x0)
     .endAngle((d) => d.x1)
     .padAngle((d) => Math.min((d.x1 - d.x0) / 2, 0.005)) // space between slices
@@ -44,7 +57,7 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
     d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
 
   // center label text
-  const labelTransform = (d: DataPartition) => {
+  const labelTransform = (d: d3.HierarchyRectangularNode<Data>) => {
     const x = (((d.x0 + d.x1) / 2) * 180) / Math.PI; // 180
     const y = ((d.y0 + d.y1) / 2) * radius; // translate 80, rotate 180
 
@@ -61,8 +74,8 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
 
     const slices = container
       .append("g")
-      .selectAll<SVGPathElement, DataPartition>("path")
-      .data(root.descendants().slice(1))
+      .selectAll<SVGPathElement, d3.HierarchyRectangularNode<Data>>("path")
+      .data(rootNode.descendants().slice(1))
       .join("path")
       .attr("fill", (d) => d.data.color)
       .attr("fill-opacity", (d) => (arcVisible(d.data.current) ? 1 : 0))
@@ -81,8 +94,8 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
       .attr("pointer-events", "none")
       .attr("text-anchor", "middle")
       .style("user-select", "none")
-      .selectAll<SVGTextElement, DataPartition>("text")
-      .data(root.descendants().slice(1))
+      .selectAll<SVGTextElement, d3.HierarchyRectangularNode<Data>>("text")
+      .data(rootNode.descendants().slice(1))
       .join("text")
       .attr("font-size", (d) => {
         return `${Math.min(Math.floor((d.x1 - d.x0) * radius + 2), 14)}px`;
@@ -93,14 +106,14 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
 
     container
       .append("text")
-      .text(root.data.name)
+      .text(rootNode.data.name)
       .attr("text-anchor", "middle")
       .attr("font-size", "18px")
       .attr("fill", "#ccc");
 
     const center = container
       .append<SVGCircleElement>("circle")
-      .datum<DataPartition>(root);
+      .datum<d3.HierarchyRectangularNode<Data>>(rootNode);
     center
       .attr("r", radius)
       .attr("class", "parent")
@@ -124,23 +137,28 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
    * @param labels  Change the position of labels, their visibility and animate them
    */
   function clicked(
-    p: DataPartition,
-    center: d3.Selection<SVGCircleElement, DataPartition, null, undefined>,
+    p: d3.HierarchyRectangularNode<Data>,
+    center: d3.Selection<
+      SVGCircleElement,
+      d3.HierarchyRectangularNode<Data>,
+      null,
+      undefined
+    >,
     container: d3.Selection<d3.BaseType, unknown, null, unknown>,
     slices: d3.Selection<
       SVGPathElement,
-      DataPartition,
+      d3.HierarchyRectangularNode<Data>,
       SVGGElement,
-      DataPartition
+      d3.HierarchyRectangularNode<Data>
     >,
     labels: d3.Selection<
       SVGTextElement,
-      DataPartition,
+      d3.HierarchyRectangularNode<Data>,
       SVGGElement,
-      DataPartition
+      d3.HierarchyRectangularNode<Data>
     >
   ) {
-    center.datum(p?.parent || root);
+    center.datum(p?.parent || rootNode);
     const text = container.selectChild("text").attr("opacity", 0);
     text
       .text(() => {
@@ -158,7 +176,7 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
     // It needs to grow to fill the same percantage of the parent.
     // multiply by 2 to get diameter instead of .
     // for y:we need to substract the depth of the clicked element for new y.
-    root.each(
+    rootNode.each(
       (d) =>
         (d.data.target = {
           ...d.data.target,
@@ -179,12 +197,13 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
     slices
       .transition(t)
       .tween("animated-slices", (d) => {
-        const i = d3.interpolate(d.data.current, d.data.target);
-        return (time) => (d.data.current = { ...d.data.current, ...i(time) });
+        const i = d3.interpolate(d.data.current, d.data.target!);
+        return (time) =>
+          (d.data.current = { ...d.data.current, ...i(time) } as any);
       })
-      .attr("fill-opacity", (d) => (arcVisible(d.data.target) ? 1 : 0))
+      .attr("fill-opacity", (d) => (arcVisible(d.data.target!) ? 1 : 0))
       .attr("pointer-events", (d) =>
-        arcVisible(d.data.target) ? "auto" : "none"
+        arcVisible(d.data.target!) ? "auto" : "none"
       )
       .attrTween("d", (d) => () => setArc(d.data.current) || "");
 
@@ -194,11 +213,11 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
         "font-size",
         (d) =>
           `${Math.min(
-            Math.floor((d.data.target.x1 - d.data.target.x0) * radius + 2),
+            Math.floor((d.data.target!.x1 - d.data.target!.x0) * radius + 2),
             14
           )}px`
       )
-      .attr("fill-opacity", (d) => +labelVisible(d.data.target))
+      .attr("fill-opacity", (d) => +labelVisible(d.data.target!))
       .attrTween("transform", (d) => () => labelTransform(d.data.current));
   }
 
@@ -215,19 +234,4 @@ export const Sunburst = ({ data, size, colorSetter }: GraphParams) => {
       </div>
     </>
   );
-};
-
-const setBranchColor = (
-  d: d3.HierarchyRectangularNode<Data>,
-  branchColor: string
-) => {
-  // We increase brightness for items with children
-  const { l, c, h } = d3.lch(branchColor);
-  if (!d.children) {
-    d.data.color = d3.lch(l + 15, c, h).toString();
-    return;
-  }
-  // some color tweaking
-  d.data.color = d3.lch(l + 5, c - 10, h).toString();
-  d.children.forEach((c) => setBranchColor(c, branchColor));
 };

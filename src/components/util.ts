@@ -2,22 +2,15 @@ import * as d3 from "d3";
 
 export interface BaseData {
   name: string;
-  value?: number;
+  value?: any;
   children?: BaseData[];
 }
 
 export interface Data extends BaseData {
-  value: number;
-  children?: Data[];
   color: string;
+  target?: RectanglePoints;
+  current: d3.HierarchyRectangularNode<Data>;
 }
-
-export interface DataSun extends Data {
-  target: RectanglePoints;
-  current: DataPartition;
-}
-
-export type DataPartition = d3.HierarchyRectangularNode<DataSun>;
 
 export interface RectanglePoints {
   x0: number;
@@ -26,11 +19,20 @@ export interface RectanglePoints {
   y1: number;
 }
 
-export interface GraphParams {
-  data: Data;
-  size: number;
-  colorSetter: d3.ScaleOrdinal<string, string, never>;
-}
+export const setBranchColor = (
+  d: d3.HierarchyRectangularNode<Data>,
+  branchColor: string
+) => {
+  // We increase brightness for items with children
+  const { l, c, h } = d3.lch(branchColor);
+  if (!d.children) {
+    d.data.color = d3.lch(l + 15, c, h).toString();
+    return;
+  }
+  // some color tweaking
+  d.data.color = d3.lch(l + 5, c - 10, h).toString();
+  d.children.forEach((c) => setBranchColor(c, branchColor));
+};
 
 export const processData = ({
   children,
@@ -44,9 +46,6 @@ export const processData = ({
     ...rest,
   } as Data;
 };
-
-export const sortByValue = (root: d3.HierarchyNode<Data>) =>
-  root.sum((d) => d.value || 0).sort((a, b) => (b.value || 0) - (a.value || 0));
 
 // height is the node distance from root
 export const sortByHeight = (root: d3.HierarchyNode<Data>) =>

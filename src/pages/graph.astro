@@ -5,11 +5,11 @@ import Layout from "../layouts/Layout.astro";
 import testdata from "../testdata.json";
 
 const data = processData(testdata);
-const colorSetter = getDiscreteColors(data.children?.length || 0 + 1);
+console.log("data", data);
 ---
 
 <Layout title="Linn Strand">
   <main class="text-center w-screen">
-    <Sunburst data={data} size={940} colorSetter={colorSetter} />
+    <Sunburst data={data} size={940} client:only="react" />
   </main>
 </Layout>

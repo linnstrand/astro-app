@@ -513,11 +513,11 @@
       "name": "Team Work",
       "children": [
         {
-          "name": "",
+          "name": "Scrum",
           "children": []
         },
         {
-          "name": "",
+          "name": "Kanban",
           "children": []
         }
       ]
