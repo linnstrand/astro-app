@@ -1,0 +1,15 @@
+---
+import { Sunburst } from "../components/Sunburst";
+import { getDiscreteColors, processData } from "../components/util";
+import Layout from "../layouts/Layout.astro";
+import testdata from "../testdata.json";
+
+const data = processData(testdata);
+const colorSetter = getDiscreteColors(data.children?.length || 0 + 1);
+---
+
+<Layout title="Linn Strand">
+  <main class="text-center w-screen">
+    <Sunburst data={data} size={940} colorSetter={colorSetter} />
+  </main>
+</Layout>

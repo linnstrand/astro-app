@@ -1,0 +1,526 @@
+{
+  "name": "Developer skills",
+  "children": [
+    {
+      "name": "Frontend",
+      "children": [
+        {
+          "name": "Basics",
+          "children": [
+            {
+              "name": "HTML",
+              "children": []
+            },
+            {
+              "name": "CSS",
+              "children": []
+            },
+            {
+              "name": "JavaScript",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Development Tools",
+          "children": [
+            {
+              "name": "Code Editors",
+              "children": [
+                {
+                  "name": "Visual Studio Code",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Linters",
+              "children": []
+            },
+
+            {
+              "name": "Source Control",
+              "children": [
+                {
+                  "name": "Git",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Formatters",
+              "children": [
+                {
+                  "name": "Prettier",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Containers",
+              "children": [
+                {
+                  "name": "Docker",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Frameworks",
+          "children": [
+            {
+              "name": "Astro",
+              "children": []
+            },
+            {
+              "name": "NextJS",
+              "children": []
+            },
+            {
+              "name": "Vue",
+              "children": []
+            },
+            {
+              "name": "Angular",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Libraries",
+          "children": [
+            {
+              "name": "Interfaces",
+              "children": [
+                {
+                  "name": "React",
+                  "children": [
+                    {
+                      "name": "SWR",
+                      "children": []
+                    },
+                    {
+                      "name": "React Query",
+                      "children": []
+                    },
+                    {
+                      "name": "Redux Toolkit",
+                      "children": []
+                    },
+                    {
+                      "name": "React Hook Forms",
+                      "children": []
+                    },
+                    {
+                      "name": "Formik",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Svelte",
+                  "children": []
+                },
+                {
+                  "name": "Solid",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Tools",
+              "children": [
+                {
+                  "name": "Build",
+                  "children": [
+                    {
+                      "name": "Vite",
+                      "children": []
+                    },
+                    {
+                      "name": "Turbopack",
+                      "children": []
+                    },
+                    {
+                      "name": "Webpack",
+                      "children": []
+                    },
+                    {
+                      "name": "esbuild",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Monorepo",
+                  "children": []
+                },
+                {
+                  "name": "Visualisation",
+                  "children": [
+                    {
+                      "name": "D3.js",
+                      "children": []
+                    },
+                    {
+                      "name": "Chart.js",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Axios",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Styles",
+          "children": [
+            {
+              "name": "CSS++",
+              "children": [
+                {
+                  "name": "Post Processors",
+                  "children": [
+                    {
+                      "name": "Autopredixer",
+                      "children": []
+                    },
+                    {
+                      "name": "PostCSS",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Pre-Processors",
+                  "children": [
+                    {
+                      "name": "SASS",
+                      "children": []
+                    },
+                    {
+                      "name": "Less",
+                      "children": []
+                    },
+                    {
+                      "name": "Stylus",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CSS Modules",
+              "children": []
+            },
+            {
+              "name": "Utility CSS",
+              "children": [
+                {
+                  "name": "Tailwind",
+                  "children": [
+                    {
+                      "name": "Chakra UI",
+                      "children": []
+                    },
+                    {
+                      "name": "Daisy UI",
+                      "children": []
+                    },
+                    {
+                      "name": "Shadcn UI",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Tachyons",
+                  "children": []
+                },
+                {
+                  "name": "Materialize",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "CSS-in-JS",
+              "children": [
+                {
+                  "name": "Emotion",
+                  "children": [
+                    {
+                      "name": "Material UI",
+                      "children": []
+                    },
+                    {
+                      "name": "Mantine",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "styled-components",
+                  "children": []
+                },
+                {
+                  "name": "vanilla-extract",
+                  "children": []
+                },
+                {
+                  "name": "Stitches",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Component Libraries",
+              "children": [
+                {
+                  "name": "Bootstrap",
+                  "children": []
+                },
+                {
+                  "name": "Material UI",
+                  "children": []
+                },
+                {
+                  "name": "Mantine",
+                  "children": []
+                },
+                {
+                  "name": "Bulma",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "UI",
+          "children": [
+            {
+              "name": "Accessibility",
+              "children": []
+            },
+            {
+              "name": "Figma",
+              "children": []
+            },
+            {
+              "name": "Storybook",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Testing",
+          "children": [
+            {
+              "name": "Jest",
+              "children": []
+            },
+            {
+              "name": "Playwright",
+              "children": []
+            },
+            {
+              "name": "REact Testing Library",
+              "children": []
+            },
+            {
+              "name": "Storybook",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Backend",
+      "children": [
+        {
+          "name": "Languages",
+          "children": [
+            {
+              "name": "",
+              "children": []
+            },
+            {
+              "name": "",
+              "children": []
+            },
+            {
+              "name": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Frameworks",
+          "children": [
+            {
+              "name": "Express",
+              "children": []
+            },
+            {
+              "name": "Redwood",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Browser APIs",
+          "children": [
+            {
+              "name": "Service Workers",
+              "children": []
+            },
+            {
+              "name": "Websocker",
+              "children": []
+            },
+            {
+              "name": "",
+              "children": []
+            },
+            {
+              "name": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Database",
+      "children": [
+        {
+          "name": "Types",
+          "children": [
+            {
+              "name": "Relational",
+              "children": []
+            },
+            {
+              "name": "Document",
+              "children": []
+            },
+            {
+              "name": "Wide Column",
+              "children": []
+            },
+            {
+              "name": "Key-value",
+              "children": []
+            },
+            {
+              "name": "Search",
+              "children": []
+            },
+            {
+              "name": "Graph",
+              "children": []
+            },
+            {
+              "name": "Multi-Model",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ORM",
+          "children": [
+            {
+              "name": "Prisma",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "children": [
+        {
+          "name": "Serverless",
+          "children": []
+        },
+        {
+          "name": "Microservices",
+          "children": []
+        },
+        {
+          "name": "Microfrontend",
+          "children": []
+        },
+        {
+          "name": "Monolith",
+          "children": []
+        },
+        {
+          "name": "Backend as a service",
+          "children": []
+        },
+        {
+          "name": "Infrastructure as Code",
+          "children": [
+            {
+              "name": "Terraform",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Operations",
+      "children": [
+        {
+          "name": "CI/CD",
+          "children": []
+        },
+        {
+          "name": "Proxy",
+          "children": []
+        },
+        {
+          "name": "Caching",
+          "children": []
+        },
+        {
+          "name": "Performance",
+          "children": []
+        },
+        {
+          "name": "Security",
+          "children": []
+        },
+        {
+          "name": "Hosting",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Team Work",
+      "children": [
+        {
+          "name": "",
+          "children": []
+        },
+        {
+          "name": "",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -3,12 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main class="text-white text-center w-screen justify-center px-2">
+<Layout title="Linn Strand">
+  <main class="text-center w-screen font-mono text-green-500">
     <h1 class="heading-2 text-4xl text-center p-6 col-span-2">Project</h1>
-    <div class="row-start-3 row-span-2 col-start-3 col-span-2 bg-blue-500/25">
+    <div
+      class="row-start-3 row-span-2 col-start-3 col-span-2 bg-blue-500/25 p-5 flex flex-col justify-between"
+    >
+      <p>Hello, I'm Linn</p>
+      <p>I build user interfaces</p>
+      <p>Here is some different ideas</p>
+      <button>Sky UI</button>
     </div>
-    <div class="row-start-5 col-span-2 col-start-7 bg-cyan-800 m-1 hover:m-0">
+    <div
+      class="row-start-5 col-span-2 col-start-7 bg-cyan-800 m-1 p-2 flex flex-col justify-between"
+    >
+      <p>Data is fun!</p>
+      <p>Want to see some visualisations?</p>
+      <button>Click Me</button>
     </div>
     <div class="row-start-2 col-start-1 col-span-2 align-self-center">
       Frontend
@@ -17,7 +28,7 @@ import Card from "../components/Card.astro";
       Backend
     </div>
     <div class="row-start-2 col-start-7 col-span-2 align-self-center">Data</div>
-    <div class="item"></div>
+    <div class="row-start-4 col-start-1 place-self-start pl-4">UI</div>
     <div class="item"></div>
     <div class="item"></div>
   </main>
@@ -27,10 +38,11 @@ import Card from "../components/Card.astro";
   main {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: repeat(8, 11%);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-rows: min-content 5em repeat(6, 12%);
     grid-gap: 10px;
   }
+
   main:before,
   main:after {
     position: absolute;
