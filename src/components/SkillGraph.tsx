@@ -1,7 +1,6 @@
 import { useMemo, useRef, useLayoutEffect } from "react";
 import * as d3 from "d3";
 import {
-  sortByHeight,
   RectanglePoints,
   Data,
   getDiscreteColors,
@@ -13,19 +12,15 @@ interface GraphParams {
   size: number;
 }
 
-export const Sunburst = ({ data, size }: GraphParams) => {
+export const SkillGraph = ({ data, size }: GraphParams) => {
   const ref = useRef<SVGSVGElement>(null);
   const radius = size / 6;
-
-  const colorSetter = getDiscreteColors(data.children?.length || 0 + 1);
+  console.log(data.children?.length);
+  const colorSetter = getDiscreteColors((data.children?.length || 0) + 1);
 
   const rootNode: d3.HierarchyRectangularNode<Data> = useMemo(() => {
     const hirarchy = d3.hierarchy(data);
-    hirarchy
-      .count()
-      // .sum((d) => (d.children?.length || 1) + 1)
-      .sort((a, b) => (b.value || 0) - (a.value || 0));
-    sortByHeight(hirarchy);
+    hirarchy.count();
 
     const partition = d3
       .partition<Data>()
@@ -223,7 +218,7 @@ export const Sunburst = ({ data, size }: GraphParams) => {
 
   return (
     <>
-      <div className="container" style={{ margin: "10px" }}>
+      <div className="container">
         <svg
           width={`${size}px`}
           height={`${size}px`}

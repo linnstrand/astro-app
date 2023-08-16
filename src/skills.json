@@ -1,0 +1,295 @@
+{
+  "name": "Developer skills",
+  "children": [
+    {
+      "name": "Basics",
+      "children": [
+        {
+          "name": "HTML",
+          "children": []
+        },
+        {
+          "name": "CSS",
+          "children": []
+        },
+        {
+          "name": "JavaScript",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Dev Tools",
+      "children": [
+        {
+          "name": "Visual Studio Code",
+          "children": []
+        },
+        {
+          "name": "Linters",
+          "children": []
+        },
+
+        {
+          "name": "Git",
+          "children": []
+        },
+        {
+          "name": "Prettier",
+          "children": []
+        },
+
+        {
+          "name": "Docker",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Frameworks",
+      "children": [
+        {
+          "name": "Astro",
+          "children": []
+        },
+        {
+          "name": "NextJS",
+          "children": []
+        },
+        {
+          "name": "Vue",
+          "children": []
+        },
+        {
+          "name": "Angular",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Libraries",
+      "children": [
+        {
+          "name": "SWR",
+          "children": []
+        },
+        {
+          "name": "React Query",
+          "children": []
+        },
+        {
+          "name": "Redux Toolkit",
+          "children": []
+        },
+        {
+          "name": "React Hook Forms",
+          "children": []
+        },
+        {
+          "name": "Formik",
+          "children": []
+        },
+
+        {
+          "name": "D3.js",
+          "children": []
+        },
+        {
+          "name": "Chart.js",
+          "children": []
+        },
+        {
+          "name": "Axios",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Styles",
+      "children": [
+        {
+          "name": "Autopredixer",
+          "children": []
+        },
+        {
+          "name": "PostCSS",
+          "children": []
+        },
+        {
+          "name": "SASS",
+          "children": []
+        },
+        {
+          "name": "CSS Modules",
+          "children": []
+        },
+        {
+          "name": "Utility CSS",
+          "children": [
+            {
+              "name": "Tailwind",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "CSS-in-JS",
+          "children": [
+            {
+              "name": "Emotion",
+              "children": []
+            },
+            {
+              "name": "styled-components",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Component Libraries",
+          "children": [
+            {
+              "name": "Bootstrap",
+              "children": []
+            },
+            {
+              "name": "Material UI",
+              "children": []
+            },
+            {
+              "name": "Bulma",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UI",
+      "children": [
+        {
+          "name": "Accessibility",
+          "children": []
+        },
+        {
+          "name": "Figma",
+          "children": []
+        },
+        {
+          "name": "Storybook",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Testing",
+      "children": [
+        {
+          "name": "Jest",
+          "children": []
+        },
+        {
+          "name": "Playwright",
+          "children": []
+        },
+        {
+          "name": "REact Testing Library",
+          "children": []
+        },
+        {
+          "name": "Storybook",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Backend",
+      "children": [
+        {
+          "name": "Node",
+          "children": []
+        },
+        {
+          "name": "C#",
+          "children": []
+        },
+        {
+          "name": "Golang",
+          "children": []
+        },
+
+        {
+          "name": "Express",
+          "children": []
+        },
+        {
+          "name": "Redwood",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Database",
+      "children": [
+        {
+          "name": "Redis",
+          "children": []
+        },
+        {
+          "name": "MongoDB",
+          "children": []
+        },
+        {
+          "name": "PostgresQL",
+          "children": []
+        },
+        {
+          "name": "Prisma",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Operations",
+      "children": [
+        {
+          "name": "CI/CD",
+          "children": []
+        },
+        {
+          "name": "Proxy",
+          "children": []
+        },
+        {
+          "name": "Caching",
+          "children": []
+        },
+        {
+          "name": "Performance",
+          "children": []
+        },
+        {
+          "name": "Security",
+          "children": []
+        },
+        {
+          "name": "Hosting",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Team Work",
+      "children": [
+        {
+          "name": "Scrum",
+          "children": []
+        },
+        {
+          "name": "Kabang",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+---
+import { SkillGraph } from "../components/SkillGraph";
+import { Treemap } from "../components/Threemap";
+import { getDiscreteColors, processData } from "../components/util";
+import Layout from "../layouts/Layout.astro";
+import fullstack from "../fullstack.json";
+import Nested from "../components/hexagon.astro";
+import { Forcegraph } from "../components/Forcegraph";
+import { Tree } from "../components/Tree";
+import Hexagon from "../components/hexagon.astro";
+
+const data = processData(fullstack);
+---
+
+<Layout title="Linn Strand">
+  <h1 class="heading-2 text-4xl text-center p-6">Fullstack</h1>
+  <div class="wrapper">
+    <div id="visual" data-countchildren>
+      <div class="dot"><Hexagon /></div>
+      <div class="dot"><Hexagon /></div>
+      <div class="dot"><Hexagon /></div>
+      <div class="dot"><Hexagon /></div>
+      <div class="dot"><Hexagon /></div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* :root {
+    animation: adjust-angle linear 20s infinite paused;
+  }
+  :root:has(#enable_animation:checked) {
+    animation-play-state: running;
+  } */
+
+  .dot {
+    --offset-per-child: calc(360deg / 5);
+    --angle-offset: calc(var(--nth-child) * var(--offset-per-child));
+    --angle: calc(var(--angle-offset) - var(--offset-per-child) * 2.25);
+
+    display: grid;
+    place-content: center;
+    width: var(--tracksize);
+    aspect-ratio: 1;
+    /* Center it */
+    position: absolute;
+    left: calc(50% - (var(--tracksize) / 2));
+    top: calc(50% - (var(--tracksize) / 2));
+
+    translate: calc(cos(var(--angle)) * var(--radius))
+      calc(sin((var(--angle))) * var(--radius));
+  }
+  /* The visualization */
+  #visual {
+    --radius: 20vmin;
+    --tracksize: 20vmin;
+
+    /* Make it a circle, based on the dimensions */
+    width: calc(var(--radius) * 2 + var(--tracksize));
+    aspect-ratio: 1;
+
+    border: 5 solid transparent;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #visual {
+    border-color: #e0e0e0;
+  }
+
+  [data-countchildren] > :nth-child(1) {
+    --nth-child: 1;
+  }
+  [data-countchildren] > :nth-child(2) {
+    --nth-child: 2;
+  }
+  [data-countchildren] > :nth-child(3) {
+    --nth-child: 3;
+  }
+  [data-countchildren] > :nth-child(4) {
+    --nth-child: 4;
+  }
+  [data-countchildren] > :nth-child(5) {
+    --nth-child: 5;
+  }
+</style>
