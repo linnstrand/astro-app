@@ -16,11 +16,12 @@ const data = processData(fullstack);
   <h1 class="heading-2 text-4xl text-center p-6">Fullstack</h1>
   <div class="wrapper">
     <div id="visual" data-countchildren>
-      <div class="dot"><Hexagon /></div>
-      <div class="dot"><Hexagon /></div>
-      <div class="dot"><Hexagon /></div>
-      <div class="dot"><Hexagon /></div>
-      <div class="dot"><Hexagon /></div>
+      <div class="dot"><Hexagon title="Frontend" /></div>
+      <div class="dot"><Hexagon title="Backend" /></div>
+      <div class="dot"><Hexagon title="Database" /></div>
+      <div class="dot"><Hexagon title="Operations" /></div>
+      <div class="dot"><Hexagon title="Infrastructure" /></div>
+      <div class="dot"><Hexagon title="Hexagons" /></div>
     </div>
   </div>
 </Layout>
@@ -34,9 +35,9 @@ const data = processData(fullstack);
   } */
 
   .dot {
-    --offset-per-child: calc(360deg / 5);
+    --offset-per-child: calc(360deg / 6);
     --angle-offset: calc(var(--nth-child) * var(--offset-per-child));
-    --angle: calc(var(--angle-offset) - var(--offset-per-child) * 2.25);
+    --angle: calc(var(--angle-offset) - var(--offset-per-child));
 
     display: grid;
     place-content: center;
@@ -52,8 +53,8 @@ const data = processData(fullstack);
   }
   /* The visualization */
   #visual {
-    --radius: 20vmin;
-    --tracksize: 20vmin;
+    --radius: 22vmin;
+    --tracksize: 18vmin;
 
     /* Make it a circle, based on the dimensions */
     width: calc(var(--radius) * 2 + var(--tracksize));
@@ -82,5 +83,8 @@ const data = processData(fullstack);
   }
   [data-countchildren] > :nth-child(5) {
     --nth-child: 5;
+  }
+  [data-countchildren] > :nth-child(6) {
+    --nth-child: 6;
   }
 </style>
