@@ -1,12 +1,11 @@
 ---
-const { title } = Astro.props;
+const { title, class: className } = Astro.props;
+console.log("class", className);
 ---
 
-<div class="hex hex-3">
-  <div class="inner">
+<div class=`hex ${className}`>
+  <div class="inner flex flex-col justify-center h-full">
     <h4>{title}</h4>
-    <hr />
-    <p>Bestagons</p>
   </div>
   <div class="corner-1"></div>
   <div class="corner-2"></div>
@@ -16,9 +15,7 @@ const { title } = Astro.props;
   .hex {
     width: calc(var(--tracksize) * 1);
     height: calc(var(--tracksize) * 0.575);
-    background-color: #ccc;
     position: relative;
-    float: left;
     text-align: center;
     zoom: 1;
   }
@@ -61,29 +58,25 @@ const { title } = Astro.props;
 
   /* Custom styles*/
   .hex .inner {
-    color: #eee;
+    color: #202020;
   }
 
   .hex h4 {
-    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.6vmin;
+    font-weight: bold;
     margin: 0;
   }
 
   .hex hr {
     border: 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #202020;
     width: 60%;
     margin: 15px auto;
   }
 
   .hex p {
-    font-size: 16px;
-    font-family: "Kotta One", serif;
+    font-size: 1.5vmin;
     width: 80%;
     margin: 0 auto;
-  }
-
-  .hex.hex-3 {
-    background: #80b971;
   }
 </style>

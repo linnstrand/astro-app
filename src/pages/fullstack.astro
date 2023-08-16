@@ -16,24 +16,47 @@ const data = processData(fullstack);
   <h1 class="heading-2 text-4xl text-center p-6">Fullstack</h1>
   <div class="wrapper">
     <div id="visual" data-countchildren>
-      <div class="dot"><Hexagon title="Frontend" /></div>
-      <div class="dot"><Hexagon title="Backend" /></div>
-      <div class="dot"><Hexagon title="Database" /></div>
-      <div class="dot"><Hexagon title="Operations" /></div>
-      <div class="dot"><Hexagon title="Infrastructure" /></div>
-      <div class="dot"><Hexagon title="Hexagons" /></div>
+      <div class="dot">
+        <Hexagon
+          title="Frontend"
+          class="bg-gradient-to-r from-sky-500/50 via-cyan-300 to-sky-500/50"
+        />
+      </div>
+      <div class="dot">
+        <Hexagon
+          title="Backend"
+          class="bg-gradient-to-r from-indigo-500/50 via-blue-300 to-indigo-500/50"
+        />
+      </div>
+      <div class="dot">
+        <Hexagon
+          title="Database"
+          class="bg-gradient-to-r from-purple-500/50 via-fuchsia-300 to-purple-500/50"
+        />
+      </div>
+      <div class="dot">
+        <Hexagon
+          title="Operations"
+          class="bg-gradient-to-r from-red-500/50 via-pink-300 to-red-500/50"
+        />
+      </div>
+      <div class="dot">
+        <Hexagon
+          title="Infrastructure"
+          class="bg-gradient-to-r from-yellow-500/50 via-yellow-200 to-yellow-500/50"
+        />
+      </div>
+      <div class="dot">
+        <Hexagon
+          title="Hexagons"
+          class="bg-gradient-to-r from-green-500/50 via-emerald-300 to-green-500/50"
+        />
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
-  /* :root {
-    animation: adjust-angle linear 20s infinite paused;
-  }
-  :root:has(#enable_animation:checked) {
-    animation-play-state: running;
-  } */
-
   .dot {
     --offset-per-child: calc(360deg / 6);
     --angle-offset: calc(var(--nth-child) * var(--offset-per-child));
@@ -47,7 +70,6 @@ const data = processData(fullstack);
     position: absolute;
     left: calc(50% - (var(--tracksize) / 2));
     top: calc(50% - (var(--tracksize) / 2));
-
     translate: calc(cos(var(--angle)) * var(--radius))
       calc(sin((var(--angle))) * var(--radius));
   }
