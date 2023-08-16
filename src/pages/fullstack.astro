@@ -1,21 +1,19 @@
 ---
-import { SkillGraph } from "../components/SkillGraph";
-import { Treemap } from "../components/Threemap";
-import { getDiscreteColors, processData } from "../components/util";
+import { processData } from "../components/util";
 import Layout from "../layouts/Layout.astro";
 import fullstack from "../fullstack.json";
-import Nested from "../components/hexagon.astro";
-import { Forcegraph } from "../components/Forcegraph";
-import { Tree } from "../components/Tree";
 import Hexagon from "../components/hexagon.astro";
 
 const data = processData(fullstack);
 ---
 
 <Layout title="Linn Strand">
-  <h1 class="heading-2 text-4xl text-center p-6">Fullstack</h1>
-  <div class="wrapper">
-    <div id="visual" data-countchildren>
+  <div class="flex flex-col justify-center h-screen">
+    <div
+      id="visual"
+      data-countchildren
+      class="flex flex-col items-center justify-center text-white"
+    >
       <div class="dot">
         <Hexagon
           title="Frontend"
@@ -52,15 +50,54 @@ const data = processData(fullstack);
           class="bg-gradient-to-r from-green-500/50 via-emerald-300 to-green-500/50"
         />
       </div>
+      <h1 class="text-effect text-4xl text-center p-6 absolute">Fullstack</h1>
     </div>
   </div>
 </Layout>
 
 <style>
+  .text-effect {
+    background-image: linear-gradient(
+      109.6deg,
+      theme(colors.red.500) 25%,
+      theme(colors.yellow.500) 35%,
+      theme(colors.green.500) 45%,
+      theme(colors.sky.500) 55%,
+      theme(colors.indigo.500) 70%,
+      theme(colors.purple.500) 85%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: contrast(110%) brightness(190%);
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 5vmin;
+  }
+
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: true;
+  }
+  /* Initial value for browsers that don’t support @property */
+  :root {
+    --angle: 0deg;
+  }
+
+  /* Keyframes that animates the --angle value */
+  @keyframes adjust-angle {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  :root {
+    animation: adjust-angle linear 20s infinite;
+  }
+
   .dot {
     --offset-per-child: calc(360deg / 6);
     --angle-offset: calc(var(--nth-child) * var(--offset-per-child));
-    --angle: calc(var(--angle-offset) - var(--offset-per-child));
 
     display: grid;
     place-content: center;
@@ -70,13 +107,14 @@ const data = processData(fullstack);
     position: absolute;
     left: calc(50% - (var(--tracksize) / 2));
     top: calc(50% - (var(--tracksize) / 2));
-    translate: calc(cos(var(--angle)) * var(--radius))
-      calc(sin((var(--angle))) * var(--radius));
+    /* Adjust its position based on the --angle, while also taking the --angle-offset into account */
+    translate: calc(cos((var(--angle) + var(--angle-offset))) * var(--radius))
+      calc(sin((var(--angle) + var(--angle-offset))) * var(--radius) * -1);
   }
   /* The visualization */
   #visual {
-    --radius: 22vmin;
-    --tracksize: 18vmin;
+    --radius: 25vmin;
+    --tracksize: 20vmin;
 
     /* Make it a circle, based on the dimensions */
     width: calc(var(--radius) * 2 + var(--tracksize));
