@@ -1,8 +1,6 @@
 ---
 import { SkillGraph } from "../components/SkillGraph";
-import { Treemap } from "../components/Threemap";
-import { Tree } from "../components/Tree";
-import { getDiscreteColors, processData } from "../components/util";
+import { processData } from "../components/util";
 import Layout from "../layouts/Layout.astro";
 import skills from "../fullstack.json";
 
@@ -11,8 +9,8 @@ const data = processData(skills);
 
 <Layout title="Linn Strand">
   <main class="text-center w-screen">
-    <!-- <SkillGraph data={data} size={1100} client:only="react" /> -->
-    <Tree data={data} size={900} client:only="react" />
+    <SkillGraph data={data} size={1100} client:only="react" />
+    <!-- <Tree data={data} size={900} client:only="react" /> -->
   </main>
 </Layout>
 

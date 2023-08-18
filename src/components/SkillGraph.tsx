@@ -12,10 +12,12 @@ interface GraphParams {
   size: number;
 }
 
+const rings = 4;
+
 export const SkillGraph = ({ data, size }: GraphParams) => {
   const ref = useRef<SVGSVGElement>(null);
-  const radius = size / 6;
-  console.log(data.children?.length);
+  const radius = size / (rings * 2);
+
   const colorSetter = getDiscreteColors((data.children?.length || 0) + 1);
 
   const rootNode: d3.HierarchyRectangularNode<Data> = useMemo(() => {
@@ -45,11 +47,11 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
 
   // We only want to show 3 rings
   const arcVisible = (d: RectanglePoints) =>
-    d ? d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0 : false;
+    d ? d.y1 <= rings && d.y0 >= 1 && d.x1 > d.x0 : false;
 
   // Hide labels that doesn't fit
   const labelVisible = (d: RectanglePoints) =>
-    d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+    d.y1 <= rings && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
 
   // center label text
   const labelTransform = (d: d3.HierarchyRectangularNode<Data>) => {
@@ -109,6 +111,7 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
     const center = container
       .append<SVGCircleElement>("circle")
       .datum<d3.HierarchyRectangularNode<Data>>(rootNode);
+
     center
       .attr("r", radius)
       .attr("class", "parent")
