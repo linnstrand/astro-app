@@ -1,0 +1,120 @@
+---
+---
+
+<div class="grid grid-cols-3 gap-8 h-full bg-cyan-800">
+  <div></div>
+  <div class="m-2">
+    <div class="main-grid mb-2">
+      <h4 class="col-start-3 row-span-2 relative">HTML</h4>
+      <div class="col-start-1 row-start-1">Accessibility</div>
+      <div class="col-start-5 row-start-1 row-span-2">Forms</div>
+      <div class="col-start-1 row-start-2">Semantics</div>
+    </div>
+    <div class="main-grid mb-2">
+      <h4 class="col-start-3 row-span-2 relative">CSS</h4>
+      <div class="col-start-1 row-start-1">Layouts</div>
+      <div class="col-start-5 row-start-1 row-span-2">Responsive</div>
+      <div class="col-start-1 row-start-2">CSS+</div>
+    </div>
+    <div class="main-grid mb-2">
+      <h4 class="col-start-3 row-span-2 relative">Tools</h4>
+      <div class="col-start-1 row-start-1">Git</div>
+      <div class="col-start-5 row-start-1">Prettier</div>
+      <div class="col-start-1 row-start-2">Containers</div>
+      <div class="col-start-5 row-start-2">Eslint</div>
+      <div class="grid col-start-1 row-start-3 relative">
+        <h5 class="">Build</h5>
+        <div class="absolute bg-red-200 -left-24 top-1 border-2 border-white">
+          <div class="p-1">Vite</div>
+          <div class="p-1">Turbopack</div>
+          <div class="p-1">Esbuild</div>
+          <div class="p-1">Webpack</div>
+        </div>
+      </div>
+    </div>
+    <div class="main-grid mb-2">
+      <h4 class="col-start-3 row-span-2 relative">Libraries</h4>
+      <div class="col-start-1 row-start-1">React</div>
+      <div class="col-start-5 row-start-1">Vue</div>
+      <div class="col-start-1 row-start-2">Svelte</div>
+      <div class="col-start-5 row-start-2">Solid</div>
+    </div>
+    <div class="main-grid mb-2">
+      <h4 class="col-start-3 row-span-2 relative">Rendering Frameworks</h4>
+      <div class="col-start-1 row-start-1">Astro</div>
+      <div class="col-start-5 row-start-1">NextJS</div>
+      <div class="col-start-1 row-start-2">SvelteKit</div>
+      <div class="col-start-5 row-start-2">Nuxt</div>
+    </div>
+  </div>
+</div>
+<!-- <div>    <div>Javascript</div>
+
+        <div>Visual Studio Code</div>
+        <div>Version Control</div>
+        <div>Linters and Formatters</div>
+
+        <div>SSR</div>
+        <div>SSG</div>
+
+        <div>
+          Architecture (tech guide, tech debt, testing guidelines, version
+          control, stack, accessability standards, performance)
+          <div>Microfrontend</div>
+          <div>Monolith</div><div>islands architecture</div>
+        </div>
+
+        <div>Testing</div>
+        <div>Security</div> -->
+
+<style>
+  .main-grid {
+    display: grid;
+    grid-template-columns: 28% 6% 28% 6% 28%;
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+    text-align: center;
+    font-size: 0.8em;
+    grid-gap: 0.25em;
+    > h4,
+    > div {
+      border: 2px solid white;
+      padding: 0.35em 0.75em;
+      width: 100%;
+      background: theme(colors.red.200);
+    }
+    hr {
+      width: 100%;
+      border: 3px solid white;
+    }
+  }
+
+  h4::before,
+  h4::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 0;
+    border-top: 3px solid white;
+    z-index: 1;
+    top: 50%;
+    right: 100%;
+  }
+
+  h4::after {
+    left: 100%;
+  }
+
+  h5::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1.6em;
+    height: 0;
+    border-top: 3px solid white;
+    z-index: 1;
+    top: 1em;
+    right: 100%;
+  }
+</style>

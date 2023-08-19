@@ -1,65 +1,13 @@
 ---
+import FlowChart from "../components/FlowChart.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 ---
 
 <Layout title="Linn Strand">
   <main class="h-screen">
-    <div class="grid grid-cols-3 gap h-full">
-      <div class="item bg-cyan-200"></div>
-      <div class="bg-red-200">
-        <div class="main-grid" data-countchildren>
-          <h4 class="">HTML</h4>
-          <div>Accessibility</div>
-          <div>Forms</div>
-          <div>Semantics</div>
-        </div>
-        <div class="main-grid">
-          <h4 class="">CSS</h4>
-          <div>Layouts</div>
-          <div>Responsive</div>
-          <div>CSS+</div>
-        </div>
-      </div>
-    </div>
-    <!-- <div>    <div>Javascript</div>
-
-        <div>Visual Studio Code</div>
-        <div>Version Control</div>
-        <div>Linters and Formatters</div>
-
-        <div>SSR</div>
-        <div>SSG</div>
-
-        <div>
-          Architecture (tech guide, tech debt, testing guidelines, version
-          control, stack, accessability standards, performance)
-          <div>Microfrontend</div>
-          <div>Monolith</div><div>islands architecture</div>
-        </div>
-
-        <div>Testing</div>
-        <div>Security</div> -->
+    <FlowChart />
   </main>
   <div class="item bg-green-200"></div>
 </Layout>
 
-<style>
-  .main-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 2px;
-    place-items: center;
-    > :nth-child(even) {
-      grid-column-start: 1;
-    }
-    > :nth-child(odd) {
-      grid-column-start: 5;
-    }
-    > :first-child {
-      grid-column-start: 3;
-      grid-row: 1/-1;
-    }
-  }
-</style>
+<style></style>
