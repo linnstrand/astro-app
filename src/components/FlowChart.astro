@@ -1,9 +1,30 @@
 ---
+import { FlowChartSegment } from "./FlowChartSegment";
+import frontend from "./frontend.json";
 ---
 
 <div class="grid grid-cols-3 gap-8 h-full bg-cyan-800">
   <div></div>
   <div class="m-2">
+    <!-- {
+      frontend.map((skill) => (
+        <FlowChartSegment name={skill.name} items={skill.children} />
+      ))
+    } -->
+    <FlowChartSegment
+      name="HTML"
+      items={["Accessibility", "Forms", "Semantics"]}
+    />
+    <FlowChartSegment
+      name="Tools"
+      items={[
+        "Git",
+        "Prettier",
+        "Containers",
+        "Eslint",
+        ["Vite", "Turbopack", "Esbuild", "Webpack"],
+      ]}
+    />
     <div class="main-grid mb-2">
       <h4 class="col-start-3 row-span-2 relative">HTML</h4>
       <div class="col-start-1 row-start-1">Accessibility</div>
@@ -67,7 +88,7 @@
         <div>Testing</div>
         <div>Security</div> -->
 
-<style>
+<style is:global>
   .main-grid {
     display: grid;
     grid-template-columns: 28% 6% 28% 6% 28%;
