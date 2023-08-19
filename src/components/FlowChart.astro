@@ -6,25 +6,7 @@ import frontend from "./frontend.json";
 <div class="grid grid-cols-3 gap-8 h-full bg-cyan-800">
   <div></div>
   <div class="m-2">
-    <!-- {
-      frontend.map((skill) => (
-        <FlowChartSegment name={skill.name} items={skill.children} />
-      ))
-    } -->
-    <FlowChartSegment
-      name="HTML"
-      items={["Accessibility", "Forms", "Semantics"]}
-    />
-    <FlowChartSegment
-      name="Tools"
-      items={[
-        "Git",
-        "Prettier",
-        "Containers",
-        "Eslint",
-        ["Vite", "Turbopack", "Esbuild", "Webpack"],
-      ]}
-    />
+    {frontend.map((skill) => <FlowChartSegment skill={skill} />)}
     <div class="main-grid mb-2">
       <h4 class="col-start-3 row-span-2 relative">HTML</h4>
       <div class="col-start-1 row-start-1">Accessibility</div>
@@ -91,22 +73,18 @@ import frontend from "./frontend.json";
 <style is:global>
   .main-grid {
     display: grid;
-    grid-template-columns: 28% 6% 28% 6% 28%;
+    grid-template-columns: 12em 2em 12em 2em 12em;
     grid-template-rows: repeat(2, 1fr);
     place-items: center;
     text-align: center;
     font-size: 0.8em;
-    grid-gap: 0.25em;
+    grid-row-gap: 0.25em;
     > h4,
     > div {
-      border: 2px solid white;
+      border: 0.25em solid white;
       padding: 0.35em 0.75em;
       width: 100%;
       background: theme(colors.red.200);
-    }
-    hr {
-      width: 100%;
-      border: 3px solid white;
     }
   }
 
@@ -115,7 +93,7 @@ import frontend from "./frontend.json";
     content: "";
     display: block;
     position: absolute;
-    width: 30%;
+    width: 2.25em;
     height: 0;
     border-top: 3px solid white;
     z-index: 1;
@@ -123,19 +101,18 @@ import frontend from "./frontend.json";
     right: 100%;
   }
 
-  h4::after {
+  .child-list::after {
     left: 100%;
   }
 
-  h5::before {
+  .child-list::before {
     content: "";
     display: block;
     position: absolute;
-    width: 1.6em;
+    width: 1.5em;
     height: 0;
     border-top: 3px solid white;
     z-index: 1;
     top: 1em;
-    right: 100%;
   }
 </style>

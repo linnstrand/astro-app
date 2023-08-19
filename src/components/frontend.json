@@ -1,18 +1,109 @@
 [
   {
-    "name": "Basics",
+    "name": "HTML",
+    "children": [
+      { "name": "Accessibility" },
+      { "name": "Forms" },
+      { "name": "Semantics" }
+    ]
+  },
+  {
+    "name": "CSS",
     "children": [
       {
-        "name": "HTML"
+        "name": "CSS++",
+        "children": [
+          {
+            "name": "Post Processors",
+            "children": [
+              {
+                "name": "Autopredixer"
+              },
+              {
+                "name": "PostCSS"
+              }
+            ]
+          },
+          {
+            "name": "Pre-Processors",
+            "children": [
+              {
+                "name": "SASS"
+              },
+              {
+                "name": "Less"
+              },
+              {
+                "name": "Stylus"
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "CSS"
+        "name": "CSS Modules"
+      },
+
+      {
+        "name": "Tailwind",
+        "children": [
+          {
+            "name": "Chakra UI"
+          },
+          {
+            "name": "Daisy UI"
+          },
+          {
+            "name": "Shadcn UI"
+          }
+        ]
       },
       {
-        "name": "JavaScript"
+        "name": "CSS-in-JS",
+        "children": [
+          {
+            "name": "Emotion"
+          },
+          {
+            "name": "styled-components"
+          },
+          {
+            "name": "vanilla-extract"
+          },
+          {
+            "name": "Stitches"
+          }
+        ]
+      },
+      {
+        "name": "Component Libraries",
+        "children": [
+          {
+            "name": "Bootstrap"
+          },
+          {
+            "name": "Material UI"
+          },
+          {
+            "name": "Mantine"
+          },
+          {
+            "name": "Bulma"
+          }
+        ]
       }
     ]
   },
+
+  {
+    "name": "JavaScript",
+    "children": [
+      { "name": "Typescript" },
+      { "name": "Fetch" },
+      { "name": "ECMAScript latest" }
+    ]
+  },
+
   {
     "name": "Development Tools",
     "children": [
@@ -143,111 +234,6 @@
       },
       {
         "name": "Axios"
-      }
-    ]
-  },
-  {
-    "name": "Styles",
-    "children": [
-      {
-        "name": "CSS++",
-        "children": [
-          {
-            "name": "Post Processors",
-            "children": [
-              {
-                "name": "Autopredixer"
-              },
-              {
-                "name": "PostCSS"
-              }
-            ]
-          },
-          {
-            "name": "Pre-Processors",
-            "children": [
-              {
-                "name": "SASS"
-              },
-              {
-                "name": "Less"
-              },
-              {
-                "name": "Stylus"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "CSS Modules"
-      },
-      {
-        "name": "Utility CSS",
-        "children": [
-          {
-            "name": "Tailwind",
-            "children": [
-              {
-                "name": "Chakra UI"
-              },
-              {
-                "name": "Daisy UI"
-              },
-              {
-                "name": "Shadcn UI"
-              }
-            ]
-          },
-          {
-            "name": "Tachyons"
-          },
-          {
-            "name": "Materialize"
-          }
-        ]
-      },
-      {
-        "name": "CSS-in-JS",
-        "children": [
-          {
-            "name": "Emotion",
-            "children": [
-              {
-                "name": "Material UI"
-              },
-              {
-                "name": "Mantine"
-              }
-            ]
-          },
-          {
-            "name": "styled-components"
-          },
-          {
-            "name": "vanilla-extract"
-          },
-          {
-            "name": "Stitches"
-          }
-        ]
-      },
-      {
-        "name": "Component Libraries",
-        "children": [
-          {
-            "name": "Bootstrap"
-          },
-          {
-            "name": "Material UI"
-          },
-          {
-            "name": "Mantine"
-          },
-          {
-            "name": "Bulma"
-          }
-        ]
       }
     ]
   },

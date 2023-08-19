@@ -2,38 +2,55 @@
 /** @jsxImportSource solid-js */
 import { For, Index } from "solid-js";
 
-interface Props {
+interface Skill {
   name: string;
-  items: Array<string | string[]>;
-  class?: string;
+  children?: Skill[];
+}
+interface Props {
+  skill: Skill;
 }
 
 export const FlowChartSegment = (props: Props) => {
-  console.log(props);
-
   return (
     <div class="main-grid mb-2">
-      <h4 class="col-start-3 relative">{props.name}</h4>
-      <For each={props.items}>
-        {(item, index) => {
-          const colnr = index() % 2 === 0 ? 1 : 5;
-          const rownr = Math.ceil((index() + 1) / 2);
+      <h4 class="col-start-3 relative">{props.skill.name}</h4>
+      {props.skill?.children && (
+        <For each={props.skill.children}>
+          {(item, index) => {
+            const isLeft = index() % 2 === 0;
+            const colnr = isLeft ? 1 : 5;
+            const rownr = Math.ceil((index() + 1) / 2);
 
-          if (!Array.isArray(item)) {
+            if (!Array.isArray(item.children)) {
+              return (
+                <div class={`col-start-${colnr} row-start-${rownr}`}>
+                  {item.name}
+                </div>
+              );
+            }
             return (
-              <div class={`col-start-${colnr} row-start-${rownr}`}>{item}</div>
-            );
-          }
-          return (
-            <div class={`grid relative col-start-${colnr} row-start-${rownr}`}>
-              <h5>{props.name}</h5>
-              <div class="absolute bg-red-200 -left-24 top-1 border-2 border-white">
-                <For each={item}>{(item) => <div class="p-1">{item}</div>}</For>
+              <div
+                class={`group grid cursor-pointer relative col-start-${colnr} row-start-${rownr}`}
+              >
+                <h5 class={`group-hover font-semibold row-start-${rownr}`}>
+                  {item.name}
+                </h5>
+                <div
+                  class={`child-list transition-opacity duration-500 ease-out opacity-0 group-hover:opacity-100 absolute bg-red-200  ${
+                    isLeft ? "before:left-full" : "before:right-full"
+                  } ${
+                    isLeft ? "-left-32" : "-right-32"
+                  } top-1 border-2 border-white w-28`}
+                >
+                  <For each={item.children}>
+                    {(c) => <div class=" p-1">{c.name}</div>}
+                  </For>
+                </div>
               </div>
-            </div>
-          );
-        }}
-      </For>
+            );
+          }}
+        </For>
+      )}
     </div>
   );
 };
