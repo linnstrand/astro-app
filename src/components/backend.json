@@ -72,6 +72,12 @@
       },
       {
         "name": "Websocket"
+      },
+      {
+        "name": "Job Queue"
+      },
+      {
+        "name": "Caching Services"
       }
     ]
   },
@@ -158,7 +164,7 @@
     ]
   },
   {
-    "name": "Infrastructure",
+    "name": "Hosting",
     "children": [
       {
         "name": "Static Hosting",
@@ -247,9 +253,15 @@
             "name": "Google Cloud Function"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "name": "Infrastructure",
+    "children": [
       {
-        "name": "Microservices"
+        "name": "Microservices",
+        "children": [{ "name": "Message Brokers" }]
       },
       {
         "name": "Microfrontend"
@@ -261,6 +273,9 @@
         "name": "Message Brokers",
         "children": [
           {
+            "name": "data sharing, marshaling, persistance"
+          },
+          {
             "name": "Kafka"
           },
           {
@@ -269,18 +284,13 @@
         ]
       },
       {
-        "name": "Proxy",
-        "children:": [
+        "name": "Proxies",
+        "children": [
           {
             "name": "Forward Proxy"
           },
           {
-            "name": "Reverse Proxy",
-            "children": [
-              {
-                "name": "caching, security, scalability"
-              }
-            ]
+            "name": "Reverse Proxy"
           }
         ]
       },
@@ -349,8 +359,14 @@
         ]
       },
       {
-        "name": "Monotoring and logging",
+        "name": "Monotoring",
         "children": [
+          {
+            "name": "Application"
+          },
+          {
+            "name": "Infrastructire"
+          },
           {
             "name": "Datadog"
           },
@@ -372,42 +388,30 @@
         "name": "Performance",
         "children": [
           {
-            "name": "Instrumentation",
-            "children": [
-              {
-                "name": "Monitor",
-                "children": [
-                  {
-                    "name": "Application"
-                  },
-                  {
-                    "name": "Infrastructire"
-                  }
-                ]
-              },
-              {
-                "name": "Measure"
-              },
-              {
-                "name": "Trace"
-              }
-            ]
+            "name": "Devtools Lightouse"
           },
           {
-            "name": "Scaling",
-            "children": [
-              {
-                "name": "Vertical"
-              },
-              {
-                "name": "Horizontal",
-                "children": [
-                  {
-                    "name": "Load Balancers"
-                  }
-                ]
-              }
-            ]
+            "name": "Load Balancers"
+          },
+          {
+            "name": "Cache"
+          },
+          {
+            "name": "File optimization"
+          },
+          {
+            "name": "Lazy Loading"
+          }
+        ]
+      },
+      {
+        "name": "Scaling",
+        "children": [
+          {
+            "name": "Vertical"
+          },
+          {
+            "name": "Horizontal"
           }
         ]
       }
@@ -431,10 +435,22 @@
         "name": "HTTP/HTTPS"
       },
       {
+        "name": "Reverse Proxy"
+      },
+      {
+        "name": "DDOS"
+      },
+      {
         "name": "SSH"
       },
       {
         "name": "Firewall"
+      },
+      {
+        "name": "MFA"
+      },
+      {
+        "name": "Backups"
       },
       {
         "name": "White/Grey listing"

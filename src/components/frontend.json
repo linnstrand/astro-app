@@ -282,5 +282,19 @@
         "name": "Responsive"
       }
     ]
+  },
+  {
+    "name": "Security",
+    "children": [
+      {
+        "name": "npm-audit"
+      },
+      {
+        "name": "Content Security Policy"
+      },
+      {
+        "name": "Security Headers"
+      }
+    ]
   }
 ]
