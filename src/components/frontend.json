@@ -96,11 +96,17 @@
   },
 
   {
-    "name": "JavaScript",
+    "name": "Basics",
     "children": [
       { "name": "Typescript" },
       { "name": "Fetch" },
-      { "name": "ECMAScript latest" }
+      { "name": "ECMAScript latest" },
+      {
+        "name": "REST"
+      },
+      {
+        "name": "Node.js"
+      }
     ]
   },
 
@@ -108,51 +114,60 @@
     "name": "Development Tools",
     "children": [
       {
-        "name": "Code Editors",
-        "children": [
-          {
-            "name": "Visual Studio Code"
-          }
-        ]
+        "name": "Documentation"
       },
       {
-        "name": "Linters"
-      },
-
-      {
-        "name": "Source Control",
-        "children": [
-          {
-            "name": "Git"
-          }
-        ]
+        "name": "Visual Studio Code"
       },
       {
-        "name": "Formatters",
-        "children": [
-          {
-            "name": "Prettier"
-          }
-        ]
+        "name": "Chrome DevTools"
       },
       {
-        "name": "Containers",
-        "children": [
-          {
-            "name": "Docker"
-          }
-        ]
+        "name": "Eslint"
+      },
+      {
+        "name": "Git"
+      },
+      {
+        "name": "Prettier"
+      },
+      {
+        "name": "Docker"
+      },
+      {
+        "name": "ngrok"
       }
     ]
   },
   {
-    "name": "Frameworks",
+    "name": "Frontend Frameworks",
     "children": [
       {
-        "name": "Astro"
+        "name": "React",
+        "children": [
+          {
+            "name": "SWR"
+          },
+          {
+            "name": "React Query"
+          },
+          {
+            "name": "Redux Toolkit"
+          },
+          {
+            "name": "React Hook Forms"
+          },
+          {
+            "name": "Formik"
+          }
+        ]
+      },
+      { "name": "Blazor" },
+      {
+        "name": "Svelte"
       },
       {
-        "name": "NextJS"
+        "name": "Solid"
       },
       {
         "name": "Vue"
@@ -163,91 +178,19 @@
     ]
   },
   {
-    "name": "Libraries",
+    "name": "Rendering Frameworks",
     "children": [
       {
-        "name": "Interfaces",
-        "children": [
-          {
-            "name": "React",
-            "children": [
-              {
-                "name": "SWR"
-              },
-              {
-                "name": "React Query"
-              },
-              {
-                "name": "Redux Toolkit"
-              },
-              {
-                "name": "React Hook Forms"
-              },
-              {
-                "name": "Formik"
-              }
-            ]
-          },
-          {
-            "name": "Svelte"
-          },
-          {
-            "name": "Solid"
-          }
-        ]
+        "name": "Astro"
       },
       {
-        "name": "Tools",
-        "children": [
-          {
-            "name": "Build",
-            "children": [
-              {
-                "name": "Vite"
-              },
-              {
-                "name": "Turbopack"
-              },
-              {
-                "name": "Webpack"
-              },
-              {
-                "name": "esbuild"
-              }
-            ]
-          },
-          {
-            "name": "Monorepo"
-          },
-          {
-            "name": "Visualisation",
-            "children": [
-              {
-                "name": "D3.js"
-              },
-              {
-                "name": "Chart.js"
-              }
-            ]
-          }
-        ]
+        "name": "NextJS"
       },
       {
-        "name": "Axios"
-      }
-    ]
-  },
-  {
-    "name": "UI",
-    "children": [
-      {
-        "name": "Accessibility"
+        "name": "Redwood"
       },
       {
-        "name": "Figma"
-      },
-      {
-        "name": "Storybook"
+        "name": "SvelteKit"
       }
     ]
   },
@@ -258,13 +201,85 @@
         "name": "Jest"
       },
       {
+        "name": "Storybook"
+      },
+      {
         "name": "Playwright"
       },
       {
-        "name": "REact Testing Library"
+        "name": "React Testing Library"
+      }
+    ]
+  },
+  {
+    "name": "Build Tools",
+    "children": [
+      {
+        "name": "Vite"
       },
       {
-        "name": "Storybook"
+        "name": "Turbopack"
+      },
+      {
+        "name": "Webpack"
+      },
+      {
+        "name": "esbuild"
+      }
+    ]
+  },
+  {
+    "name": "Architecture",
+    "children": [
+      {
+        "name": "SPA"
+      },
+      {
+        "name": "Security"
+      },
+      {
+        "name": "Tech Strategy"
+      },
+      {
+        "name": "Performance"
+      },
+      {
+        "name": "Version Control"
+      },
+      {
+        "name": "Microfrontend"
+      },
+      {
+        "name": "Monorepo",
+        "children": [
+          {
+            "name": "Turborepo"
+          },
+          {
+            "name": "Nx"
+          },
+          {
+            "name": "pnpm"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "UI",
+    "children": [
+      {
+        "name": "Accessibility"
+      },
+      {
+        "name": "D3.js"
+      },
+      {
+        "name": "Figma"
+      },
+      {
+        "name": "Responsive"
       }
     ]
   }

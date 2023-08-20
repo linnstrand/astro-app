@@ -23,16 +23,16 @@ export const FlowChartSegment = (props: Props) => {
 
             if (!Array.isArray(item.children)) {
               return (
-                <div class={`col-start-${colnr} row-start-${rownr}`}>
+                <div class={`place- col-start-${colnr} row-start-${rownr}`}>
                   {item.name}
                 </div>
               );
             }
             return (
               <div
-                class={`group grid cursor-pointer relative col-start-${colnr} row-start-${rownr}`}
+                class={` text-center group grid cursor-pointer relative col-start-${colnr} row-start-${rownr}`}
               >
-                <h5 class={`group-hover font-semibold row-start-${rownr}`}>
+                <h5 class={`group-hover text-red-900 row-start-${rownr}`}>
                   {item.name}
                 </h5>
                 <div

@@ -1,0 +1,444 @@
+[
+  {
+    "name": "Languages",
+    "children": [
+      {
+        "name": "Typescript"
+      },
+      {
+        "name": "C#"
+      },
+      {
+        "name": "Golang"
+      }
+    ]
+  },
+  {
+    "name": "Frameworks",
+    "children": [
+      {
+        "name": "Express"
+      },
+      {
+        "name": "Redwood"
+      }
+    ]
+  },
+  {
+    "name": "API",
+    "children": [
+      {
+        "name": "REST"
+      },
+      {
+        "name": "CORS"
+      },
+      {
+        "name": "Swagger"
+      },
+      {
+        "name": "Routing"
+      },
+      {
+        "name": "Validation"
+      },
+      {
+        "name": "Authentication"
+      },
+      {
+        "name": "Web Servers",
+        "children": [
+          {
+            "name": "Nginx"
+          },
+          {
+            "name": "Apache"
+          },
+          {
+            "name": "Node.js",
+            "children": [
+              {
+                "name": "Mongoose"
+              },
+              {
+                "name": "Environment variables"
+              },
+              {
+                "name": "Async and Promises"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Websocket"
+      }
+    ]
+  },
+  {
+    "name": "Database",
+    "children": [
+      {
+        "name": "Relational",
+        "children": [
+          {
+            "name": "PostgresSQL"
+          },
+          {
+            "name": "MySQL"
+          },
+          {
+            "name": "Oracle"
+          }
+        ]
+      },
+      {
+        "name": "Document",
+        "children": [
+          {
+            "name": "MongoDB"
+          }
+        ]
+      },
+      {
+        "name": "Wide Column",
+        "children": [
+          {
+            "name": "Cassandra"
+          }
+        ]
+      },
+      {
+        "name": "Key-value",
+        "children": [
+          {
+            "name": "Redis"
+          },
+          {
+            "name": "DynamoDB"
+          }
+        ]
+      },
+      {
+        "name": "Search",
+        "children": [
+          {
+            "name": "ElasticSearch"
+          }
+        ]
+      },
+      {
+        "name": "Graph",
+        "children": [
+          {
+            "name": "Neo4j"
+          }
+        ]
+      },
+      {
+        "name": "Tools",
+        "children": [
+          {
+            "name": "GraphQL"
+          },
+          {
+            "name": "Prisma"
+          },
+          {
+            "name": "DataGrip"
+          },
+          {
+            "name": "DBeaver"
+          },
+          {
+            "name": "pgAdmin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Infrastructure",
+    "children": [
+      {
+        "name": "Static Hosting",
+        "children": [
+          {
+            "name": "Github Pages"
+          },
+          {
+            "name": "Vercel"
+          },
+          {
+            "name": "Surge"
+          },
+          {
+            "name": "Netlify"
+          }
+        ]
+      },
+      {
+        "name": "BaaS",
+        "children": [
+          {
+            "name": "Firebase"
+          },
+          {
+            "name": "AWS Amplify"
+          },
+          {
+            "name": "Supabase"
+          },
+          {
+            "name": "Nhost"
+          },
+          {
+            "name": "Hasura"
+          }
+        ]
+      },
+      {
+        "name": "PaaS",
+        "children": [
+          {
+            "name": "Heroku"
+          },
+          {
+            "name": "Microsoft Azure"
+          },
+          {
+            "name": "Google App Engine"
+          }
+        ]
+      },
+      {
+        "name": "IaaS",
+        "children": [
+          {
+            "name": "AWS"
+          },
+          {
+            "name": "Azure"
+          },
+          {
+            "name": "Google Compute Engine"
+          },
+          {
+            "name": "DigitalOCean"
+          }
+        ]
+      },
+      {
+        "name": "FaaS",
+        "children": [
+          {
+            "name": "AWS Lambda"
+          },
+          {
+            "name": "Vercel"
+          },
+          {
+            "name": "Azure Functions"
+          },
+          {
+            "name": "Cloudflare"
+          },
+          {
+            "name": "Google Cloud Function"
+          }
+        ]
+      },
+      {
+        "name": "Microservices"
+      },
+      {
+        "name": "Microfrontend"
+      },
+      {
+        "name": "Monolith"
+      },
+      {
+        "name": "Message Brokers",
+        "children": [
+          {
+            "name": "Kafka"
+          },
+          {
+            "name": "RabbitMQ"
+          }
+        ]
+      },
+      {
+        "name": "Proxy",
+        "children:": [
+          {
+            "name": "Forward Proxy"
+          },
+          {
+            "name": "Reverse Proxy",
+            "children": [
+              {
+                "name": "caching, security, scalability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Caching",
+        "children": [
+          {
+            "name": "Client Side"
+          },
+          {
+            "name": "Server Side"
+          },
+          {
+            "name": "CDN"
+          },
+          {
+            "name": "Redis"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Operations",
+    "children": [
+      {
+        "name": "Containers",
+        "children": [
+          {
+            "name": "Docker"
+          },
+          {
+            "name": "Kubernetics"
+          },
+          {
+            "name": "CloudStack"
+          }
+        ]
+      },
+      {
+        "name": "CI/CD",
+        "children": [
+          {
+            "name": "Github Actions"
+          },
+          {
+            "name": "Jenkins"
+          }
+        ]
+      },
+      {
+        "name": "IaS",
+        "children": [
+          {
+            "name": "Terraform"
+          },
+          {
+            "name": "Ansible"
+          },
+          {
+            "name": "Pulumi"
+          },
+          {
+            "name": "AWS CloudFormation"
+          }
+        ]
+      },
+      {
+        "name": "Monotoring and logging",
+        "children": [
+          {
+            "name": "Datadog"
+          },
+          {
+            "name": "Prometheus"
+          },
+          {
+            "name": "Sentry"
+          },
+          {
+            "name": "Elastic Stack"
+          },
+          {
+            "name": "Splunk"
+          }
+        ]
+      },
+      {
+        "name": "Performance",
+        "children": [
+          {
+            "name": "Instrumentation",
+            "children": [
+              {
+                "name": "Monitor",
+                "children": [
+                  {
+                    "name": "Application"
+                  },
+                  {
+                    "name": "Infrastructire"
+                  }
+                ]
+              },
+              {
+                "name": "Measure"
+              },
+              {
+                "name": "Trace"
+              }
+            ]
+          },
+          {
+            "name": "Scaling",
+            "children": [
+              {
+                "name": "Vertical"
+              },
+              {
+                "name": "Horizontal",
+                "children": [
+                  {
+                    "name": "Load Balancers"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "CMS",
+    "children": [
+      {
+        "name": "Contentful"
+      },
+      {
+        "name": "Sanity.io"
+      }
+    ]
+  },
+  {
+    "name": "Security",
+    "children": [
+      {
+        "name": "HTTP/HTTPS"
+      },
+      {
+        "name": "SSH"
+      },
+      {
+        "name": "Firewall"
+      },
+      {
+        "name": "White/Grey listing"
+      }
+    ]
+  }
+]
