@@ -31,6 +31,9 @@
         "name": "REST"
       },
       {
+        "name": "API Gateway"
+      },
+      {
         "name": "CORS"
       },
       {
@@ -43,7 +46,7 @@
         "name": "Validation"
       },
       {
-        "name": "Authentication"
+        "name": "Access Control"
       },
       {
         "name": "Web Servers",
@@ -72,9 +75,6 @@
       },
       {
         "name": "Websocket"
-      },
-      {
-        "name": "Job Queue"
       },
       {
         "name": "Caching Services"
@@ -167,7 +167,7 @@
     "name": "Hosting",
     "children": [
       {
-        "name": "Static Hosting",
+        "name": "Static Pages Hosting",
         "children": [
           {
             "name": "Github Pages"
@@ -260,14 +260,48 @@
     "name": "Infrastructure",
     "children": [
       {
-        "name": "Microservices",
-        "children": [{ "name": "Message Brokers" }]
+        "name": "Microservices"
       },
       {
         "name": "Microfrontend"
       },
       {
-        "name": "Monolith"
+        "name": "Security",
+        "children": [
+          {
+            "name": "HTTP/HTTPS"
+          },
+          {
+            "name": "Reverse Proxy"
+          },
+          {
+            "name": "DDOS"
+          },
+          {
+            "name": "SSH"
+          },
+          {
+            "name": "Firewall"
+          },
+          {
+            "name": "Two Factor Authentication"
+          },
+          {
+            "name": "CSRF"
+          },
+          {
+            "name": "Backups"
+          },
+          {
+            "name": "White/Grey listing"
+          },
+          {
+            "name": "Cross-Site Scripting"
+          },
+          {
+            "name": "Vulnerability Scanning Tools"
+          }
+        ]
       },
       {
         "name": "Message Brokers",
@@ -310,150 +344,17 @@
             "name": "Redis"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Operations",
-    "children": [
+      },
       {
-        "name": "Containers",
+        "name": "CMS",
         "children": [
           {
-            "name": "Docker"
+            "name": "Contentful"
           },
           {
-            "name": "Kubernetics"
-          },
-          {
-            "name": "CloudStack"
+            "name": "Sanity.io"
           }
         ]
-      },
-      {
-        "name": "CI/CD",
-        "children": [
-          {
-            "name": "Github Actions"
-          },
-          {
-            "name": "Jenkins"
-          }
-        ]
-      },
-      {
-        "name": "IaS",
-        "children": [
-          {
-            "name": "Terraform"
-          },
-          {
-            "name": "Ansible"
-          },
-          {
-            "name": "Pulumi"
-          },
-          {
-            "name": "AWS CloudFormation"
-          }
-        ]
-      },
-      {
-        "name": "Monotoring",
-        "children": [
-          {
-            "name": "Application"
-          },
-          {
-            "name": "Infrastructire"
-          },
-          {
-            "name": "Datadog"
-          },
-          {
-            "name": "Prometheus"
-          },
-          {
-            "name": "Sentry"
-          },
-          {
-            "name": "Elastic Stack"
-          },
-          {
-            "name": "Splunk"
-          }
-        ]
-      },
-      {
-        "name": "Performance",
-        "children": [
-          {
-            "name": "Devtools Lightouse"
-          },
-          {
-            "name": "Load Balancers"
-          },
-          {
-            "name": "Cache"
-          },
-          {
-            "name": "File optimization"
-          },
-          {
-            "name": "Lazy Loading"
-          }
-        ]
-      },
-      {
-        "name": "Scaling",
-        "children": [
-          {
-            "name": "Vertical"
-          },
-          {
-            "name": "Horizontal"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "CMS",
-    "children": [
-      {
-        "name": "Contentful"
-      },
-      {
-        "name": "Sanity.io"
-      }
-    ]
-  },
-  {
-    "name": "Security",
-    "children": [
-      {
-        "name": "HTTP/HTTPS"
-      },
-      {
-        "name": "Reverse Proxy"
-      },
-      {
-        "name": "DDOS"
-      },
-      {
-        "name": "SSH"
-      },
-      {
-        "name": "Firewall"
-      },
-      {
-        "name": "MFA"
-      },
-      {
-        "name": "Backups"
-      },
-      {
-        "name": "White/Grey listing"
       }
     ]
   }

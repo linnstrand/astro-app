@@ -3,24 +3,25 @@ import { FlowChartSegment } from "./FlowChartSegment";
 import frontend from "./frontend.json";
 import backend from "./backend.json";
 import operations from "./operations.json";
-import security from "./security.json";
-import tooling from "./security.json";
 ---
 
-<div class="grid grid-cols-3 h-full ml-32">
-  <div class="m-2">
+<div class="flex flex-wrap text-gray-200 min-w-[94rem] px-20">
+  <div class="mx-16 justify-center w-[34rem]">
     {backend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
-  <div class="m-2">
+  <div class="mx-16 justify-center w-[34rem]">
     {frontend.map((skill) => <FlowChartSegment skill={skill} />)}
+  </div>
+  <div class="mx-16 justify-center col-start-4 w-[34rem]">
+    {operations.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
 </div>
 
 <style is:global>
   .main-grid {
     display: grid;
+    grid-auto-flow: dense;
     grid-template-columns: 12em 2em 13em 2em 12em;
-    grid-template-rows: repeat(2, 1fr);
     place-items: center;
     text-align: center;
     font-size: 0.8em;

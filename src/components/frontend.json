@@ -11,6 +11,23 @@
     "name": "CSS",
     "children": [
       {
+        "name": "UI",
+        "children": [
+          {
+            "name": "Accessibility"
+          },
+          {
+            "name": "D3.js"
+          },
+          {
+            "name": "Figma"
+          },
+          {
+            "name": "Responsive"
+          }
+        ]
+      },
+      {
         "name": "CSS++",
         "children": [
           {
@@ -96,7 +113,7 @@
   },
 
   {
-    "name": "Basics",
+    "name": "Javascript",
     "children": [
       { "name": "Typescript" },
       { "name": "Fetch" },
@@ -109,27 +126,72 @@
       }
     ]
   },
-
   {
     "name": "Development Tools",
     "children": [
       {
-        "name": "Documentation"
+        "name": "Build Tools",
+        "children": [
+          {
+            "name": "Vite"
+          },
+          {
+            "name": "Turbopack"
+          },
+          {
+            "name": "Webpack"
+          },
+          {
+            "name": "esbuild"
+          }
+        ]
       },
       {
-        "name": "Visual Studio Code"
+        "name": "Standardised Code",
+        "children": [
+          {
+            "name": "Prettier"
+          },
+          {
+            "name": "Eslint"
+          },
+          {
+            "name": " Code Control",
+            "children": [
+              {
+                "name": "Git"
+              },
+              {
+                "name": "Husky"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Transformation",
+        "children": [{ "name": "Babel" }, { "name": "PostCSS" }]
+      },
+      {
+        "name": "Documentation",
+        "children": [{ "name": "Storytel" }]
+      },
+      {
+        "name": "IDE",
+        "children": [
+          { "name": "Visual Studio Code" },
+          { "name": "Notepad++" },
+          { "name": "Visual Studio" },
+          { "name": "CodePen" },
+          { "name": "CodeSandbox" }
+        ]
+      },
+      {
+        "name": "Debug",
+        "children": [{ "name": "Chrome DevTools" }]
       },
       {
         "name": "Chrome DevTools"
-      },
-      {
-        "name": "Eslint"
-      },
-      {
-        "name": "Git"
-      },
-      {
-        "name": "Prettier"
       },
       {
         "name": "Docker"
@@ -140,57 +202,62 @@
     ]
   },
   {
-    "name": "Frontend Frameworks",
+    "name": "Libraries",
     "children": [
       {
-        "name": "React",
+        "name": "Frontend Frameworks",
         "children": [
           {
-            "name": "SWR"
+            "name": "React",
+            "children": [
+              {
+                "name": "SWR"
+              },
+              {
+                "name": "React Query"
+              },
+              {
+                "name": "Redux Toolkit"
+              },
+              {
+                "name": "React Hook Forms"
+              },
+              {
+                "name": "Formik"
+              }
+            ]
+          },
+          { "name": "Blazor" },
+          {
+            "name": "Svelte"
           },
           {
-            "name": "React Query"
+            "name": "Solid"
           },
           {
-            "name": "Redux Toolkit"
+            "name": "Vue"
           },
           {
-            "name": "React Hook Forms"
-          },
-          {
-            "name": "Formik"
+            "name": "Angular"
           }
         ]
       },
-      { "name": "Blazor" },
       {
-        "name": "Svelte"
-      },
-      {
-        "name": "Solid"
-      },
-      {
-        "name": "Vue"
-      },
-      {
-        "name": "Angular"
-      }
-    ]
-  },
-  {
-    "name": "Rendering Frameworks",
-    "children": [
-      {
-        "name": "Astro"
-      },
-      {
-        "name": "NextJS"
-      },
-      {
-        "name": "Redwood"
-      },
-      {
-        "name": "SvelteKit"
+        "name": "Rendering Frameworks",
+        "children": [
+          {
+            "name": "Astro"
+          },
+          {
+            "name": "NextJS"
+          },
+          {
+            "name": "Redwood"
+          },
+          {
+            "name": "SvelteKit"
+          }
+        ]
       }
     ]
   },
@@ -212,88 +279,70 @@
     ]
   },
   {
-    "name": "Build Tools",
-    "children": [
-      {
-        "name": "Vite"
-      },
-      {
-        "name": "Turbopack"
-      },
-      {
-        "name": "Webpack"
-      },
-      {
-        "name": "esbuild"
-      }
-    ]
-  },
-  {
     "name": "Architecture",
     "children": [
       {
-        "name": "SPA"
+        "name": "Style",
+        "children": [
+          { "name": "SPA" },
+          { "name": "SSR" },
+          { "name": "Islands" },
+          {
+            "name": "Monorepo",
+            "children": [
+              {
+                "name": "Turborepo"
+              },
+              {
+                "name": "Nx"
+              },
+              {
+                "name": "pnpm"
+              }
+            ]
+          },
+          {
+            "name": "Microfrontend"
+          },
+          { "name": "JamStak" },
+          { "name": "MPA" }
+        ]
       },
       {
-        "name": "Security"
-      },
-      {
-        "name": "Tech Strategy"
-      },
-      {
-        "name": "Performance"
-      },
-      {
-        "name": "Version Control"
-      },
-      {
-        "name": "Microfrontend"
-      },
-      {
-        "name": "Monorepo",
+        "name": "Security",
         "children": [
           {
-            "name": "Turborepo"
+            "name": "npm-audit"
           },
           {
-            "name": "Nx"
+            "name": "Content Security Policy"
           },
           {
-            "name": "pnpm"
+            "name": "Security Headers"
           }
         ]
-      }
-    ]
-  },
-
-  {
-    "name": "UI",
-    "children": [
-      {
-        "name": "Accessibility"
       },
       {
-        "name": "D3.js"
+        "name": "Characteristics",
+        "children": [
+          {
+            "name": "Performance"
+          },
+          { "name": "Scalability" },
+          { "name": "Accessebility" },
+          { "name": "Maintainability" }
+        ]
       },
       {
-        "name": "Figma"
-      },
-      {
-        "name": "Responsive"
-      }
-    ]
-  },
-  {
-    "name": "Security",
-    "children": [
-      {
-        "name": "npm-audit"
-      },
-      {
-        "name": "Content Security Policy"
-      },
-      {
-        "name": "Security Headers"
+        "name": "Decisions",
+        "children": [
+          {
+            "name": "Tech Stack"
+          },
+          { "name": "Typesafety" },
+          { "name": "Verson Control" },
+          { "name": "Dependency Management" }
+        ]
       }
     ]
   }

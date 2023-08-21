@@ -25,7 +25,7 @@
     ]
   },
   {
-    "name": "IaS",
+    "name": "IaC",
     "children": [
       {
         "name": "Terraform"
