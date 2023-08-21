@@ -2,13 +2,16 @@
 import { FlowChartSegment } from "./FlowChartSegment";
 import frontend from "./frontend.json";
 import backend from "./backend.json";
+import operations from "./operations.json";
+import security from "./security.json";
+import tooling from "./security.json";
 ---
 
-<div class="flex h-full text-gray-200">
-  <div class="m-auto shrink">
+<div class="grid grid-cols-3 h-full ml-32">
+  <div class="m-2">
     {backend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
-  <div class="m-auto">
+  <div class="m-2">
     {frontend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
 </div>

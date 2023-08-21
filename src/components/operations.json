@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Containers",
+    "children": [
+      {
+        "name": "Docker"
+      },
+      {
+        "name": "Kubernetics"
+      },
+      {
+        "name": "CloudStack"
+      }
+    ]
+  },
+  {
+    "name": "CI/CD",
+    "children": [
+      {
+        "name": "Github Actions"
+      },
+      {
+        "name": "Jenkins"
+      }
+    ]
+  },
+  {
+    "name": "IaS",
+    "children": [
+      {
+        "name": "Terraform"
+      },
+      {
+        "name": "Ansible"
+      },
+      {
+        "name": "Pulumi"
+      },
+      {
+        "name": "AWS CloudFormation"
+      }
+    ]
+  },
+  {
+    "name": "Monotoring",
+    "children": [
+      {
+        "name": "Application"
+      },
+      {
+        "name": "Infrastructire"
+      },
+      {
+        "name": "Datadog"
+      },
+      {
+        "name": "Prometheus"
+      },
+      {
+        "name": "Sentry"
+      },
+      {
+        "name": "Elastic Stack"
+      },
+      {
+        "name": "Splunk"
+      }
+    ]
+  },
+  {
+    "name": "Performance",
+    "children": [
+      {
+        "name": "Devtools Lightouse"
+      },
+      {
+        "name": "Load Balancers"
+      },
+      {
+        "name": "Cache"
+      },
+      {
+        "name": "File optimization"
+      },
+      {
+        "name": "Lazy Loading"
+      }
+    ]
+  },
+  {
+    "name": "Scaling",
+    "children": [
+      {
+        "name": "Vertical"
+      },
+      {
+        "name": "Horizontal"
+      }
+    ]
+  }
+]

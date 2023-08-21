@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Devtools Lightouse"
+  },
+  {
+    "name": "Load Balancers"
+  },
+  {
+    "name": "Cache"
+  },
+  {
+    "name": "File optimization"
+  },
+  {
+    "name": "Lazy Loading"
+  },
+  {
+    "name": "Scaling",
+    "children": [
+      {
+        "name": "Vertical"
+      },
+      {
+        "name": "Horizontal"
+      }
+    ]
+  }
+]
