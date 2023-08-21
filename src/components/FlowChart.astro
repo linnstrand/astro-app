@@ -4,11 +4,11 @@ import frontend from "./frontend.json";
 import backend from "./backend.json";
 ---
 
-<div class="grid grid-cols-3 h-full ml-32">
-  <div class="m-2">
+<div class="flex h-full text-gray-200">
+  <div class="m-auto shrink">
     {backend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
-  <div class="m-2">
+  <div class="m-auto">
     {frontend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
 </div>
@@ -22,40 +22,29 @@ import backend from "./backend.json";
     text-align: center;
     font-size: 0.8em;
     grid-row-gap: 0.25em;
-    > h4,
-    > div {
-      border: 0.25em solid white;
-      padding: 0.3em 0.3em;
-      width: 100%;
-      background: theme(colors.red.200);
+
+    h4::before,
+    h4::after {
+      content: "";
+      position: absolute;
+      width: 2.25em;
+      border-top: 3px solid theme(colors.gray.500);
+      z-index: 1;
+      top: 50%;
+      right: 100%;
     }
-  }
 
-  h4::before,
-  h4::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 2.25em;
-    height: 0;
-    border-top: 3px solid white;
-    z-index: 1;
-    top: 50%;
-    right: 100%;
-  }
+    h4::after {
+      left: 100%;
+    }
 
-  h4::after {
-    left: 100%;
-  }
-
-  .child-list::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 1.5em;
-    height: 0;
-    border-top: 3px solid white;
-    z-index: 1;
-    top: 1em;
+    .child-list::before {
+      content: "";
+      position: absolute;
+      width: 1.5em;
+      border-top: 3px solid theme(colors.gray.500);
+      z-index: 1;
+      top: 1em;
+    }
   }
 </style>
