@@ -4,16 +4,20 @@ import GlassLayout from "../layouts/GlassLayout.astro";
 ---
 
 <GlassLayout title="Linn Strand">
-  <main class="grid w-screen min-h-screen grid-cols-2 p-8 bg-gray-200">
-    <div class="item col-span-2">
-      <h2 class="text-2xl font-bold text-gray-900">Web Developer</h2>
-    </div>
-    <div class="item">
+  <div class="absolute">
+    <h2 class="text-2xl font-bold text-gray-900">Web Developer</h2>
+  </div>
+  <main class="flex flex-row items-center w-screen min-h-screen bg-gray-200">
+    <div class="">
       <h1 class="text-9xl antialiased font-bold tracking-wide bg-gray-500">
         Linn Strand
       </h1>
     </div>
-    <div class="w-[46rem] absolute h-full">
+    <div class="w-[70rem] h-full">
+      <Hexagon class="bg-slate-400 invisible" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400 invisible" />
       <Hexagon class="bg-slate-400 ml-24" />
       <Hexagon class="bg-slate-400" />
       <Hexagon class="bg-slate-400" />
@@ -21,7 +25,10 @@ import GlassLayout from "../layouts/GlassLayout.astro";
       <Hexagon class="bg-slate-400" />
       <Hexagon class="bg-slate-400" />
       <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400 ml-24" />
       <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400 invisible" />
       <Hexagon class="bg-slate-400" />
       <Hexagon class="bg-slate-400" />
     </div>
