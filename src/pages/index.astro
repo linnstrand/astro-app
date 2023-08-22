@@ -1,70 +1,48 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Hexagon from "../components/Hexagon2.astro";
+import GlassLayout from "../layouts/GlassLayout.astro";
 ---
 
-<Layout title="Linn Strand">
-  <main class="text-center w-screen font-mono text-green-500">
-    <h1 class="heading-2 text-4xl text-center p-6 col-span-2">Project</h1>
-    <div
-      class="row-start-3 row-span-2 col-start-3 col-span-2 bg-blue-500/25 p-5 flex flex-col justify-between"
-    >
-      <p>Hello, I'm Linn</p>
-      <p>I build user interfaces</p>
-      <p>Here is some different ideas</p>
-      <button>Sky UI</button>
+<GlassLayout title="Linn Strand">
+  <main class="grid w-screen min-h-screen grid-cols-2 p-8 bg-gray-200">
+    <div class="item col-span-2">
+      <h2 class="text-2xl font-bold text-gray-900">Web Developer</h2>
     </div>
-    <div
-      class="row-start-5 col-span-2 col-start-7 bg-cyan-800 m-1 p-2 flex flex-col justify-between"
-    >
-      <p>Data is fun!</p>
-      <p>Want to see some visualisations?</p>
-      <button>Click Me</button>
+    <div class="item">
+      <h1 class="text-9xl antialiased font-bold tracking-wide bg-gray-500">
+        Linn Strand
+      </h1>
     </div>
-    <div class="row-start-2 col-start-1 col-span-2 align-self-center">
-      Frontend
+    <div class="w-[46rem] absolute h-full">
+      <Hexagon class="bg-slate-400 ml-24" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
+      <Hexagon class="bg-slate-400" />
     </div>
-    <div class="row-start-2 col-start-4 col-span-2 align-self-center">
-      Backend
-    </div>
-    <div class="row-start-2 col-start-7 col-span-2 align-self-center">Data</div>
-    <div class="row-start-4 col-start-1 place-self-start pl-4">UI</div>
-    <div class="item"></div>
-    <div class="item"></div>
   </main>
-</Layout>
+</GlassLayout>
 
 <style>
-  main {
-    display: grid;
-    min-height: 100vh;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: min-content 5em repeat(6, 12%);
-    grid-gap: 10px;
+  h2 {
+    font-family: Arial, Helvetica, sans-serif;
   }
 
-  main:before,
-  main:after {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    content: "";
-    width: calc(100% / 3);
-    z-index: 0;
-    border: 1px solid hsla(230, 66%, 40%, 0.25);
-  }
-  main:after {
-    right: 0;
-    border: 1px solid hsla(230, 66%, 40%, 0.25);
-  }
-
-  .link-card {
-    list-style: none;
-    border: 1px solid hsla(230, 66%, 40%, 0.25);
-    background: linear-gradient(
-      200deg,
-      hsla(230, 66%, 40%, 0.2),
-      transparent 40%
-    );
+  h1 {
+    /* color: transparent;
+    text-shadow: 1px 1px 3px rgb(233, 233, 233);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background-clip: text;
+    background-color: rgb(61, 61, 61); */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: transparent;
+    text-shadow: 2px 2px 3px theme(colors.slate.100);
+    text-shadow: 2px 2px 3px rgba(241, 245, 255, 0.6);
+    background-clip: text;
   }
 </style>
