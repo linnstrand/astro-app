@@ -5,14 +5,19 @@ import backend from "./backend.json";
 import operations from "./operations.json";
 ---
 
-<div class="flex flex-wrap text-gray-200 min-w-[94rem] px-20">
+<div
+  class="flex flex-wrap text-gray-200 min-w-[94rem] px-20 justify-around max-w-screen-2xl pb-10"
+>
   <div class="mx-16 justify-center w-[34rem]">
+    <h2 class="mt-2 text-2xl text-center">Backend</h2>
     {backend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
   <div class="mx-16 justify-center w-[34rem]">
+    <h2 class="mt-2 text-2xl text-center">Frontend</h2>
     {frontend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
   <div class="mx-16 justify-center col-start-4 w-[34rem]">
+    <h2 class="mt-2 text-2xl text-center">Operations</h2>
     {operations.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
 </div>
@@ -26,29 +31,5 @@ import operations from "./operations.json";
     text-align: center;
     font-size: 0.8em;
     grid-row-gap: 0.25em;
-
-    h4::before,
-    h4::after {
-      content: "";
-      position: absolute;
-      width: 2.25em;
-      border-top: 3px solid theme(colors.gray.500);
-      z-index: 1;
-      top: 50%;
-      right: 100%;
-    }
-
-    h4::after {
-      left: 100%;
-    }
-
-    .child-list::before {
-      content: "";
-      position: absolute;
-      width: 1.5em;
-      border-top: 3px solid theme(colors.gray.500);
-      z-index: 1;
-      top: 1em;
-    }
   }
 </style>
