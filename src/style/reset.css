@@ -43,7 +43,7 @@ code {
   }
 
   .lines {
-    @apply border-2 border-gray-500 bg-gray-800;
+    @apply bg-gray-800 border-2 border-gray-500;
   }
   .lines-before {
     @apply before:absolute before:border-t-2 before:block before:z-10 before:top-4 before:border-gray-500;
@@ -51,4 +51,12 @@ code {
   .lines-after {
     @apply after:absolute after:border-t-2 after:block after:z-10 after:top-4 after:border-gray-500;
   }
+}
+.inset-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(241, 245, 255, 0.75), -1px 0 rgb(107, 107, 107),
+    0 1px rgb(106, 106, 106), 1px 0 rgb(114, 114, 114),
+    0 -1px rgb(119, 119, 119);
+  background-clip: text;
 }

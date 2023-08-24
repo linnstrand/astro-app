@@ -1,55 +1,57 @@
 ---
 import Hexagon from "../components/Hexagon2.astro";
-import GlassLayout from "../layouts/GlassLayout.astro";
+import GlassLayout from "../layouts/PaperLayout.astro";
 ---
 
 <GlassLayout title="Linn Strand">
-  <div class="absolute">
-    <h2 class="text-2xl font-bold text-gray-900">Web Developer</h2>
-  </div>
-  <main class="flex flex-row items-center w-screen min-h-screen bg-gray-200">
-    <div class="">
-      <h1 class="text-9xl antialiased font-bold tracking-wide bg-gray-500">
-        Linn Strand
-      </h1>
+  <main class="hexa-view items-center min-h-screen max-w-max bg-gray-200">
+    <div class="p-5">
+      <h1 class="text-9xl font-bold tracking-wide mb-5">Linn Strand</h1>
+
+      <h2 class="text-4xl font-bold text-gray-900 text-end">Web Developer</h2>
     </div>
-    <div class="w-[70rem] h-full">
-      <Hexagon class="bg-slate-400 invisible" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400 invisible" />
-      <Hexagon class="bg-slate-400 ml-24" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400 ml-24" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400 invisible" />
-      <Hexagon class="bg-slate-400" />
-      <Hexagon class="bg-slate-400" />
+    <div class="w-[720px]">
+      <Hexagon class="invisible" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="invisible" />
+      <Hexagon class="ml-24" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="ml-24" />
+      <Hexagon class="" />
+      <Hexagon class="" />
+      <Hexagon class="invisible" />
+      <Hexagon class="" />
+      <Hexagon class="" />
     </div>
   </main>
 </GlassLayout>
 
 <style>
+  .hexa-view {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-content: space-around;
+    grid-gap: 3rem;
+  }
   h2 {
     font-family: Arial, Helvetica, sans-serif;
   }
 
   h1 {
-    /* color: transparent;
-    text-shadow: 1px 1px 3px rgb(233, 233, 233);
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    background-clip: text;
-    background-color: rgb(61, 61, 61); */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: transparent;
-    text-shadow: 2px 2px 3px theme(colors.slate.100);
-    text-shadow: 2px 2px 3px rgba(241, 245, 255, 0.6);
+    /* color: transparent;
+    background: theme(colors.gray.200);
     background-clip: text;
+    text-shadow: 0px 3px 3px theme(colors.gray.800 / 20%); */
+    color: white;
+    text-shadow: 2px 2px 10px theme(colors.gray.800 / 40%),
+      5px 8px 5px theme(colors.gray.800 / 5%),
+      -5px 5px 5px theme(colors.gray.800 / 5%);
   }
 </style>

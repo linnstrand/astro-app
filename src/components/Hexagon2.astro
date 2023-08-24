@@ -3,12 +3,21 @@ const { title, size, class: className } = Astro.props;
 console.log("class", className);
 ---
 
-<div class=`hex z-0 relative ${className}`>
-  <div class="inner flex flex-col justify-center h-full">
-    <h4>{title}</h4>
+<div class=`hex ${className}`>
+  <div class=`hox z-10 ml-0 relative bg-white`>
+    <div class="inner flex flex-col justify-center h-full">
+      <h4>{title}</h4>
+    </div>
+    <div class="corner-1"></div>
+    <div class="corner-2"></div>
   </div>
-  <div class="corner-1"></div>
-  <div class="corner-2"></div>
+  <div class=`hox opacity-20 bg-gray-800 blur-sm top-2 left-2 absolute ml-0`>
+    <div class="inner flex flex-col justify-center h-full">
+      <h4></h4>
+    </div>
+    <div class="corner-1"></div>
+    <div class="corner-2"></div>
+  </div>
 </div>
 
 <style>
@@ -21,7 +30,12 @@ console.log("class", className);
     text-align: center;
     zoom: 1;
   }
-
+  .hox {
+    width: 166px;
+    height: 96px;
+    text-align: center;
+    zoom: 1;
+  }
   .hex.hex-gap {
     margin-left: 96px;
   }
