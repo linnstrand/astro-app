@@ -4,30 +4,29 @@ import GlassLayout from "../layouts/PaperLayout.astro";
 ---
 
 <GlassLayout title="Linn Strand">
-  <main class="hexa-view items-center min-h-screen max-w-max bg-gray-200">
+  <main class="hexa-view items-center min-h-screen w-max">
     <div class="p-5">
-      <h1 class="text-9xl font-bold tracking-wide mb-5">Linn Strand</h1>
-
-      <h2 class="text-4xl font-bold text-gray-900 text-end">Web Developer</h2>
+      <h1 class="text-9xl font-bold tracking-wide my-4">Linn Strand</h1>
+      <h2 class="text-4xl font-bold text-end">Web Developer</h2>
     </div>
     <div class="w-[720px]">
       <Hexagon class="invisible" />
-      <Hexagon class="" />
-      <Hexagon class="" />
+      <Hexagon />
+      <Hexagon />
       <Hexagon class="invisible" />
+      <Hexagon class="ml-24" title="Fullstack" description="Skill goals" />
+      <Hexagon image="/unicorn.svg" />
+      <Hexagon />
+      <Hexagon />
+      <Hexagon />
+      <Hexagon />
+      <Hexagon />
       <Hexagon class="ml-24" />
-      <Hexagon class="" />
-      <Hexagon class="" />
-      <Hexagon class="" />
-      <Hexagon class="" />
-      <Hexagon class="" />
-      <Hexagon class="" />
-      <Hexagon class="ml-24" />
-      <Hexagon class="" />
-      <Hexagon class="" />
+      <Hexagon />
+      <Hexagon />
       <Hexagon class="invisible" />
-      <Hexagon class="" />
-      <Hexagon class="" />
+      <Hexagon />
+      <Hexagon />
     </div>
   </main>
 </GlassLayout>
@@ -39,19 +38,20 @@ import GlassLayout from "../layouts/PaperLayout.astro";
     align-content: space-around;
     grid-gap: 3rem;
   }
+  h1,
   h2 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-  h1 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  h1,
+  h2 {
     /* color: transparent;
     background: theme(colors.gray.200);
     background-clip: text;
     text-shadow: 0px 3px 3px theme(colors.gray.800 / 20%); */
     color: white;
-    text-shadow: 2px 2px 10px theme(colors.gray.800 / 40%),
-      5px 8px 5px theme(colors.gray.800 / 5%),
-      -5px 5px 5px theme(colors.gray.800 / 5%);
+    text-shadow: 2px 2px 10px theme(colors.gray.800 / 50%),
+      5px 8px 5px theme(colors.gray.800 / 8%),
+      -5px 5px 5px theme(colors.gray.800 / 8%);
   }
 </style>

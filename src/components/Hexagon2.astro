@@ -1,20 +1,31 @@
 ---
-const { title, size, class: className } = Astro.props;
-console.log("class", className);
+const { title, description, image, class: className } = Astro.props;
 ---
 
-<div class=`hex ${className}`>
-  <div class=`hox z-10 ml-0 relative bg-white`>
-    <div class="inner flex flex-col justify-center h-full">
-      <h4>{title}</h4>
-    </div>
-    <div class="corner-1"></div>
-    <div class="corner-2"></div>
+<div class=`hex ${className} bg-white` style=`background-image: url(${image});`>
+  <div class=`relative`>
+    <a
+      class="border-teal-600/80 inner flex flex-col h-full text-teal-600"
+      href="#"
+    >
+      <h4 class="flex justify-center text-xl font-bold">
+        {title}
+      </h4>
+      {
+        description && (
+          <>
+            <hr class="border-inherit w-2/3 mx-auto my-2 shadow" />
+            <p class="">{description}</p>
+          </>
+        )
+      }
+      <!-- {image && <div style=`background-image: url(${image});"` />} -->
+    </a>
   </div>
-  <div class=`hox opacity-20 bg-gray-800 blur-sm top-2 left-2 absolute ml-0`>
-    <div class="inner flex flex-col justify-center h-full">
-      <h4></h4>
-    </div>
+  <div class="corner-1"></div>
+  <div class="corner-2"></div>
+  <div class=`hex-shadow opacity-20 bg-gray-800 blur-sm top-2 left-2 absolute `>
+    <div></div>
     <div class="corner-1"></div>
     <div class="corner-2"></div>
   </div>
@@ -22,75 +33,66 @@ console.log("class", className);
 
 <style>
   .hex {
-    width: 166px;
-    height: 96px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: auto 166px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
     float: left;
     margin: 30px 6px;
     text-align: center;
     zoom: 1;
-  }
-  .hox {
     width: 166px;
     height: 96px;
-    text-align: center;
-    zoom: 1;
-  }
-  .hex.hex-gap {
-    margin-left: 96px;
-  }
 
-  .hex .corner-1,
-  .hex .corner-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    overflow: hidden;
-    backface-visibility: hidden;
-  }
+    .corner-1,
+    .corner-2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      z-index: -2;
+      overflow: hidden;
+      backface-visibility: hidden;
+    }
 
-  .hex .corner-1 {
-    transform: rotate(60deg);
-  }
+    .corner-1:before,
+    .corner-2:before {
+      width: 190px;
+      height: 190px;
+      content: "";
+      position: absolute;
+      background: inherit;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background: inherit;
+      background-repeat: no-repeat;
+      backface-visibility: hidden;
+    }
+    .corner-1 {
+      transform: rotate(60deg);
+      z-index: -1;
+      &::before {
+        transform: rotate(-60deg) translate(-96px, 0px);
+        transform-origin: 0 0;
+      }
+    }
 
-  .hex .corner-2 {
-    transform: rotate(-60deg);
-  }
-
-  .hex .corner-1:before {
-    transform: rotate(-60deg) translate(calc(var(--tracksize) * -0.6), 0px);
-    transform-origin: 0 0;
-  }
-
-  .hex .corner-2:before {
-    transform: rotate(60deg) translate(calc(var(--tracksize) * -0.6), -210px);
-    bottom: 0;
-  }
-
-  /* Custom styles*/
-  .hex .inner {
-    color: #202020;
-  }
-
-  .hex h4 {
-    font-size: 1.6vmin;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  .hex hr {
-    border: 0;
-    border-top: 1px solid #202020;
-    width: 60%;
-    margin: 15px auto;
-  }
-
-  .hex p {
-    font-size: 1.5vmin;
-    width: 80%;
-    margin: 0 auto;
+    .corner-2 {
+      transform: rotate(-60deg);
+      &::before {
+        transform: rotate(60deg) translate(-48px, -14px);
+      }
+    }
+    .hex-shadow {
+      width: 166px;
+      height: 96px;
+      text-align: center;
+      zoom: 1;
+      z-index: -4;
+    }
   }
 </style>
