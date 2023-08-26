@@ -1,49 +1,71 @@
 ---
-const { title, description, image, class: className } = Astro.props;
+const { title, description, link, image, class: className } = Astro.props;
+console.log(link);
 ---
 
-<div class=`hex ${className} bg-white` style=`background-image: url(${image});`>
-  <div class=`relative`>
-    <a
-      class="border-teal-600/80 inner flex flex-col h-full text-teal-600"
-      href="#"
-    >
-      <h4 class="flex justify-center text-xl font-bold">
-        {title}
-      </h4>
-      {
-        description && (
-          <>
-            <hr class="border-inherit w-2/3 mx-auto my-2 shadow" />
-            <p class="">{description}</p>
-          </>
-        )
-      }
-      <!-- {image && <div style=`background-image: url(${image});"` />} -->
-    </a>
-  </div>
-  <div class="corner-1"></div>
-  <div class="corner-2"></div>
-  <div class=`hex-shadow opacity-20 bg-gray-800 blur-sm top-2 left-2 absolute `>
-    <div></div>
+<>
+  <div class=`hex ${className} bg-white mx-[6px] my-[30px] text-center
+    `>
+    <div class=`relative`>
+      <a
+        class="border-teal-600/80 inner flex flex-col h-full text-teal-600"
+        href={link}
+      >
+        <h4 class="flex justify-center text-xl font-bold">
+          {title}
+        </h4>
+        {
+          description && (
+            <>
+              <hr class="border-inherit w-2/3 mx-auto my-2 drop-shadow-sm" />
+              <p class="">{description}</p>
+            </>
+          )
+        }
+      </a>
+    </div>
     <div class="corner-1"></div>
     <div class="corner-2"></div>
+    {
+      image && (
+        <>
+          <div
+            class="image absolute"
+            style={`background-image: url(${image});`}
+          />
+        </>
+      )
+    }
+    <slot />
   </div>
-</div>
+</>
 
 <style>
+  :root {
+    --width: 168px;
+    --height: 97px;
+  }
+
   .hex {
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: auto 166px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
     float: left;
-    margin: 30px 6px;
-    text-align: center;
     zoom: 1;
-    width: 166px;
-    height: 96px;
+    width: var(--width);
+    height: var(--height);
+
+    filter: drop-shadow(4px 4px 4px theme(colors.gray.800 / 30%));
+
+    .image {
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: auto var(--width);
+      width: var(--width);
+      height: 195px;
+      top: -49px;
+      left: 0px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
 
     .corner-1,
     .corner-2 {
@@ -58,41 +80,13 @@ const { title, description, image, class: className } = Astro.props;
       backface-visibility: hidden;
     }
 
-    .corner-1:before,
-    .corner-2:before {
-      width: 190px;
-      height: 190px;
-      content: "";
-      position: absolute;
-      background: inherit;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      background: inherit;
-      background-repeat: no-repeat;
-      backface-visibility: hidden;
-    }
     .corner-1 {
       transform: rotate(60deg);
       z-index: -1;
-      &::before {
-        transform: rotate(-60deg) translate(-96px, 0px);
-        transform-origin: 0 0;
-      }
     }
 
     .corner-2 {
       transform: rotate(-60deg);
-      &::before {
-        transform: rotate(60deg) translate(-48px, -14px);
-      }
-    }
-    .hex-shadow {
-      width: 166px;
-      height: 96px;
-      text-align: center;
-      zoom: 1;
-      z-index: -4;
     }
   }
 </style>
