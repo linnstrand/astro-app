@@ -7,13 +7,16 @@ console.log(link);
   class=`hex ${className} bg-white mx-[6px] my-[30px] text-center transition ease-in-out duration-300 saturate-[.3] hover:saturate-100 
     `
 >
+  <div class="corner-1"></div>
+  <div class="corner-2"></div>
   <a
-    class="border-teal-600/80 inner flex flex-col h-full text-teal-600 justify-center"
+    class="border-teal-600/80 inner flex flex-col h-full text-teal-600 justify-center z-10"
     href={link}
   >
     <h4 class="flex justify-center text-xl font-bold">
       {title}
     </h4>
+    <slot />
     {
       description && (
         <>
@@ -23,20 +26,11 @@ console.log(link);
       )
     }
   </a>
-
-  <div class="corner-1"></div>
-  <div class="corner-2"></div>
   {
     image && (
-      <>
-        <div
-          class="image absolute"
-          style={`background-image: url(${image});`}
-        />
-      </>
+      <div class="image absolute" style={`background-image: url(${image});`} />
     )
   }
-  <slot />
 </div>
 
 <style>
@@ -80,7 +74,6 @@ console.log(link);
 
     .corner-1 {
       transform: rotate(60deg);
-      z-index: -1;
     }
 
     .corner-2 {

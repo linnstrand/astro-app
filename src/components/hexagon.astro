@@ -1,11 +1,10 @@
 ---
 const { title, class: className } = Astro.props;
-console.log("class", className);
 ---
 
-<div class=`hex ${className}`>
+<div class=`relative text-center hex ${className}`>
   <div class="inner flex flex-col justify-center h-full">
-    <h4>{title}</h4>
+    <h4 class=`${className} brightness-0 font-bold`>{title}</h4>
   </div>
   <div class="corner-1"></div>
   <div class="corner-2"></div>
@@ -15,17 +14,16 @@ console.log("class", className);
   .hex {
     width: calc(var(--tracksize) * 1);
     height: calc(var(--tracksize) * 0.575);
-    position: relative;
-    text-align: center;
-    zoom: 1;
   }
 
-  .hex.hex-gap {
-    margin-left: calc(var(--tracksize) * 0.6);
+  h4 {
+    color: transparent;
+    background-clip: text;
+    font-size: 1.6vmin;
   }
 
-  .hex .corner-1,
-  .hex .corner-2 {
+  .corner-1,
+  .corner-2 {
     position: absolute;
     top: 0;
     left: 0;
@@ -34,49 +32,22 @@ console.log("class", className);
     background: inherit;
     z-index: -2;
     overflow: hidden;
-    backface-visibility: hidden;
   }
 
-  .hex .corner-1 {
+  .corner-1 {
     z-index: -1;
     transform: rotate(60deg);
+    &:before {
+      transform: rotate(-60deg) translate(calc(var(--tracksize) * -0.6), 0px);
+      transform-origin: 0 0;
+    }
   }
 
-  .hex .corner-2 {
+  .corner-2 {
     transform: rotate(-60deg);
-  }
-
-  .hex .corner-1:before {
-    transform: rotate(-60deg) translate(calc(var(--tracksize) * -0.6), 0px);
-    transform-origin: 0 0;
-  }
-
-  .hex .corner-2:before {
-    transform: rotate(60deg) translate(calc(var(--tracksize) * -0.6), -210px);
-    bottom: 0;
-  }
-
-  /* Custom styles*/
-  .hex .inner {
-    color: #202020;
-  }
-
-  .hex h4 {
-    font-size: 1.6vmin;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  .hex hr {
-    border: 0;
-    border-top: 1px solid #202020;
-    width: 60%;
-    margin: 15px auto;
-  }
-
-  .hex p {
-    font-size: 1.5vmin;
-    width: 80%;
-    margin: 0 auto;
+    &:before {
+      transform: rotate(60deg) translate(calc(var(--tracksize) * -0.6), -210px);
+      bottom: 0;
+    }
   }
 </style>
