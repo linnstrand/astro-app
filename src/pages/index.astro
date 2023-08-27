@@ -6,31 +6,31 @@ import GlassLayout from "../layouts/PaperLayout.astro";
 ---
 
 <GlassLayout title="Linn Strand">
-  <main class="hexa-view items-center min-h-screen w-max">
+  <main class="hexa-view w-max items-center min-h-screen">
     <div class="p-5">
-      <h1 class="text-9xl font-bold tracking-wide my-4">Linn Strand</h1>
-      <h2 class="text-4xl font-bold text-end">Web Developer</h2>
+      <h1 class="text-9xl my-4 font-bold tracking-wide">Linn Strand</h1>
+      <h2 class="text-end text-4xl font-bold">Web Developer</h2>
     </div>
     <div class="w-[720px] text-size-9xl">
       <Hexagon class="invisible" />
       <Hexagon
-        gradient="bg-gradient-to-br from-teal-500 via-green-500 via-sky-500 via-indigo-500 to-purple-500"
+        gradient="bg-gradient-to-br from-green-400 via-teal-500 via via-blue-500 via-indigo-500 to-purple-500"
       >
         <div
-          class="absolute m-auto left-0 top-2 right-0 bottom-0 text-gray600 leading-tight"
+          class="top-2 absolute bottom-0 left-0 right-0 m-auto leading-tight text-teal-900"
         >
           <div
-            class="absolute lines before:absolute before:border-l-2 before:bottom-7 before:h-7 before:left-6 before:border-gray-500 p-1 border-2 bg-gray-200 border-gray-500 top-11 left-2 w-16 h-8"
+            class="before:absolute before:border-l-2 before:bottom-7 before:h-7 before:left-6 before:border-teal-800 top-11 left-2 absolute w-16 h-8 p-1 bg-white border-2 border-teal-800"
           >
             Tree
           </div>
           <div
-            class="absolute top-0 left-0 right-0 m-auto p-1 lines lines-before bg-gray-200 lines-after after:w-3 before:w-3 after:top-1/2 before:top-1/2 after:left-full before:right-full w-20 h-8"
+            class="after:w-3 after:absolute after:border-t-2 after:block after:z-10 after:border-teal-800 before:absolute before:border-t-2 before:block before:z-10 before:border-teal-800 before:w-3 after:top-1/2 before:top-1/2 after:left-full before:right-full absolute top-0 left-0 right-0 w-20 h-8 p-1 m-auto bg-white border-2 border-teal-800"
           >
             Graphs
           </div>
           <div
-            class="absolute lines before:absolute before:border-l-2 before:block before:z-10 before:bottom-7 before:h-7 before:right-6 before:border-gray-500 p-1 border-2 bg-gray-200 border-gray-500 top-11 right-2 w-16 h-8"
+            class="before:absolute before:border-l-2 before:block before:z-10 before:bottom-7 before:h-7 before:right-6 before:border-teal-800 top-11 right-2 absolute w-16 h-8 p-1 bg-white border-2 border-teal-800"
           >
             Sun
           </div>
@@ -53,7 +53,7 @@ import GlassLayout from "../layouts/PaperLayout.astro";
           pointer-events-none
           variant="cloud-1"
           color="bg-white"
-          class="relative m-auto left-0 right-0 bottom-2 w-8/12"
+          class="bottom-2 relative left-0 right-0 w-8/12 m-auto"
         >
           Sky
         </Cloud>
@@ -64,9 +64,10 @@ import GlassLayout from "../layouts/PaperLayout.astro";
       <Hexagon />
       <Hexagon class="invisible" />
       <Hexagon />
-      <Hexagon link="/gems">
-        <div class="m-auto left-0 right-0 bottom-2 pointer-events-none">
+      <Hexagon link="/shiny">
+        <div class="bottom-2 left-0 right-0 m-auto pointer-events-none">
           <Gem
+            title="Shiny"
             class="bg-gradient-to-r from-green-500/50 via-emerald-300 to-green-500/50"
           />
         </div>
