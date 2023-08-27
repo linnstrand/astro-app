@@ -2,7 +2,7 @@
 const { class: className, variant, color } = Astro.props;
 ---
 
-<div class=`ar h-auto ${className}`>
+<div class=`cloud-container h-auto ${className}`>
   <div
     class=`cloud absolute w-full text-center h-1/2 flex justify-center items-center ${variant} ${color || "default-color"}`
   >
@@ -17,15 +17,13 @@ const { class: className, variant, color } = Astro.props;
     border-radius: 30% 30% / 80% 80%;
     top: 40%;
     z-index: -1;
-    font-size: calc(1rem + 0.8vmin);
+    font-size: calc(1em + 0.8vmin);
     box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2), 10px 10px rgba(0, 0, 0, 0.2),
       inset 2px 9px 0px 0px rgb(255, 255, 255);
   }
 
-  .ar {
+  .cloud-container {
     aspect-ratio: 3 / 2;
-    max-width: 50vmin;
-    min-width: 15em;
   }
 
   .cloud-2 {

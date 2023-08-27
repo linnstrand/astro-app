@@ -1,5 +1,12 @@
 ---
-const { title, description, link, image, class: className } = Astro.props;
+const {
+  title,
+  description,
+  link,
+  image,
+  gradient,
+  class: className,
+} = Astro.props;
 ---
 
 <div
@@ -9,7 +16,7 @@ const { title, description, link, image, class: className } = Astro.props;
   <div class="corner-1"></div>
   <div class="corner-2"></div>
   <a
-    class="border-teal-600/80 inner flex flex-col h-full text-teal-600 justify-center z-10"
+    class="border-teal-600/80 inner flex flex-col h-full justify-center z-10"
     href={link}
   >
     <h4 class="flex justify-center text-xl font-bold">
@@ -25,6 +32,7 @@ const { title, description, link, image, class: className } = Astro.props;
       )
     }
   </a>
+  {gradient && <div class={`-z-[1] gradient absolute ${gradient}`} />}
   {
     image && (
       <div class="image absolute" style={`background-image: url(${image});`} />
@@ -48,15 +56,21 @@ const { title, description, link, image, class: className } = Astro.props;
     height: var(--height);
     filter: drop-shadow(4px 4px 4px theme(colors.gray.800 / 30%));
 
+    .gradient,
+    .image {
+      height: 195px;
+      top: -49px;
+      left: 0px;
+      width: var(--width);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background-repeat: no-repeat;
+    }
+
     .image {
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-size: auto var(--width);
       width: var(--width);
-      height: 195px;
-      top: -49px;
-      left: 0px;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
 
     .corner-1,
