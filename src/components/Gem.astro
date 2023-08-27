@@ -1,0 +1,53 @@
+---
+const { title, class: className } = Astro.props;
+---
+
+<div class=`relative text-center hex ${className}`>
+  <div class="inner flex flex-col justify-center h-full">
+    <h4 class=`${className} brightness-0 font-bold`>{title}</h4>
+  </div>
+  <div class="corner-1"></div>
+  <div class="corner-2"></div>
+</div>
+
+<style>
+  .hex {
+    width: calc(var(--tracksize) * 1);
+    height: calc(var(--tracksize) * 0.575);
+  }
+
+  h4 {
+    color: transparent;
+    background-clip: text;
+    font-size: 1.6vmin;
+  }
+
+  .corner-1,
+  .corner-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: -2;
+    overflow: hidden;
+  }
+
+  .corner-1 {
+    z-index: -1;
+    transform: rotate(60deg);
+    &:before {
+      transform: rotate(-60deg) translate(calc(var(--tracksize) * -0.6), 0px);
+      transform-origin: 0 0;
+    }
+  }
+
+  .corner-2 {
+    transform: rotate(-60deg);
+    &:before {
+      transform: rotate(60deg) translate(calc(var(--tracksize) * -0.6), -210px);
+      bottom: 0;
+    }
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import Cloud from "../components/Cloud.astro";
-import Hexagon from "../components/Hexagon2.astro";
-import Hex from "../components/hexagon.astro";
+import Hexagon from "../components/Hexagon.astro";
+import Gem from "../components/Gem.astro";
 import GlassLayout from "../layouts/PaperLayout.astro";
 ---
 
@@ -31,7 +31,7 @@ import GlassLayout from "../layouts/PaperLayout.astro";
           pointer-events-none
           variant="cloud-1"
           color="bg-white"
-          class="absolute w-32 h-24 m-auto left-0 right-0 bottom-2"
+          class="relative m-auto left-0 right-0 bottom-2 w-8/12 h-3/4"
         />
       </Hexagon>
       <Hexagon />
@@ -42,7 +42,7 @@ import GlassLayout from "../layouts/PaperLayout.astro";
       <Hexagon />
       <Hexagon link="/gems">
         <div class="m-auto left-0 right-0 bottom-2 pointer-events-none">
-          <Hex
+          <Gem
             class="bg-gradient-to-r from-green-500/50 via-emerald-300 to-green-500/50"
           />
         </div>
