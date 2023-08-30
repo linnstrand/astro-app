@@ -1,12 +1,6 @@
 import { useMemo, useRef, useLayoutEffect } from "react";
 import * as d3 from "d3";
-import {
-  RectanglePoints,
-  Data,
-  getDiscreteColors,
-  setColor,
-  processData,
-} from "./util";
+import { RectanglePoints, Data, setColor, processData } from "./util";
 import frontend from "../components/frontend.json";
 import backend from "../components/backend.json";
 import ops from "../components/operations.json";
@@ -107,11 +101,12 @@ export const SkillGraph = ({ size }: GraphParams) => {
       .attr("pointer-events", "none")
       .attr("text-anchor", "middle")
       .style("user-select", "none")
+      .style("user-select", "none")
       .selectAll<SVGTextElement, d3.HierarchyRectangularNode<Data>>("text")
       .data(rootNode.descendants().slice(1))
       .join("text")
       .attr("font-size", (d) => {
-        return `${Math.min(Math.floor((d.x1 - d.x0) * radius + 4), 14)}px`;
+        return `${Math.min(Math.floor((d.x1 - d.x0) * radius + 2), 14)}px`;
       })
       .attr("fill-opacity", (d) => +labelVisible(d.data.current))
       .attr("transform", (d) => labelTransform(d.data.current))
@@ -176,93 +171,8 @@ export const SkillGraph = ({ size }: GraphParams) => {
       .attr("cursor", (d) => (d.depth > 0 ? "pointer" : "default"));
     const text = container.selectChild("text").attr("opacity", 0);
 
-    const wrap = (words: string[], width: number) => {
-      text.each(function () {
-        let line: string[] = [],
-          lineNumber = 0,
-          lineHeight = 1.1, // ems
-          word: string | undefined = "",
-          y = 0,
-          dy = 0,
-          tspan = text
-            .text(null)
-            .append("tspan")
-            .attr("x", 0)
-            .attr("y", y)
-            .attr("dy", dy + "em");
-
-        while ((word = words.pop())) {
-          line.push(word);
-          tspan.text(line.join("/"));
-          const tLength = tspan.node()?.getComputedTextLength() ?? 0;
-          if (tLength > width) {
-            line.pop();
-            tspan.text(line.join("/"));
-            line = [word];
-            tspan = text
-              .append("tspan")
-              .attr("x", 0)
-              .attr("y", y)
-              .attr("dy", ++lineNumber * lineHeight + dy + "em")
-              .text(word);
-          }
-        }
-      });
-    };
-
-    // text
-    //   .text(() => {
-    //     return `${active
-    //       .ancestors()
-    //       .map((d) => d.data.name)
-    //       .reverse()
-    //       .join("/")}`;
-    //   })
-    //   .transition()
-    //   .duration(750)
-    //   .attr("opacity", 1);
-
-    wrap(
-      active.ancestors().map((d) => d.data.name),
-      radius
-    );
-
+    text.text(active.data.name).transition().duration(750);
     text.transition().duration(750).attr("opacity", 1);
-
-    // text.html(() => {
-    //   const t = active
-    //     .ancestors()
-    //     .map((d) => d.data.name)
-    //     .reverse();
-
-    //   return `<div>${t.join("/")}</div>`;
-    // });
-    // .text(() => {
-    //   return `${active
-    //     .ancestors()
-    //     .map((d) => d.data.name)
-    //     .reverse()
-    //     .join("/")}`;
-    // })
-    // .transition()
-    // .duration(750)
-    // .attr("opacity", 1);
-
-    // text
-    //   .selectAll("tspan")
-    //   .data(() => {
-    //     const t = active
-    //       .ancestors()
-    //       .map((d) => d.data.name)
-    //       .reverse();
-    //     console.log(t);
-    //     return t;
-    //   })
-    //   .join("tpath")
-    //   .text((t) => t);
-    // text.attr("x", 2).attr("dy", "1em");
-
-    // text.transition().duration(750).attr("opacity", 1);
 
     // for x: we are building left and right curve from the clicked element.
     // It needs to grow to fill the same percantage of the parent.
@@ -321,7 +231,7 @@ export const SkillGraph = ({ size }: GraphParams) => {
 
   return (
     <>
-      <div className="container">
+      <div className="m-2">
         <svg
           width={`${size}px`}
           height={`${size}px`}
