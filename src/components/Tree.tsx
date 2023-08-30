@@ -1,6 +1,9 @@
 import * as d3 from "d3";
 import { useLayoutEffect, useRef, useState } from "react";
-import { Data, getDiscreteColors, sortByHeight } from "./util";
+import { Data, getDiscreteColors, processData, sortByHeight } from "./util";
+import frontend from "../components/frontend.json";
+import backend from "../components/backend.json";
+import ops from "../components/operations.json";
 
 type PointNode = d3.HierarchyPointNode<Data>;
 
@@ -23,12 +26,23 @@ const FONTCOLOR = "#eee";
 const ANIMATION_TIMER = 1000;
 const size = 1000;
 
-export const Tree = ({ data }: any) => {
+const joined = {
+  name: "skills",
+  children: [
+    { name: "frontend", children: frontend },
+    { name: "backend", children: backend },
+    { name: "operations", children: ops },
+  ],
+};
+export const Tree = () => {
+  const colorSetter = getDiscreteColors(
+    frontend.length + backend.length + ops.length + 1
+  );
+  const graphData = processData(joined);
+
   const svgRef = useRef<SVGSVGElement>(null);
   const nodesRef = useRef<SVGSVGElement>(null);
   const linesRef = useRef<SVGSVGElement>(null);
-
-  const colorSetter = getDiscreteColors(data.children?.length || 0 + 1);
 
   const [layout, setLayout] = useState<LayoutT | null>(null);
   const [labelLength, setLabelLength] = useState(60);
@@ -121,6 +135,7 @@ export const Tree = ({ data }: any) => {
       .selectAll("path")
       .data(() => root.links())
       .join("path")
+      .attr("fill", "none")
       .attr("stroke", (d: d3.HierarchyPointLink<Data>) => d.target.data.color);
 
     links
@@ -178,7 +193,11 @@ export const Tree = ({ data }: any) => {
     treeLayout: d3.TreeLayout<Data> | d3.ClusterLayout<Data>,
     isCluster: boolean
   ) => {
-    const hierarchy = createColorfulHierarchy(treeLayout, data, colorSetter);
+    const hierarchy = createColorfulHierarchy(
+      treeLayout,
+      graphData,
+      colorSetter
+    );
     treeLayout.size([size, size]);
 
     let nodeLength = labelLength;
@@ -266,7 +285,11 @@ const createColorfulHierarchy = (
   ) => {
     d.data.color = branchColor;
     if (!d.children) return;
-    d.children.forEach((c) => setBranchColor(c, branchColor));
+    if (d.depth < 3) {
+      d.children.forEach((c) => setBranchColor(c, colorSetter(d.data.name)));
+    } else {
+      d.children.forEach((c) => setBranchColor(c, branchColor));
+    }
   };
 
   hierarchy.children?.forEach((d) =>

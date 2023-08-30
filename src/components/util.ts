@@ -19,19 +19,29 @@ export interface RectanglePoints {
   y1: number;
 }
 
-export const setBranchColor = (
-  d: d3.HierarchyRectangularNode<Data>,
-  branchColor: string
+export const setColor = (
+  node: d3.HierarchyNode<Data>,
+  colorSetter: d3.ScaleOrdinal<string, string, never>
 ) => {
-  // We increase brightness for items with children
-  const { l, c, h } = d3.lch(branchColor);
-  if (!d.children) {
-    d.data.color = d3.lch(l + 15, c, h).toString();
-    return;
-  }
-  // some color tweaking
-  d.data.color = d3.lch(l + 5, c - 10, h).toString();
-  d.children.forEach((c) => setBranchColor(c, branchColor));
+  const setBranchColor = (
+    d: d3.HierarchyNode<Data>,
+    branchColor: string,
+    index: number
+  ) => {
+    // We increase brightness for items with children
+    const { l, c, h } = d3.lch(branchColor);
+    if (!d.children) {
+      d.data.color = d3.lch(l + 15, c, h + index * 1 - 5).toString();
+      return;
+    }
+    // some color tweaking
+    d.data.color = d3.lch(l, c, h + index * 2).toString();
+
+    d.children.forEach((c, i) => setBranchColor(c, branchColor, i * index));
+  };
+  node.children?.forEach((d, i) =>
+    setBranchColor(d, colorSetter(d.data.name), i + 1)
+  );
 };
 
 export const processData = ({

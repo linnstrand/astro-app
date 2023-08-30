@@ -4,21 +4,37 @@ import {
   RectanglePoints,
   Data,
   getDiscreteColors,
-  setBranchColor,
+  setColor,
+  processData,
 } from "./util";
+import frontend from "../components/frontend.json";
+import backend from "../components/backend.json";
+import ops from "../components/operations.json";
 
 interface GraphParams {
-  data: Data;
   size: number;
 }
+const joined = {
+  name: "skills",
+  children: [
+    { name: "frontend", children: frontend },
+    { name: "backend", children: backend },
+    { name: "operations", children: ops },
+  ],
+};
 
 const rings = 4;
 
-export const SkillGraph = ({ data, size }: GraphParams) => {
+export const SkillGraph = ({ size }: GraphParams) => {
+  const colorSetter = d3.scaleOrdinal(
+    d3.quantize(
+      d3.piecewise(d3.interpolateHsl, ["#3b82f6", "#10b98199", "#f9a8d4"]),
+      3
+    )
+  );
+  const data = processData(joined);
   const ref = useRef<SVGSVGElement>(null);
   const radius = size / (rings * 2);
-
-  const colorSetter = getDiscreteColors((data.children?.length || 0) + 1);
 
   const rootNode: d3.HierarchyRectangularNode<Data> = useMemo(() => {
     const hirarchy = d3.hierarchy(data);
@@ -29,9 +45,9 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
       .size([2 * Math.PI, hirarchy.height + 1])(
       hirarchy
     ) as d3.HierarchyRectangularNode<Data>;
-    partition.children?.forEach((d) =>
-      setBranchColor(d, colorSetter(d.data.name))
-    );
+
+    setColor(partition, colorSetter);
+
     return partition.each((d) => (d.data.current = d));
   }, [data, size]);
 
@@ -95,7 +111,7 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
       .data(rootNode.descendants().slice(1))
       .join("text")
       .attr("font-size", (d) => {
-        return `${Math.min(Math.floor((d.x1 - d.x0) * radius + 2), 14)}px`;
+        return `${Math.min(Math.floor((d.x1 - d.x0) * radius + 4), 14)}px`;
       })
       .attr("fill-opacity", (d) => +labelVisible(d.data.current))
       .attr("transform", (d) => labelTransform(d.data.current))
@@ -105,7 +121,7 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
       .append("text")
       .text(rootNode.data.name)
       .attr("text-anchor", "middle")
-      .attr("font-size", "18px")
+      .attr("font-size", "1.2rem")
       .attr("fill", "#ccc");
 
     const center = container
@@ -117,7 +133,6 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
       .attr("class", "parent")
       .attr("fill", "none")
       .attr("pointer-events", "all")
-      .attr("cursor", (d) => (d.depth > 0 ? "pointer" : "default"))
       .on("click", (_, c) => clicked(c, center, container, slices, labels));
 
     return () => {
@@ -128,14 +143,14 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
 
   /**
    *
-   * @param p The clicked element
+   * @param active The clicked element
    * @param center Center circle
    * @param container To update the animations
    * @param slices Change the position of slices, their visibility and animate them
    * @param labels  Change the position of labels, their visibility and animate them
    */
   function clicked(
-    p: d3.HierarchyRectangularNode<Data>,
+    active: d3.HierarchyRectangularNode<Data>,
     center: d3.Selection<
       SVGCircleElement,
       d3.HierarchyRectangularNode<Data>,
@@ -156,19 +171,98 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
       d3.HierarchyRectangularNode<Data>
     >
   ) {
-    center.datum(p?.parent || rootNode);
+    center
+      .datum(active?.parent || rootNode)
+      .attr("cursor", (d) => (d.depth > 0 ? "pointer" : "default"));
     const text = container.selectChild("text").attr("opacity", 0);
-    text
-      .text(() => {
-        return `${p
-          .ancestors()
-          .map((d) => d.data.name)
-          .reverse()
-          .join("/")}`;
-      })
-      .transition()
-      .duration(750)
-      .attr("opacity", 1);
+
+    const wrap = (words: string[], width: number) => {
+      text.each(function () {
+        let line: string[] = [],
+          lineNumber = 0,
+          lineHeight = 1.1, // ems
+          word: string | undefined = "",
+          y = 0,
+          dy = 0,
+          tspan = text
+            .text(null)
+            .append("tspan")
+            .attr("x", 0)
+            .attr("y", y)
+            .attr("dy", dy + "em");
+
+        while ((word = words.pop())) {
+          line.push(word);
+          tspan.text(line.join("/"));
+          const tLength = tspan.node()?.getComputedTextLength() ?? 0;
+          if (tLength > width) {
+            line.pop();
+            tspan.text(line.join("/"));
+            line = [word];
+            tspan = text
+              .append("tspan")
+              .attr("x", 0)
+              .attr("y", y)
+              .attr("dy", ++lineNumber * lineHeight + dy + "em")
+              .text(word);
+          }
+        }
+      });
+    };
+
+    // text
+    //   .text(() => {
+    //     return `${active
+    //       .ancestors()
+    //       .map((d) => d.data.name)
+    //       .reverse()
+    //       .join("/")}`;
+    //   })
+    //   .transition()
+    //   .duration(750)
+    //   .attr("opacity", 1);
+
+    wrap(
+      active.ancestors().map((d) => d.data.name),
+      radius
+    );
+
+    text.transition().duration(750).attr("opacity", 1);
+
+    // text.html(() => {
+    //   const t = active
+    //     .ancestors()
+    //     .map((d) => d.data.name)
+    //     .reverse();
+
+    //   return `<div>${t.join("/")}</div>`;
+    // });
+    // .text(() => {
+    //   return `${active
+    //     .ancestors()
+    //     .map((d) => d.data.name)
+    //     .reverse()
+    //     .join("/")}`;
+    // })
+    // .transition()
+    // .duration(750)
+    // .attr("opacity", 1);
+
+    // text
+    //   .selectAll("tspan")
+    //   .data(() => {
+    //     const t = active
+    //       .ancestors()
+    //       .map((d) => d.data.name)
+    //       .reverse();
+    //     console.log(t);
+    //     return t;
+    //   })
+    //   .join("tpath")
+    //   .text((t) => t);
+    // text.attr("x", 2).attr("dy", "1em");
+
+    // text.transition().duration(750).attr("opacity", 1);
 
     // for x: we are building left and right curve from the clicked element.
     // It needs to grow to fill the same percantage of the parent.
@@ -179,15 +273,21 @@ export const SkillGraph = ({ data, size }: GraphParams) => {
         (d.data.target = {
           ...d.data.target,
           x0:
-            Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) *
+            Math.max(
+              0,
+              Math.min(1, (d.x0 - active.x0) / (active.x1 - active.x0))
+            ) *
             2 *
             Math.PI,
           x1:
-            Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) *
+            Math.max(
+              0,
+              Math.min(1, (d.x1 - active.x0) / (active.x1 - active.x0))
+            ) *
             2 *
             Math.PI,
-          y0: Math.max(0, d.y0 - p.depth),
-          y1: Math.max(0, d.y1 - p.depth),
+          y0: Math.max(0, d.y0 - active.depth),
+          y1: Math.max(0, d.y1 - active.depth),
         })
     );
 

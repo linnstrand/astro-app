@@ -1,15 +1,19 @@
 ---
-import { SkillGraph } from "../components/SkillGraph";
-import Layout from "../layouts/Layout.astro";
+import GraphLayout from "../layouts/GraphLayout.astro";
+
+import { Tree } from "../components/Tree";
 ---
 
-<Layout title="Linn Strand">
+<GraphLayout title="Linn Strand">
   <main class="w-screen text-center">
-    <SkillGraph size={1200} client:only="react" />
+    <Tree client:only="react" />
   </main>
-</Layout>
+</GraphLayout>
 
 <style>
+  path {
+    fill: none;
+  }
   .tree-container {
     display: flex;
     position: relative;
