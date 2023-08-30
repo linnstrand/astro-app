@@ -231,7 +231,7 @@ export const SkillGraph = ({ size }: GraphParams) => {
 
   return (
     <>
-      <div className="m-2">
+      <div className="flex items-center justify-center h-full">
         <svg
           width={`${size}px`}
           height={`${size}px`}
