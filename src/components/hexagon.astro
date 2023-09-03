@@ -10,30 +10,31 @@ const {
 ---
 
 <div
-  class=`hex ${className} mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
+  class=`hex ${className} relative float-left mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
 >
-  <div class="corner-1"></div>
-  <div class="corner-2"></div>
+  <div
+    class="corner-1 -z-10 absolute top-0 left-0 w-full h-full overflow-hidden rotate-[60deg]"
+  >
+  </div>
+  <div
+    class="corner-2 -z-10 absolute top-0 left-0 w-full h-full overflow-hidden -rotate-[60deg]"
+  >
+  </div>
   <a
     class="border-teal-600/80 inner z-10 flex flex-col items-center justify-center h-full"
     href={link}
   >
-    <h3 class="flex justify-center text-xl font-bold">
-      {title}
-    </h3>
+    {title && <h3 class="flex justify-center text-xl font-bold">{title}</h3>}
     <slot />
-    {
-      description && (
-        <>
-          <p>{description}</p>
-        </>
-      )
-    }
+    {description && <p>{description}</p>}
   </a>
   {gradient && <div class={`-z-[1] gradient absolute ${gradient}`} />}
   {
     image && (
-      <div class="image absolute" style={`background-image: url(${image});`} />
+      <div
+        class="image absolute left-0 bg-center bg-no-repeat"
+        style={`background-image: url(${image});`}
+      />
     )
   }
 </div>
@@ -46,8 +47,6 @@ const {
 
   .hex {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    position: relative;
-    float: left;
     background-color: theme(colors.white);
     zoom: 1;
     width: var(--width);
@@ -57,46 +56,18 @@ const {
     .image {
       height: 195px;
       top: -49px;
-      left: 0px;
       width: var(--width);
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background-repeat: no-repeat;
     }
 
     .image {
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
       background-size: auto var(--width);
       width: var(--width);
     }
 
     .corner-1,
     .corner-2 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       background: inherit;
-      z-index: -2;
-      overflow: hidden;
-      backface-visibility: hidden;
-    }
-
-    .corner-1 {
-      transform: rotate(60deg);
-    }
-
-    .corner-2 {
-      transform: rotate(-60deg);
-    }
-
-    p,
-    h4 {
-      background-color: theme(colors.teal.900);
-      color: transparent;
-      text-shadow: 0px 0px 1px theme(colors.teal.600);
-      background-clip: text;
     }
   }
 </style>

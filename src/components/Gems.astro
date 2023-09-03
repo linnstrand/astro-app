@@ -1,7 +1,7 @@
 ---
 import { processData } from "../components/util";
 import fullstack from "../fullstack.json";
-import Hexagon from "./Gem.astro";
+import Gem from "./Gem.astro";
 
 const data = processData(fullstack);
 ---
@@ -10,49 +10,47 @@ const data = processData(fullstack);
   <div
     id="visual"
     data-countchildren
-    class="flex flex-col items-center justify-center text-white"
+    class="m-x-auto relative flex flex-col items-center justify-center m-auto text-white"
   >
-    <div class="dot">
-      <Hexagon
-        title="Frontend"
-        class="bg-gradient-to-r from-sky-500/50 via-cyan-300 to-sky-500/50"
-      />
-    </div>
-    <div class="dot">
-      <Hexagon
-        title="Backend"
-        class="bg-gradient-to-r from-indigo-500/50 via-blue-300 to-indigo-500/50"
-      />
-    </div>
-    <div class="dot">
-      <Hexagon
-        title="Database"
-        class="bg-gradient-to-r from-purple-500/50 via-fuchsia-300 to-purple-500/50"
-      />
-    </div>
-    <div class="dot">
-      <Hexagon
-        title="Operations"
-        class="bg-gradient-to-r from-red-500/50 via-pink-300 to-red-500/50"
-      />
-    </div>
-    <div class="dot">
-      <Hexagon
-        title="Infrastructure"
-        class="bg-gradient-to-r from-yellow-500/50 via-yellow-200 to-yellow-500/50"
-      />
-    </div>
-    <div class="dot">
-      <Hexagon
-        title="Hexagons"
-        class="bg-gradient-to-r from-green-500/50 via-emerald-300 to-green-500/50"
-      />
-    </div>
-    <h1 class="text-effect text-4xl text-center p-6 absolute">Fullstack</h1>
+    <Gem
+      title="Frontend"
+      class="bg-gradient-to-r from-sky-500/50 via-cyan-300 to-sky-500/50"
+    />
+
+    <Gem
+      title="Backend"
+      class="bg-gradient-to-r from-indigo-500/50 via-blue-300 to-indigo-500/50"
+    />
+
+    <Gem
+      title="Database"
+      class="bg-gradient-to-r from-purple-500/50 via-fuchsia-300 to-purple-500/50"
+    />
+
+    <Gem
+      title="Operations"
+      class="bg-gradient-to-r from-red-500/50 via-pink-300 to-red-500/50"
+    />
+
+    <Gem
+      title="Infrastructure"
+      class="bg-gradient-to-r from-yellow-500/50 via-yellow-200 to-yellow-500/50"
+    />
+
+    <Gem
+      title="Hexagons"
+      class="bg-gradient-to-r from-green-500/50 via-emerald-300 to-green-500/50"
+    />
+
+    <h1
+      class="text-effect bg-clip-text absolute p-6 font-sans text-4xl font-bold text-center text-transparent text-[5vmin] contrast-125 brightness-200"
+    >
+      Fullstack
+    </h1>
   </div>
 </div>
 
-<style>
+<style is:global>
   @property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -93,17 +91,10 @@ const data = processData(fullstack);
 
   #visual {
     width: calc(var(--radius) * 2 + var(--tracksize));
-    margin: 0 auto;
-    position: relative;
   }
-
   .dot {
     --angle-offset: calc(var(--nth-child) * calc(360deg / 6));
-    display: grid;
-    place-content: center;
     width: var(--tracksize);
-    aspect-ratio: 1;
-    position: absolute;
     left: calc(50% - (var(--tracksize) / 2));
     top: calc(50% - (var(--tracksize) / 2));
     translate: calc(cos((var(--angle) + var(--angle-offset))) * var(--radius))
@@ -120,11 +111,7 @@ const data = processData(fullstack);
       theme(colors.indigo.500) 70%,
       theme(colors.purple.500) 85%
     );
-    background-clip: text;
-    color: transparent;
+
     filter: contrast(110%) brightness(190%);
-    font-family: sans-serif;
-    font-weight: 700;
-    font-size: 5vmin;
   }
 </style>
