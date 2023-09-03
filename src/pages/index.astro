@@ -2,16 +2,22 @@
 import Cloud from "../components/Cloud.astro";
 import Hexagon from "../components/Hexagon.astro";
 import Gem from "../components/Gem.astro";
-import GlassLayout from "../layouts/PaperLayout.astro";
+import PaperLayout from "../layouts/PaperLayout.astro";
 ---
 
-<GlassLayout title="Linn Strand">
-  <main class="hexa-view w-max items-center min-h-screen">
-    <div class="p-5">
-      <h1 class="text-9xl my-4 font-bold tracking-wide">Linn Strand</h1>
-      <h2 class="text-end text-4xl font-bold">Web Developer</h2>
-    </div>
-    <div class="w-[720px] text-size-9xl">
+<PaperLayout title="Linn Strand">
+  <main
+    class="lg:w-screen min-h-screen content-start grid gap-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6"
+  >
+    <h1
+      class="text-8xl px-3 font-bold tracking-wide 2xl:whitespace-nowrap row-start-2 xl:text-8xl"
+    >
+      Linn Strand
+    </h1>
+    <h2 class="text-right pr-5 text-3xl font-bold row-start-3 xl:text-4xl">
+      Web Developer
+    </h2>
+    <div class="row-span-4 place-self-center w-[740px] scale-90 xl:scale-100">
       <Hexagon class="invisible" />
       <Hexagon
         link="https://linnstrand.github.io/graph-craft/"
@@ -61,7 +67,10 @@ import GlassLayout from "../layouts/PaperLayout.astro";
       </Hexagon>
       <Hexagon />
       <Hexagon class="ml-24" />
-      <Hexagon />
+      <Hexagon>
+        <div class="sun"></div>
+        <div class="shard bg-white"></div>
+      </Hexagon>
       <Hexagon />
       <Hexagon class="invisible" />
       <Hexagon />
@@ -81,11 +90,49 @@ import GlassLayout from "../layouts/PaperLayout.astro";
       --radius: 25vmin;
       --tracksize: 10vmin;
     }
+    .sun {
+      width: 7em;
+      height: 7em;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+      background-color: pink;
+      background-color: transparent;
+      border: 2em solid pink;
+      &:before {
+        content: "";
+        height: 5.5em;
+        width: 5.5em;
+        border-radius: 50%;
+        background-color: yellow;
+        /* clip-path: circle(50% at 0 0); */
+        position: absolute;
+        top: 0.75em;
+        left: 0.75em;
+      }
+      &:after {
+        content: "";
+        height: 4em;
+        width: 4em;
+        border-radius: 50%;
+        background-color: green;
+        /* clip-path: circle(50% at 0 0); */
+        position: absolute;
+        top: 1.5em;
+        left: 1.5em;
+      }
+    }
+    .shard {
+      height: 4em;
+      width: 4em;
+      background-color: aqua;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+    }
+
     .hexa-view {
-      display: grid;
       grid-template-columns: min-content 1fr;
-      align-content: space-around;
-      grid-gap: 3rem;
     }
     h1,
     h2 {
@@ -112,4 +159,4 @@ import GlassLayout from "../layouts/PaperLayout.astro";
       );
     }
   </style>
-</GlassLayout>
+</PaperLayout>
