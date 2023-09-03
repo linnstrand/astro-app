@@ -7,20 +7,22 @@ import PaperLayout from "../layouts/PaperLayout.astro";
 
 <PaperLayout title="Linn Strand">
   <main
-    class="lg:w-screen min-h-screen content-start grid gap-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6"
+    class="w-fit m-auto min-h-screen content-start grid gap-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6"
   >
     <h1
-      class="text-8xl 2xl:whitespace-nowrap xl:text-8xl row-start-2 px-3 font-bold tracking-wide"
+      class="text-8xl 2xl:whitespace-nowrap lg:text-left row-start-2 pl-3 font-bold tracking-wide text-center duration-500 transition-[background-image]"
     >
       Linn Strand
     </h1>
-    <h2 class="xl:text-4xl row-start-3 pr-5 text-3xl font-bold text-right">
+    <h2
+      class="xl:text-4xl row-start-3 pr-5 text-3xl font-bold text-right ease-in-out"
+    >
       Web Developer
     </h2>
     <div class="row-span-4 place-self-center w-[740px] scale-90 xl:scale-100">
       <Hexagon class="invisible" />
       <Hexagon
-        link="https://linnstrand.github.io/graph-craft/"
+        link="/fullstack"
         gradient="bg-gradient-to-br from-green-400 via-teal-500 via via-blue-500 via-indigo-500 to-purple-500"
       >
         <div
@@ -29,17 +31,17 @@ import PaperLayout from "../layouts/PaperLayout.astro";
           <div
             class="before:absolute before:border-l-2 before:bottom-7 before:h-7 before:left-6 before:border-teal-800 top-11 left-2 absolute w-16 h-8 p-1 bg-white border-2 border-teal-800"
           >
-            Tree
+            Flow
           </div>
           <div
             class="after:w-3 after:absolute after:border-t-2 after:block after:z-10 after:border-teal-800 before:absolute before:border-t-2 before:block before:z-10 before:border-teal-800 before:w-3 after:top-1/2 before:top-1/2 after:left-full before:right-full absolute top-0 left-0 right-0 w-20 h-8 p-1 m-auto bg-white border-2 border-teal-800"
           >
-            Graphs
+            Skills
           </div>
           <div
             class="before:absolute before:border-l-2 before:block before:z-10 before:bottom-7 before:h-7 before:right-6 before:border-teal-800 top-11 right-2 absolute w-16 h-8 p-1 bg-white border-2 border-teal-800"
           >
-            Sun
+            Chart
           </div>
         </div>
       </Hexagon>
@@ -47,9 +49,9 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       <Hexagon class="invisible" />
       <Hexagon
         class="ml-24 text-teal-600"
-        title="Fullstack"
-        link="/fullstack"
-        description="Skill goals"
+        title="Github"
+        link="https://github.com/linnstrand"
+        description="/linnstrand"
       />
       <Hexagon />
       <Hexagon />
@@ -67,9 +69,17 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       </Hexagon>
       <Hexagon />
       <Hexagon class="ml-24" />
-      <Hexagon>
-        <div class="sun"></div>
-        <div class="shard bg-white"></div>
+      <Hexagon link="skills">
+        <div
+          class="sun aspect-square hover:motion-safe:animate-spin absolute bg-transparent rounded-full"
+        >
+        </div>
+        <div class="aspect-square absolute bg-white rounded-full"></div>
+        <div
+          class="absolute font-semibold text-center text-purple-950/80 translate-y-[3.4em]"
+        >
+          Sunburst
+        </div>
       </Hexagon>
       <Hexagon />
       <Hexagon class="invisible" />
@@ -93,47 +103,39 @@ import PaperLayout from "../layouts/PaperLayout.astro";
     .sun {
       width: 7em;
       height: 7em;
-      border-radius: 50%;
-      aspect-ratio: 1 / 1;
-      position: absolute;
-      background-color: pink;
-      background-color: transparent;
-      border: 2em solid pink;
+      border: 1em solid theme(colors.indigo.200);
+      border-top: 1em solid theme(colors.purple.200);
+      border-left: 1em solid theme(colors.violet.200);
+      border-right: 1em solid theme(colors.blue.200);
+
       &:before {
         content: "";
         height: 5.5em;
         width: 5.5em;
         border-radius: 50%;
-        background-color: yellow;
-        /* clip-path: circle(50% at 0 0); */
+        border: 1em solid theme(colors.indigo.300);
+        border-top: 1em solid theme(colors.purple.300);
+        border-left: 1em solid theme(colors.violet.300);
+        border-right: 1em solid theme(colors.blue.300);
         position: absolute;
-        top: 0.75em;
-        left: 0.75em;
+        top: -0.25em;
+        left: -0.25em;
       }
       &:after {
         content: "";
         height: 4em;
         width: 4em;
         border-radius: 50%;
-        background-color: green;
-        /* clip-path: circle(50% at 0 0); */
+        border: 1em solid theme(colors.indigo.400);
+        border-top: 1em solid theme(colors.purple.400);
+        border-left: 1em solid theme(colors.violet.400);
+        border-right: 1em solid theme(colors.blue.400);
         position: absolute;
-        top: 1.5em;
-        left: 1.5em;
+        top: 0.5em;
+        left: 0.5em;
       }
     }
-    .shard {
-      height: 4em;
-      width: 4em;
-      background-color: aqua;
-      border-radius: 50%;
-      aspect-ratio: 1 / 1;
-      position: absolute;
-    }
 
-    .hexa-view {
-      grid-template-columns: min-content 1fr;
-    }
     h1,
     h2 {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -142,13 +144,15 @@ import PaperLayout from "../layouts/PaperLayout.astro";
     h1,
     h2 {
       color: white;
-      text-shadow: 2px 2px 10px theme(colors.gray.800 / 50%),
-        5px 8px 5px theme(colors.gray.800 / 8%),
-        -5px 5px 5px theme(colors.gray.800 / 8%);
+      background-color: theme(colors.gray.600);
+      background-clip: text;
+      color: transparent;
+      text-shadow: theme(colors.white / 50%) 0px 3px 4px,
+        theme(colors.white / 12%) 1px 1px 6px;
     }
 
-    .rainbow {
-      background: linear-gradient(
+    h2:hover {
+      background-image: linear-gradient(
         109.6deg,
         theme(colors.red.500) 25%,
         theme(colors.yellow.500) 35%,

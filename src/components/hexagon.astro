@@ -18,14 +18,14 @@ const {
     class="border-teal-600/80 inner z-10 flex flex-col items-center justify-center h-full"
     href={link}
   >
-    <h4 class="flex justify-center text-xl font-bold">
+    <h3 class="flex justify-center text-xl font-bold">
       {title}
-    </h4>
+    </h3>
     <slot />
     {
       description && (
         <>
-          <p class="font-bold">{description}</p>
+          <p>{description}</p>
         </>
       )
     }

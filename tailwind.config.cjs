@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       dropShadow: {
-        strong: "4px 4px 4px rgba(31, 41, 55, 0.3)",
+        strong: "4px 4px 4px rgba(31, 41, 55, 0.38)",
       },
     },
   },
