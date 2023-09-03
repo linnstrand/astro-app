@@ -6,7 +6,7 @@ const { class: className, variant, color } = Astro.props;
   <div
     class=`cloud absolute w-full text-center h-1/2 flex justify-center items-center ${variant} ${color || "default-color"}`
   >
-    <span class="font-bold text-cyan-600 mb-4">
+    <span class="text-cyan-600 mb-4 font-bold">
       <slot />
     </span>
   </div>
@@ -32,7 +32,7 @@ const { class: className, variant, color } = Astro.props;
   }
 
   .default-color {
-    background: var(--cloud-color);
+    background: white;
   }
   .cloud-1::before,
   .cloud-1::after,

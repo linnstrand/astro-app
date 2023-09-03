@@ -1,9 +1,9 @@
 import * as d3 from "d3";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Data, getDiscreteColors, processData, sortByHeight } from "./util";
-import frontend from "../components/frontend.json";
-import backend from "../components/backend.json";
-import ops from "../components/operations.json";
+import frontend from "../data/frontend.json";
+import backend from "../data/backend.json";
+import ops from "../data/operations.json";
 
 type PointNode = d3.HierarchyPointNode<Data>;
 
@@ -21,10 +21,10 @@ interface GraphLayout {
 
 const MARGIN = 11;
 const CIRCLE_RADIUS = 3;
-const FONTSIZE = 10;
+const FONTSIZE = 12;
 const FONTCOLOR = "#eee";
 const ANIMATION_TIMER = 1000;
-const size = 1000;
+const size = 1200;
 
 const joined = {
   name: "skills",
@@ -38,7 +38,7 @@ export const Tree = () => {
   const colorSetter = getDiscreteColors(
     frontend.length + backend.length + ops.length + 1
   );
-  const graphData = processData(joined);
+  const graphData = processData({ name: "frontend", children: frontend });
 
   const svgRef = useRef<SVGSVGElement>(null);
   const nodesRef = useRef<SVGSVGElement>(null);

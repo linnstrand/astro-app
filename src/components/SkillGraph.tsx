@@ -1,9 +1,9 @@
 import { useMemo, useRef, useLayoutEffect } from "react";
 import * as d3 from "d3";
 import { RectanglePoints, Data, setColor, processData } from "./util";
-import frontend from "../components/frontend.json";
-import backend from "../components/backend.json";
-import ops from "../components/operations.json";
+import frontend from "../data/frontend.json";
+import backend from "../data/backend.json";
+import ops from "../data/operations.json";
 
 interface GraphParams {
   size: number;
