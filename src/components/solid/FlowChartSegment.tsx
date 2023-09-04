@@ -1,4 +1,3 @@
-/** @jsx preserve */
 /** @jsxImportSource solid-js */
 import { For } from "solid-js";
 
@@ -12,7 +11,7 @@ interface Props {
 
 export const FlowChartSegment = (props: Props) => {
   return (
-    <div class="main-grid my-4">
+    <div class="main-grid grid grid-flow-dense text-[0.8em] place-items-center text-center gap-y-[0.25em] my-4">
       <h4 class="bg-gray-800 border-2 border-gray-500 before:absolute before:border-t-2 before:block before:z-10 before:border-gray-500 after:absolute after:border-t-2 after:block after:z-10 after:top-4 after:border-gray-500 after:w-7 before:w-7 before:top-1/2 after:left-full before:right-full grid p-1 col-start-3 relative w-full">
         {props.skill.name}
       </h4>

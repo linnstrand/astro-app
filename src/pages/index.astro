@@ -10,7 +10,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
     class="w-fit m-auto min-h-screen content-start grid gap-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6"
   >
     <h1
-      class="text-8xl 2xl:whitespace-nowrap lg:text-left row-start-2 pl-3 font-bold tracking-wide text-center duration-500 transition-[background-image]"
+      class="text-8xl 2xl:whitespace-nowrap lg:text-left row-start-2 pl-3 font-bold tracking-wide text-center duration-500"
     >
       Linn Strand
     </h1>
@@ -145,7 +145,8 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       background-color: theme(colors.gray.600);
       background-clip: text;
       color: transparent;
-      text-shadow: theme(colors.white / 50%) 0px 3px 4px,
+      text-shadow:
+        theme(colors.white / 50%) 0px 3px 4px,
         theme(colors.white / 12%) 1px 1px 6px;
     }
 

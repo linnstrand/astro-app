@@ -7,7 +7,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,8 +19,19 @@ const { title } = Astro.props;
   </head>
   <body>
     <div class="page w-full">
-      <slot />
+      <nav
+        class="sm:flex-row sm:text-left sm:justify-between sm:items-baseline flex flex-col w-full max-w-screen-md px-16 py-4 font-sans text-center text-teal-200 shadow"
+      >
+        <div class="sm:mb-0 mb-2">
+          <a
+            href="/"
+            class="text-grey-darkest hover:text-blue-dark text-2xl no-underline"
+            >Home</a
+          >
+        </div>
+      </nav>
     </div>
+    <slot />
   </body>
 </html>
 
@@ -34,11 +45,8 @@ const { title } = Astro.props;
     background: #13151a;
   }
   .page {
-    background: linear-gradient(
-        210deg,
-        hsla(var(--blue-hsl), 0.2),
-        transparent 40%
-      ),
+    background:
+      linear-gradient(210deg, hsla(var(--blue-hsl), 0.2), transparent 40%),
       radial-gradient(hsla(260, 66%, 55%, 0.2), transparent 30%) no-repeat -60vw -10vh /
         105vw 210vh;
   }

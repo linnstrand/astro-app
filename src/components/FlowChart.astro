@@ -1,22 +1,20 @@
 ---
-import { FlowChartSegment } from "./FlowChartSegment";
+import { FlowChartSegment } from "./solid/FlowChartSegment";
 import frontend from "../data/frontend.json";
 import backend from "../data/backend.json";
 import operations from "../data/operations.json";
 ---
 
-<div
-  class="flex flex-wrap text-gray-200 min-w-[94rem] px-20 justify-around max-w-screen-2xl pb-10"
->
-  <div class="mx-16 justify-center w-[34rem]">
+<div class="flex flex-wrap text-gray-200 min-w-[94rem]">
+  <div class="mx-16 w-[34rem]">
     <h2 class="mt-2 text-2xl text-center">Backend</h2>
     {backend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
-  <div class="mx-16 justify-center w-[34rem]">
+  <div class="mx-16 w-[34rem]">
     <h2 class="mt-2 text-2xl text-center">Frontend</h2>
     {frontend.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
-  <div class="mx-16 justify-center col-start-4 w-[34rem]">
+  <div class="mx-16 w-[34rem]">
     <h2 class="mt-2 text-2xl text-center">Operations</h2>
     {operations.map((skill) => <FlowChartSegment skill={skill} />)}
   </div>
@@ -24,12 +22,7 @@ import operations from "../data/operations.json";
 
 <style is:global>
   .main-grid {
-    display: grid;
-    grid-auto-flow: dense;
     grid-template-columns: 12em 2em 13em 2em 12em;
-    place-items: center;
-    text-align: center;
-    font-size: 0.8em;
-    grid-row-gap: 0.25em;
   }
 </style>
+ ./react/solid/FlowChartSegment

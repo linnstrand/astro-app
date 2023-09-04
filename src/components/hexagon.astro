@@ -7,10 +7,11 @@ const {
   gradient,
   class: className,
 } = Astro.props;
+const classes = [{'bg-white': !className?.includes('bg-')},  className]
 ---
 
-<div
-  class=`hex ${className} relative float-left mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
+<div class:list={classes}
+  class=`hex relative float-left mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
 >
   <div
     class="corner-1 -z-10 absolute top-0 left-0 w-full h-full overflow-hidden rotate-[60deg]"
@@ -21,7 +22,7 @@ const {
   >
   </div>
   <a
-    class="border-teal-600/80 inner z-10 flex flex-col items-center justify-center h-full"
+    class="flex flex-col items-center justify-center h-full"
     href={link}
   >
     {title && <h3 class="flex justify-center text-xl font-bold">{title}</h3>}
@@ -47,8 +48,6 @@ const {
 
   .hex {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: theme(colors.white);
-    zoom: 1;
     width: var(--width);
     height: var(--height);
 
