@@ -1,0 +1,93 @@
+---
+import PaperLayout from "../layouts/PaperLayout.astro";
+---
+
+<PaperLayout>
+  <div class="aspect-square flex items-center justify-center text-sm">
+    <div class="relative">
+      <div class="diamond-top"></div>
+      <div class="diamond-center"></div>
+      <div class="diamond-bottom"></div>
+    </div>
+  </div>
+</PaperLayout>
+
+<style>
+  :root {
+    --baseColor: theme(colors.cyan.500);
+    --lighten: color-mix(in srgb, var(--baseColor) 80%, white);
+    --lighten2: color-mix(in srgb, var(--baseColor) 70%, white);
+    --lighten3: color-mix(in srgb, var(--baseColor) 50%, white);
+    --lighten4: color-mix(in srgb, var(--baseColor) 40%, white);
+    --lighten4: color-mix(in srgb, var(--baseColor) 30%, white);
+  }
+
+  .diamond-top {
+    position: absolute;
+    border-color: transparent transparent var(--lighten4) transparent;
+    border-width: 0 2.5em 2em 2.5em;
+    width: 10em;
+    height: 0;
+    top: -2em;
+    left: 2.5em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-color: transparent transparent var(--lighten2) transparent;
+      border-width: 0 0em 2em 5em;
+      width: 5em;
+      left: -2.5em;
+      /* filter: drop-shadow(5em 0 var(--lighten2)); */
+    }
+  }
+
+  .diamond-center:before,
+  .diamond-center:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    top: 0;
+  }
+
+  .diamond-center:before {
+    border-color: transparent transparent var(--baseColor) transparent;
+    border-width: 0 2.5em 3em 2.5em;
+    filter: drop-shadow(5em 0 var(--lighten3))
+      drop-shadow(5em 0 var(--lighten4));
+  }
+
+  .diamond-center:after {
+    border-color: var(--lighten4) transparent transparent transparent;
+    border-width: 3em 2.5em 0 2.5em;
+    left: 2.5em;
+    filter: drop-shadow(5em 0 var(--lighten2));
+  }
+
+  .diamond-bottom,
+  .diamond-bottom:before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  .diamond-bottom {
+    left: 0;
+    top: 3em;
+    border-color: var(--baseColor) transparent transparent transparent;
+    border-width: 10em 7.5em 0 7.5em;
+    filter: drop-shadow(5em 0em orange) drop-shadow(5em 0em yellow);
+  }
+
+  .diamond-bottom:before {
+    content: "";
+    border-color: pink transparent transparent transparent;
+    border-width: 3.4em 2.5em 2em 2.5em;
+    top: -10em;
+    left: -7.5em;
+    filter: drop-shadow(5em 0em red) drop-shadow(5em 0em green);
+  }
+</style>
