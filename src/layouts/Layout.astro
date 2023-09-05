@@ -20,7 +20,7 @@ const { title } = Astro.props;
   <body>
     <div class="page w-full">
       <nav
-        class="sm:flex-row sm:text-left sm:justify-between sm:items-baseline flex flex-col w-full max-w-screen-md px-16 py-4 font-sans text-center text-teal-200 shadow"
+        class="flex flex-col w-full max-w-screen-md px-16 py-4 text-gray-200"
       >
         <div class="sm:mb-0 mb-2">
           <a
@@ -30,8 +30,9 @@ const { title } = Astro.props;
           >
         </div>
       </nav>
+
+      <slot />
     </div>
-    <slot />
   </body>
 </html>
 

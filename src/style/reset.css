@@ -36,12 +36,3 @@ h6 {
 code {
   font-family: var(--__sl-font-mono);
 }
-
-.inset-text {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: transparent;
-  text-shadow: 2px 2px 3px rgba(241, 245, 255, 0.75), -1px 0 rgb(107, 107, 107),
-    0 1px rgb(106, 106, 106), 1px 0 rgb(114, 114, 114),
-    0 -1px rgb(119, 119, 119);
-  background-clip: text;
-}
