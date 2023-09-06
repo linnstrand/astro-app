@@ -17,15 +17,19 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
     class="corner-2 -z-10 bg-inherit absolute top-0 left-0 w-full h-full overflow-hidden -rotate-[60deg]"
   >
   </div>
-  <a
-    class="flex flex-col items-center justify-center h-full"
-    href={link}
-    target={link?.includes("http") ? "_blank" : "_self"}
-    aria-label={title}
-    title={title}
-  >
-    <slot />
-  </a>
+  {
+    link && (
+      <a
+        class="flex flex-col items-center justify-center h-full"
+        href={`${import.meta.env.BASE_URL}/${link}`}
+        target={link?.includes("http") ? "_blank" : "_self"}
+        aria-label={title}
+        title={title}
+      >
+        <slot />
+      </a>
+    )
+  }
   {gradient && <div class={`-z-[1] gradient absolute ${gradient}`} />}
   {
     image && (
