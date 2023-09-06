@@ -6,7 +6,6 @@ import solid from "@astrojs/solid-js";
 // https://astro.build/config
 export default defineConfig({
   site: "https://linnstrand.github.io",
-  base: "/portfolio",
   integrations: [
     tailwind({
       // Example: Disable injecting a basic `base.css` import on every page.
