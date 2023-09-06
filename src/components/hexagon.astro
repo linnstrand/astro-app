@@ -7,10 +7,13 @@ const {
   gradient,
   class: className,
 } = Astro.props;
-const classes = [{'bg-white': !className?.includes('bg-')},  className]
+
+// Default to white background unless another tailwind bg is provided
+const classes = [{ "bg-white": !className?.includes("bg-") }, className];
 ---
 
-<div class:list={classes}
+<div
+  class:list={classes}
   class=`hex relative float-left mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
 >
   <div
@@ -21,10 +24,7 @@ const classes = [{'bg-white': !className?.includes('bg-')},  className]
     class="corner-2 -z-10 absolute top-0 left-0 w-full h-full overflow-hidden -rotate-[60deg]"
   >
   </div>
-  <a
-    class="flex flex-col items-center justify-center h-full"
-    href={link}
-  >
+  <a class="flex flex-col items-center justify-center h-full" href={link}>
     {title && <h3 class="flex justify-center text-xl font-bold">{title}</h3>}
     <slot />
     {description && <p>{description}</p>}
