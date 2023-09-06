@@ -19,7 +19,7 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
   </div>
   <a
     class="flex flex-col items-center justify-center h-full"
-    href={`${import.meta.env.BASE_URL + link}`}
+    href={`${link?.includes("http") ? link : import.meta.env.BASE_URL + link}`}
     target={link?.includes("http") ? "_blank" : "_self"}
     aria-label={title}
     title={title}
