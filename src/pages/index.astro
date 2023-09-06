@@ -24,7 +24,8 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       <Hexagon class="invisible" />
       <Hexagon
         link="/fullstack"
-        gradient="bg-gradient-to-br from-green-400 via-teal-500 via via-blue-500 via-indigo-500 to-purple-500"
+        title="Flowchart in css"
+        gradient="bg-gradient-to-br from-green-400 via-teal-500 to-purple-500"
       >
         <div
           class="top-2 absolute bottom-0 left-0 right-0 m-auto leading-tight text-teal-900"
@@ -48,17 +49,16 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       </Hexagon>
       <Hexagon />
       <Hexagon class="invisible" />
-      <Hexagon
-        class="ml-24 text-teal-600"
-        title="Github"
-        link="https://github.com/linnstrand"
-        description="/linnstrand"
-      />
+      <Hexagon class="ml-24 text-teal-600" link="https://github.com/linnstrand">
+        <h3 class="flex justify-center text-xl font-bold">Github</h3>
+        <p>/linnstrand</p>
+      </Hexagon>
+
       <Hexagon />
       <Hexagon />
       <Hexagon />
       <Hexagon />
-      <Hexagon class="bg-sky-300" link="/sky">
+      <Hexagon class="bg-sky-300 text-mlg" link="/sky" title="Sky view">
         <Cloud
           pointer-events-none
           variant="cloud-1"
@@ -70,13 +70,22 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       </Hexagon>
       <Hexagon />
       <Hexagon class="ml-24" />
-      <Hexagon link="skills">
-        <IconSunburst />
+      <Hexagon link="/skills" title="Sunburst chart">
+        <IconSunburst>Graph</IconSunburst>
       </Hexagon>
       <Hexagon />
       <Hexagon class="invisible" />
-      <Hexagon />
-      <Hexagon link="/shiny" class="bg-indigo-300">
+      <Hexagon
+        class="text-sky-600"
+        link="https://www.linkedin.com/in/linn-strand"
+      >
+        <h3
+          class="flex justify-center text-2xl font-bold font-sans tracking-wider shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
+        >
+          LinkedIn
+        </h3>
+      </Hexagon>
+      <Hexagon link="/shiny" class="bg-indigo-300" title="Gem animation">
         <Diamond />
       </Hexagon>
     </div>
@@ -92,7 +101,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         0% {
           filter: grayscale(100%);
         }
-        30% {
+        40% {
           filter: grayscale(100%);
         }
         100% {

@@ -2,11 +2,11 @@
 const { class: className, variant, color } = Astro.props;
 ---
 
-<div class=`aspect-[3/2] h-auto ${className} `>
+<div class=`aspect-[3/2] h-auto ${className}`>
   <div
     class=`cloud absolute w-full text-center h-1/2 flex justify-center top-1/2 z-[1] items-center ${variant} ${color || "bg-white"}`
   >
-    <span class="text-cyan-600 mb-4 font-bold">
+    <span class="text-cyan-600 mb-[1em] font-bold">
       <slot />
     </span>
   </div>
@@ -15,11 +15,12 @@ const { class: className, variant, color } = Astro.props;
 <style>
   .cloud {
     border-radius: 30% 30% / 80% 80%;
-    font-size: calc(1em + 0.8vmin);
-    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2), 10px 10px rgba(0, 0, 0, 0.2),
+    font-size: inherit;
+    box-shadow:
+      0 4px 10px 1px rgba(0, 0, 0, 0.2),
+      10px 10px rgba(0, 0, 0, 0.2),
       inset 2px 9px 0px 0px rgb(255, 255, 255);
   }
-
 
   .cloud-2 {
     top: 30%;
