@@ -1,0 +1,51 @@
+<>
+  <div
+    class="sun aspect-square hover:motion-safe:animate-spin absolute bg-transparent"
+  >
+  </div>
+  <div class="aspect-square absolute bg-white rounded-full"></div>
+  <div
+    class="absolute font-semibold text-center text-purple-950/80 translate-y-[3.4em]"
+  >
+    Sunburst
+  </div>
+</>
+
+<style>
+  .sun {
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    border: 1em solid theme(colors.indigo.200);
+    border-top: 1em solid theme(colors.purple.200);
+    border-left: 1em solid theme(colors.violet.200);
+    border-right: 1em solid theme(colors.blue.200);
+
+    &:before {
+      content: "";
+      height: 5.5em;
+      width: 5.5em;
+      border-radius: 50%;
+      border: 1em solid theme(colors.indigo.300);
+      border-top: 1em solid theme(colors.purple.300);
+      border-left: 1em solid theme(colors.violet.300);
+      border-right: 1em solid theme(colors.blue.300);
+      position: absolute;
+      top: -0.25em;
+      left: -0.25em;
+    }
+    &:after {
+      content: "";
+      height: 4em;
+      width: 4em;
+      border-radius: 50%;
+      border: 1em solid theme(colors.indigo.400);
+      border-top: 1em solid theme(colors.purple.400);
+      border-left: 1em solid theme(colors.violet.400);
+      border-right: 1em solid theme(colors.blue.400);
+      position: absolute;
+      top: 0.5em;
+      left: 0.5em;
+    }
+  }
+</style>
