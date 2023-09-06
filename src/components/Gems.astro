@@ -43,7 +43,7 @@ const data = processData(fullstack);
     />
 
     <h1
-      class="text-effect bg-clip-text absolute p-6 font-sans text-4xl font-bold text-center text-transparent text-[5vmin] contrast-125 brightness-200"
+      class="bg-rainbow contrast-200 brightness-150 bg-clip-text absolute p-6 font-sans text-4xl font-bold text-center text-transparent text-[5vmin]"
     >
       Fullstack
     </h1>
@@ -99,19 +99,5 @@ const data = processData(fullstack);
     top: calc(50% - (var(--tracksize) / 2));
     translate: calc(cos((var(--angle) + var(--angle-offset))) * var(--radius))
       calc(sin((var(--angle) + var(--angle-offset))) * var(--radius) * -1);
-  }
-
-  .text-effect {
-    background-image: linear-gradient(
-      109.6deg,
-      theme(colors.red.500) 25%,
-      theme(colors.yellow.500) 35%,
-      theme(colors.green.500) 45%,
-      theme(colors.sky.500) 55%,
-      theme(colors.indigo.500) 70%,
-      theme(colors.purple.500) 85%
-    );
-
-    filter: contrast(110%) brightness(190%);
   }
 </style>
