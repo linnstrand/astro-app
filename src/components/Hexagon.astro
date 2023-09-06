@@ -1,0 +1,64 @@
+---
+const { link, image, gradient, title, class: className } = Astro.props;
+
+// Default to white background unless another tailwind bg is provided
+const classes = [{ "bg-white": !className?.includes("bg-") }, className];
+---
+
+<div
+  class:list={classes}
+  class=`hex relative float-left mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
+>
+  <div
+    class="corner-1 -z-10 bg-inherit absolute top-0 left-0 w-full h-full overflow-hidden rotate-[60deg]"
+  >
+  </div>
+  <div
+    class="corner-2 -z-10 bg-inherit absolute top-0 left-0 w-full h-full overflow-hidden -rotate-[60deg]"
+  >
+  </div>
+  <a
+    class="flex flex-col items-center justify-center h-full"
+    href={link}
+    target={link?.includes("http") ? "_blank" : "_self"}
+    aria-label={title}
+    title={title}
+  >
+    <slot />
+  </a>
+  {gradient && <div class={`-z-[1] gradient absolute ${gradient}`} />}
+  {
+    image && (
+      <div
+        class="image absolute left-0 bg-center bg-no-repeat"
+        style={`background-image: url(${image});`}
+      />
+    )
+  }
+</div>
+
+<style>
+  :root {
+    --width: 168px;
+    --height: 97px;
+  }
+
+  .hex {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: var(--width);
+    height: var(--height);
+
+    .gradient,
+    .image {
+      height: 195px;
+      top: -49px;
+      width: var(--width);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .image {
+      background-size: auto var(--width);
+      width: var(--width);
+    }
+  }
+</style>
