@@ -1,40 +1,23 @@
 ---
-import "../style/reset.css";
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+import BaseLayout from "./BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <div class="page w-full">
-      <nav
-        class="absolute flex flex-col w-full max-w-screen-md px-16 py-4 text-gray-200 z-10"
-      >
-        <div class="sm:mb-0 mb-2">
-          <a
-            href={`${import.meta.env.BASE_URL}/`}
-            class="text-3xl font-bold bg-clip-text text-transparent bg-gray-200 hover:bg-gradient-to-l from-green-200 via-blue-200 to-indigo-200"
-            >Home</a
-          >
-        </div>
-      </nav>
-
-      <slot />
-    </div>
-  </body>
-</html>
+<BaseLayout title="Linn Strand">
+  <div class="page w-full">
+    <nav
+      class="absolute z-10 flex flex-col w-full max-w-screen-md px-16 py-4 text-gray-200"
+    >
+      <div class="sm:mb-0 mb-2">
+        <a
+          href={`${import.meta.env.BASE_URL}/`}
+          class="bg-clip-text hover:bg-gradient-to-l from-green-200 via-blue-200 to-indigo-200 text-3xl font-bold text-transparent bg-gray-200"
+          >Home</a
+        >
+      </div>
+    </nav>
+    <slot />
+  </div>
+</BaseLayout>
 
 <style is:global>
   :root {

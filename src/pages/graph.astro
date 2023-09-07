@@ -1,13 +1,13 @@
 ---
-import GraphLayout from "../layouts/GraphLayout.astro";
+import Layout from "../layouts/Layout.astro";
 import { Tree } from "../components/Tree";
 ---
 
-<GraphLayout title="Linn Strand">
+<Layout title="Linn Strand">
   <main class="w-screen text-center">
     <Tree client:only="react" />
   </main>
-</GraphLayout>
+</Layout>
 
 <style>
   path {

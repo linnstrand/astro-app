@@ -17,13 +17,15 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <slot />
-  </body>
+  <body><slot /></body>
 </html>
 
 <style is:global>
-  body {
-    background: #13151a;
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 </style>
