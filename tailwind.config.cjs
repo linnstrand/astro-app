@@ -18,5 +18,5 @@ module.exports = {
       },
     },
   },
-  plugins: ["tailwindcss/nesting"],
+  plugins: ["tailwindcss/nesting", require("@tailwindcss/typography")],
 };
