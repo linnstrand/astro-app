@@ -1,5 +1,8 @@
 ---
 import "../style/reset.css";
+import ThemeToggleButton from "../components/react/ThemeToggleButton";
+
+const base = `${import.meta.env.BASE_URL}/`;
 interface Props {
   title: string;
 }
@@ -15,12 +18,51 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <!-- This is intentionally inlined to avoid FOUC -->
+    <script is:inline>
+      const root = document.documentElement;
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      })();
+      theme === "light"
+        ? root.classList.remove("theme-dark")
+        : root.classList.add("theme-dark");
+    </script>
     <title>{title}</title>
   </head>
-  <body><slot /></body>
+  <body>
+    <nav
+      class="absolute z-10 px-16 py-4 text-gray-200 flex flex-row max-w-7xl w-full justify-between"
+    >
+      {
+        Astro.url.pathname !== base ? (
+          <a
+            href={`${base}/`}
+            class="bg-clip-text hover:bg-gradient-to-l from-green-200 via-blue-200 to-indigo-200 text-3xl font-bold text-transparent bg-gray-600"
+          >
+            Home
+          </a>
+        ) : (
+          <span class="text-gray-400 text-3xl font-bold">Home</span>
+        )
+      }
+      <div class="text-gray-800">
+        <ThemeToggleButton client:only="react" />
+      </div>
+    </nav><slot /></body
+  >
 </html>
 
 <style is:global>
+  @import "@material-design-icons/font";
   h1,
   h2,
   h3,

@@ -1,31 +1,15 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const base = `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title="Linn Strand">
-  <div class="max-w-screen-2xl bg-gray-200">
-    <nav
-      class="absolute z-10 flex flex-col w-full max-w-screen-md px-16 py-4 text-gray-200"
-    >
-      <div class="sm:mb-0 mb-2">
-        {
-          Astro.url.pathname !== base && (
-            <a
-              href={`${base}/`}
-              class="bg-clip-text hover:bg-gradient-to-l from-green-200 via-blue-200 to-indigo-200 text-3xl font-bold text-transparent bg-gray-600"
-            >
-              Home
-            </a>
-          )
-        }
-        <!-- <div class="w-10 h-4">
-          <label for="toggle-theme">
-            <input type="radio" name="theme-toggle" value="dark" />
-          </label>
-        </div> -->
-      </div>
-    </nav>
+  <div class="max-w-screen-2xl">
     <slot />
   </div>
 </BaseLayout>
+
+<style>
+  body {
+    background-color: theme(colors.gray.200);
+  }
+</style>

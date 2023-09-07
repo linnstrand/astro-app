@@ -3,18 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 ---
 
 <BaseLayout title="Linn Strand">
-  <div class="page w-full">
-    <nav
-      class="absolute z-10 flex flex-col w-full max-w-screen-md px-16 py-4 text-gray-200"
-    >
-      <div class="sm:mb-0 mb-2">
-        <a
-          href={`${import.meta.env.BASE_URL}/`}
-          class="bg-clip-text hover:bg-gradient-to-l from-green-200 via-blue-200 to-indigo-200 text-3xl font-bold text-transparent bg-gray-200"
-          >Home</a
-        >
-      </div>
-    </nav>
+  <div class="page w-fit">
     <slot />
   </div>
 </BaseLayout>
