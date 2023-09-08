@@ -1,7 +1,10 @@
+@import "@material-design-icons/font";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* Reset */
 *,
 *::before,
 *::after {
@@ -35,4 +38,28 @@ h6 {
 
 code {
   font-family: var(--__sl-font-mono);
+}
+
+/* Theming */
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@layer base {
+  :root {
+  }
+  @media (prefers-color-theme: dark) {
+
+  }
+
+  @media (prefers-color-theme: light {
+
+  })
+
+  // 
 }

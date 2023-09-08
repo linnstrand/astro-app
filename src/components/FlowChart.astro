@@ -5,7 +5,9 @@ import backend from "../data/backend.json";
 import operations from "../data/operations.json";
 ---
 
-<div class="flex flex-wrap text-gray-200 min-w-[94rem]">
+<div
+  class="flex lg:flex-wrap text-gray-200 min-w-[50rem] flex-col lg:flex-row flex-nowrap mx-12 justify-center"
+>
   <div class="mx-16 w-[34rem]">
     <h2 class="mt-2 text-2xl text-center">Backend</h2>
     {backend.map((skill) => <FlowChartSegment skill={skill} />)}

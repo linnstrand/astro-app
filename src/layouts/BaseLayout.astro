@@ -1,5 +1,5 @@
 ---
-import "../style/reset.css";
+import "../style/main.css";
 import ThemeToggleButton from "../components/react/ThemeToggleButton";
 
 const base = `${import.meta.env.BASE_URL}/`;
@@ -21,7 +21,9 @@ const { title } = Astro.props;
     <!-- This is intentionally inlined to avoid FOUC -->
     <script is:inline>
       const root = document.documentElement;
+
       const theme = (() => {
+        console.log(localStorage);
         if (
           typeof localStorage !== "undefined" &&
           localStorage.getItem("theme")
@@ -32,15 +34,13 @@ const { title } = Astro.props;
           ? "dark"
           : "light";
       })();
-      theme === "light"
-        ? root.classList.remove("theme-dark")
-        : root.classList.add("theme-dark");
+      root.classList.add(`theme-${theme}`);
     </script>
     <title>{title}</title>
   </head>
-  <body>
-    <!-- <nav
-      class="absolute z-10 px-16 py-4 text-gray-200 flex flex-row max-w-7xl w-full justify-between"
+  <body class="grid">
+    <nav
+      class="z-10 px-6 lg:px-16 py-4 h-16 text-gray-200 flex flex-row w-full justify-between"
     >
       {
         Astro.url.pathname !== base ? (
@@ -57,18 +57,7 @@ const { title } = Astro.props;
       <div class="text-gray-800">
         <ThemeToggleButton client:only="react" />
       </div>
-    </nav> -->
-    <slot /></body
-  >
+    </nav>
+    <slot />
+  </body>
 </html>
-
-<style is:global>
-  @import "@material-design-icons/font";
-  h1,
-  h2,
-  h3,
-  h4,
-  p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-</style>

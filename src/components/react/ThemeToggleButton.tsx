@@ -18,9 +18,9 @@ const ThemeToggleButton = () => {
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "light") {
-      root.classList.remove("theme-dark");
+      root.classList.replace("theme-dark", "theme-light");
     } else {
-      root.classList.add("theme-dark");
+      root.classList.replace("theme-light", "theme-dark");
     }
   }, [theme]);
 

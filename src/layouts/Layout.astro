@@ -3,9 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 ---
 
 <BaseLayout title="Linn Strand">
-  <div class="page w-fit">
-    <slot />
-  </div>
+  <slot />
 </BaseLayout>
 
 <style is:global>
@@ -13,14 +11,11 @@ import BaseLayout from "./BaseLayout.astro";
     --blue-hsl: 227, 60%, 60%;
     ---hsl-blue: hsl(var(--blue-hsl));
   }
-
   body {
     background: #13151a;
-  }
-  .page {
-    background:
+    /* background:
       linear-gradient(210deg, hsla(var(--blue-hsl), 0.2), transparent 40%),
       radial-gradient(hsla(260, 66%, 55%, 0.2), transparent 30%) no-repeat -60vw -10vh /
-        105vw 210vh;
+        105vw 210vh; */
   }
 </style>

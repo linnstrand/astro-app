@@ -3,14 +3,11 @@ import BaseLayout from "./BaseLayout.astro";
 ---
 
 <BaseLayout title="Linn Strand">
-  <div class="max-w-screen-2xl h-screen m-auto">
-    <slot />
-  </div>
+  <slot />
 </BaseLayout>
 
 <style>
   body {
     background-color: theme(colors.sky.400 / 80%);
-    overflow: hidden;
   }
 </style>
