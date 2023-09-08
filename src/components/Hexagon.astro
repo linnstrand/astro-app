@@ -7,7 +7,7 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
 
 <div
   class:list={classes}
-  class=`hex relative float-left mx-[6px] my-[30px] text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
+  class=`hex relative text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
 >
   <div
     class="corner-1 -z-10 bg-inherit absolute top-0 left-0 w-full h-full overflow-hidden rotate-[60deg]"
@@ -45,26 +45,27 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
 
 <style>
   :root {
-    --width: 168px;
-    --height: 97px;
+    --side: 168px;
+    --height: calc(calc(var(--side) / 2) / sin(60deg));
   }
 
   .hex {
+    grid-area: 1/1;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: var(--width);
+    width: var(--side);
     height: var(--height);
 
     .gradient,
     .image {
-      height: 195px;
-      top: -49px;
-      width: var(--width);
+      height: calc(var(--height) * 2);
+      top: calc(var(--height) / -2);
+      width: var(--side);
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
 
     .image {
-      background-size: auto var(--width);
-      width: var(--width);
+      background-size: auto var(--side);
+      width: var(--side);
     }
   }
 </style>
