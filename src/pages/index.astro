@@ -8,7 +8,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
 
 <PaperLayout title="Linn Strand">
   <main
-    class="w-fit m-auto min-h-[100vh-72px)] grid xl:gap-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6"
+    class="w-fit mx-auto min-h-[calc(100vh-72px)] grid xl:gap-5 mt-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6 lg:-mt-12"
   >
     <h1
       class="text-8xl 2xl:whitespace-nowrap 2xl:mx-20 lg:text-left inset-text row-start-2 pl-3 font-bold tracking-wide text-center"
@@ -19,7 +19,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       Frontend Developer
     </h2>
     <div
-      class="hexy grid row-span-4 place-self-start lg:place-self-center place-content-center text-lg"
+      class="hexy grid row-span-4 place-self-start lg:place-self-center place-content-center text-lg mt-5 lg_mt-0"
     >
       <Hexagon
         link="/fullstack"
@@ -92,9 +92,10 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         --tracksize: 10vmin;
         --rainbow: theme(backgroundImage.rainbow);
 
-        --side: 10em;
-        --height: calc(var(--side) / 2 / sin(60deg));
+        --side: 9.3em;
+        --height: calc(calc(var(--side) / 2) / sin(60deg));
         --offset: calc(var(--height) / var(--side));
+        --g: 8%;
       }
 
       @keyframes gradient-bg {
@@ -110,25 +111,25 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       }
 
       .hexy {
-        display: grid;
-        margin: var(--height);
+        height: calc(var(--side) * 5);
+        width: calc(var(--side) * 4.5);
 
         /*1st col*/
         > div:nth-child(5) {
-          --_x: -150%;
+          --_x: calc(-150% - calc(var(--g) * 1.5));
         }
 
         /*2nd col*/
         > div:nth-child(6),
         > div:nth-child(14) {
-          --_x: -100%;
+          --_x: calc(-100% - var(--g));
         }
 
         /*3rd col*/
         > div:nth-child(1),
         > div:nth-child(7),
         > div:nth-child(13) {
-          --_x: -50%;
+          --_x: calc(-50% - calc(var(--g) / 2));
         }
 
         /*4th col*/
@@ -141,31 +142,31 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         > div:nth-child(3),
         > div:nth-child(8),
         > div:nth-child(12) {
-          --_x: 50%;
+          --_x: calc(50% + calc(var(--g) / 2));
         }
 
         /*6th col*/
         div:nth-child(9),
         div:nth-child(11) {
-          --_x: 100%;
+          --_x: calc(100% + var(--g));
         }
 
         /*7th col*/
         div:nth-child(10) {
-          --_x: 150%;
+          --_x: calc(150% + calc(var(--g) * 1.5));
         }
 
         /*First row*/
         > div:nth-child(7),
         > div:nth-child(8) {
-          --_y: -300%;
+          --_y: calc(-300% - calc(var(--g) * 2));
         }
 
         /*Second row*/
         > div:nth-child(2),
         > div:nth-child(6),
         > div:nth-child(9) {
-          --_y: -150%;
+          --_y: calc(-150% - var(--g));
         }
 
         /*Third row*/
@@ -180,13 +181,13 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         > div:nth-child(4),
         > div:nth-child(11),
         > div:nth-child(14) {
-          --_y: 150%;
+          --_y: calc(150% + var(--g));
         }
 
         /*Fifth row*/
         > div:nth-child(12),
         > div:nth-child(13) {
-          --_y: 300%;
+          --_y: calc(300% + calc(var(--g) * 2));
         }
       }
 
