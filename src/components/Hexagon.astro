@@ -45,7 +45,6 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
 
 <style>
   :root {
-    --side: 168px;
     --height: calc(calc(var(--side) / 2) / sin(60deg));
   }
 
@@ -54,7 +53,7 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: var(--side);
     height: var(--height);
-
+    transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_t, 1));
     .gradient,
     .image {
       height: calc(var(--height) * 2);
