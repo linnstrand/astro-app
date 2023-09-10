@@ -8,7 +8,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
 
 <PaperLayout title="Linn Strand">
   <main
-    class="w-fit mx-auto min-h-[calc(100vh-72px)] grid xl:gap-5 mt-5 lg:grid-cols-[min-content_minmax(740px,_1000px)] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6 lg:-mt-12"
+    class="w-fit m-auto h-full absolute grid xl:gap-5 mt-5 lg:grid-cols-[min-content_auto] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6 lg:-mt-12 text-teal-600"
   >
     <h1
       class="text-8xl 2xl:whitespace-nowrap 2xl:mx-20 lg:text-left inset-text row-start-2 pl-3 font-bold tracking-wide text-center"
@@ -19,7 +19,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       Frontend Developer
     </h2>
     <div
-      class="hexy grid row-span-4 place-self-start lg:place-self-center place-content-center text-lg mt-5 lg_mt-0"
+      class="hexy grid row-span-4 place-self-start lg:place-self-center place-content-center text-lg mt-5 lg:mt-0"
     >
       <Hexagon
         link="/fullstack"
@@ -46,8 +46,11 @@ import PaperLayout from "../layouts/PaperLayout.astro";
           </div>
         </div>
       </Hexagon>
-      <Hexagon />
-      <Hexagon class="text-teal-600" link="https://github.com/linnstrand">
+      <Hexagon link="/about">
+        <h3 class="flex justify-center text-xl font-bold">About</h3>
+        <p>This page</p>
+      </Hexagon>
+      <Hexagon link="https: github.com linnstrand">
         <h3 class="flex justify-center text-xl font-bold">Github</h3>
         <p>/linnstrand</p>
       </Hexagon>
@@ -88,14 +91,11 @@ import PaperLayout from "../layouts/PaperLayout.astro";
 
     <style is:global>
       :root {
-        --radius: 25vmin;
-        --tracksize: 10vmin;
         --rainbow: theme(backgroundImage.rainbow);
 
         --side: 9.3em;
         --height: calc(calc(var(--side) / 2) / sin(60deg));
-        --offset: calc(var(--height) / var(--side));
-        --g: 8%;
+        --hex-space: 8%;
       }
 
       @keyframes gradient-bg {
@@ -114,22 +114,26 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         height: calc(var(--side) * 5);
         width: calc(var(--side) * 4.5);
 
+        > div {
+          transform: translate(var(--_x, 0), var(--_y, 0));
+        }
+
         /*1st col*/
         > div:nth-child(5) {
-          --_x: calc(-150% - calc(var(--g) * 1.5));
+          --_x: calc(-150% - calc(var(--hex-space) * 1.5));
         }
 
         /*2nd col*/
         > div:nth-child(6),
         > div:nth-child(14) {
-          --_x: calc(-100% - var(--g));
+          --_x: calc(-100% - var(--hex-space));
         }
 
         /*3rd col*/
         > div:nth-child(1),
         > div:nth-child(7),
         > div:nth-child(13) {
-          --_x: calc(-50% - calc(var(--g) / 2));
+          --_x: calc(-50% - calc(var(--hex-space) / 2));
         }
 
         /*4th col*/
@@ -142,31 +146,31 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         > div:nth-child(3),
         > div:nth-child(8),
         > div:nth-child(12) {
-          --_x: calc(50% + calc(var(--g) / 2));
+          --_x: calc(50% + calc(var(--hex-space) / 2));
         }
 
         /*6th col*/
         div:nth-child(9),
         div:nth-child(11) {
-          --_x: calc(100% + var(--g));
+          --_x: calc(100% + var(--hex-space));
         }
 
         /*7th col*/
         div:nth-child(10) {
-          --_x: calc(150% + calc(var(--g) * 1.5));
+          --_x: calc(150% + calc(var(--hex-space) * 1.5));
         }
 
         /*First row*/
         > div:nth-child(7),
         > div:nth-child(8) {
-          --_y: calc(-300% - calc(var(--g) * 2));
+          --_y: calc(-300% - calc(var(--hex-space) * 2));
         }
 
         /*Second row*/
         > div:nth-child(2),
         > div:nth-child(6),
         > div:nth-child(9) {
-          --_y: calc(-150% - var(--g));
+          --_y: calc(-150% - var(--hex-space));
         }
 
         /*Third row*/
@@ -181,13 +185,13 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         > div:nth-child(4),
         > div:nth-child(11),
         > div:nth-child(14) {
-          --_y: calc(150% + var(--g));
+          --_y: calc(150% + var(--hex-space));
         }
 
         /*Fifth row*/
         > div:nth-child(12),
         > div:nth-child(13) {
-          --_y: calc(300% + calc(var(--g) * 2));
+          --_y: calc(300% + calc(var(--hex-space) * 2));
         }
       }
 
