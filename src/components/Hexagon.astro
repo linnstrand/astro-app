@@ -33,33 +33,20 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
     )
   }
   {gradient && <div class={`-z-[1] gradient absolute ${gradient}`} />}
-  {
-    image && (
-      <div
-        class="image absolute left-0 bg-center bg-no-repeat"
-        style={`background-image: url(${image});`}
-      />
-    )
-  }
+  {}
 </div>
 
 <style>
   .hex {
-    --height: calc(calc(var(--side) / 2) / sin(60deg));
     width: var(--side);
     aspect-ratio: calc(2 * sin(60deg)) / 1;
 
     .gradient,
     .image {
-      height: calc(var(--height) * 2);
-      top: calc(var(--height) / -2);
-      width: var(--side);
+      top: -50%;
+      width: inherit;
+      aspect-ratio: sin(60deg) / 1;
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    }
-
-    .image {
-      background-size: auto var(--side);
-      width: var(--side);
     }
   }
 </style>
