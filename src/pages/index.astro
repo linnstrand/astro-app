@@ -8,18 +8,18 @@ import PaperLayout from "../layouts/PaperLayout.astro";
 
 <PaperLayout title="Linn Strand">
   <main
-    class="w-fit m-auto h-full absolute grid xl:gap-5 mt-5 lg:grid-cols-[min-content_auto] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6 lg:-mt-12 text-teal-600"
+    class="container grid gap-5 lg:mt-5 mx-auto lg:grid-cols-[min-content_auto] grid-rows-[auto_auto_1fr] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6 text-teal-600 px-8"
   >
     <h1
-      class="text-8xl 2xl:whitespace-nowrap 2xl:mx-20 lg:text-left inset-text row-start-2 pl-3 font-bold tracking-wide text-center"
+      class="text-8xl 2xl:whitespace-nowrap 2xl:mx-10 lg:text-left inset-text lg:row-start-2 font-bold tracking-wide text-center"
     >
       Linn Strand
     </h1>
-    <h2 class="xl:text-4xl row-start-3 pr-5 text-3xl font-bold text-right">
+    <h2 class="2xl:text-4xl lg:row-start-3 text-3xl font-bold text-right">
       Frontend Developer
     </h2>
     <div
-      class="hexy grid row-span-4 place-self-start lg:place-self-center place-content-center text-lg mt-5 lg:mt-0"
+      class="hexy grid lg:row-span-4 justify-self-center lg:place-self-start place-self-center place-content-center text-lg"
     >
       <Hexagon
         link="/fullstack"
@@ -91,10 +91,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
 
     <style is:global>
       :root {
-        --rainbow: theme(backgroundImage.rainbow);
-
         --side: 9.3em;
-        --height: calc(calc(var(--side) / 2) / sin(60deg));
         --hex-space: 8%;
       }
 
@@ -113,84 +110,86 @@ import PaperLayout from "../layouts/PaperLayout.astro";
       .hexy {
         height: calc(var(--side) * 5);
         width: calc(var(--side) * 4.5);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-        > div {
+        > * {
           transform: translate(var(--_x, 0), var(--_y, 0));
+          grid-area: 1/1;
         }
 
         /*1st col*/
-        > div:nth-child(5) {
+        > :nth-child(5) {
           --_x: calc(-150% - calc(var(--hex-space) * 1.5));
         }
 
         /*2nd col*/
-        > div:nth-child(6),
-        > div:nth-child(14) {
+        > :nth-child(6),
+        > :nth-child(14) {
           --_x: calc(-100% - var(--hex-space));
         }
 
         /*3rd col*/
-        > div:nth-child(1),
-        > div:nth-child(7),
-        > div:nth-child(13) {
+        > :nth-child(1),
+        > :nth-child(7),
+        > :nth-child(13) {
           --_x: calc(-50% - calc(var(--hex-space) / 2));
         }
 
         /*4th col*/
-        > div:nth-child(2),
-        > div:nth-child(4) {
+        > :nth-child(2),
+        > :nth-child(4) {
           --_x: 0;
         }
 
         /*5th col*/
-        > div:nth-child(3),
-        > div:nth-child(8),
-        > div:nth-child(12) {
+        > :nth-child(3),
+        > :nth-child(8),
+        > :nth-child(12) {
           --_x: calc(50% + calc(var(--hex-space) / 2));
         }
 
         /*6th col*/
-        div:nth-child(9),
-        div:nth-child(11) {
+        :nth-child(9),
+        :nth-child(11) {
           --_x: calc(100% + var(--hex-space));
         }
 
         /*7th col*/
-        div:nth-child(10) {
+        :nth-child(10) {
           --_x: calc(150% + calc(var(--hex-space) * 1.5));
         }
 
         /*First row*/
-        > div:nth-child(7),
-        > div:nth-child(8) {
+        > :nth-child(7),
+        > :nth-child(8) {
           --_y: calc(-300% - calc(var(--hex-space) * 2));
         }
 
         /*Second row*/
-        > div:nth-child(2),
-        > div:nth-child(6),
-        > div:nth-child(9) {
+        > :nth-child(2),
+        > :nth-child(6),
+        > :nth-child(9) {
           --_y: calc(-150% - var(--hex-space));
         }
 
         /*Third row*/
-        > div:nth-child(1),
-        > div:nth-child(3),
-        > div:nth-child(5),
-        > div:nth-child(10) {
+        > :nth-child(1),
+        > :nth-child(3),
+        > :nth-child(5),
+        > :nth-child(10) {
           --_y: 0;
         }
 
         /*Forth row*/
-        > div:nth-child(4),
-        > div:nth-child(11),
-        > div:nth-child(14) {
+        > :nth-child(4),
+        > :nth-child(11),
+        > :nth-child(14) {
           --_y: calc(150% + var(--hex-space));
         }
 
         /*Fifth row*/
-        > div:nth-child(12),
-        > div:nth-child(13) {
+        > :nth-child(12),
+        > :nth-child(13) {
           --_y: calc(300% + calc(var(--hex-space) * 2));
         }
       }
@@ -202,7 +201,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         background-clip: text;
         color: transparent;
         animation: gradient-bg 2s ease-in-out infinite alternate;
-        background-image: var(--rainbow);
+        background-image: theme(backgroundImage.rainbow);
         text-shadow:
           theme(colors.white / 50%) 0px 3px 4px,
           theme(colors.white / 12%) 1px 1px 6px;
@@ -210,7 +209,7 @@ import PaperLayout from "../layouts/PaperLayout.astro";
         &:hover {
           animation-name: none;
           filter: grayscale(0);
-          background-image: var(--rainbow);
+          background-image: theme(backgroundImage.rainbow);
         }
       }
     </style>

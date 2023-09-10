@@ -45,10 +45,9 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
 
 <style>
   .hex {
-    grid-area: 1/1;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --height: calc(calc(var(--side) / 2) / sin(60deg));
     width: var(--side);
-    height: var(--height);
+    aspect-ratio: calc(2 * sin(60deg)) / 1;
 
     .gradient,
     .image {
