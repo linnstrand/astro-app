@@ -5,19 +5,23 @@ import HoneyComb from "../components/HoneyComb.astro";
 
 <PaperLayout title="Linn Strand">
   <main
-    class="container grid gap-5 lg:mt-5 mx-auto lg:grid-cols-[min-content_auto] grid-rows-[auto_auto_1fr] lg:grid-rows-[1fr_auto_auto_1fr] lg:gap-6 text-teal-600 px-8"
+    class="container max-lg:m-auto flex flex-col lg:flex-row items-center lg:mt-5 2xl:gap-12 text-teal-60 xl:gap-5"
   >
-    <h1
-      class="text-8xl text-transparent 2xl:whitespace-nowrap 2xl:mx-10 lg:text-left inset-text lg:row-start-2 font-bold tracking-wide text-center"
-    >
-      Linn Strand
-    </h1>
-    <h2
-      class="2xl:text-4xl text-transparent lg:row-start-3 text-3xl font-bold text-right"
-    >
-      Frontend Developer
-    </h2>
-    <HoneyComb />
+    <div class="flex flex-col min-w-[30%]">
+      <h1
+        class="leading-tight text-transparent 2xl:whitespace-nowrap 2xl:mx-10 lg:text-left inset-text lg:row-start-2 font-bold tracking-wide self-center"
+      >
+        Linn Strand
+      </h1>
+      <h2
+        class="2xl:text-4xl text-transparent lg:row-start-3 text-3xl font-bold self-end"
+      >
+        Frontend Developer
+      </h2>
+    </div>
+    <div class="xl:grow lg:self-start scale-75">
+      <HoneyComb />
+    </div>
   </main>
 </PaperLayout>
 
@@ -32,6 +36,9 @@ import HoneyComb from "../components/HoneyComb.astro";
     100% {
       filter: grayscale(0);
     }
+  }
+  h1 {
+    font-size: clamp(2rem, min(11vw, 6rem), 8rem);
   }
 
   h1,
