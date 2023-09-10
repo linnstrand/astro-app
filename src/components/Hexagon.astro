@@ -1,5 +1,5 @@
 ---
-const { link, image, gradient, title, class: className } = Astro.props;
+const { link, gradient, title, class: className } = Astro.props;
 
 // Default to white background unless another tailwind bg is provided
 const classes = [{ "bg-white": !className?.includes("bg-") }, className];
@@ -32,19 +32,21 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
       </a>
     )
   }
-  {gradient && <div class={`-z-[1] gradient absolute ${gradient}`} />}
+  {
+    gradient && (
+      <div
+        class={`-z-[1] w-[inherit] -top-1/2 gradient absolute ${gradient}`}
+      />
+    )
+  }
   {}
 </div>
 
 <style>
   .hex {
-    width: var(--side);
     aspect-ratio: calc(2 * sin(60deg)) / 1;
 
-    .gradient,
-    .image {
-      top: -50%;
-      width: inherit;
+    .gradient {
       aspect-ratio: sin(60deg) / 1;
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }

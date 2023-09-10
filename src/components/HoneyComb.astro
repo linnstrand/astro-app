@@ -1,0 +1,171 @@
+---
+import Cloud from "../components/Cloud.astro";
+import Hexagon from "../components/Hexagon.astro";
+import IconSunburst from "../components/IconSunburst.astro";
+import Diamond from "../components/Diamond.astro";
+---
+
+<div
+  class="hexy grid lg:row-span-4 justify-self-center lg:place-self-start place-self-center place-content-center text-lg"
+>
+  <Hexagon
+    link="/fullstack"
+    title="Flowchart in css"
+    gradient="bg-gradient-to-br from-green-400 via-teal-500 to-purple-500"
+  >
+    <div
+      class="top-2 absolute bottom-0 left-0 right-0 m-auto leading-tight text-teal-900"
+    >
+      <div
+        class="before:absolute before:border-l-2 before:bottom-7 before:h-7 before:left-6 before:border-teal-800 top-11 left-2 absolute w-16 h-8 p-1 bg-white border-2 border-teal-800"
+      >
+        Flow
+      </div>
+      <div
+        class="after:w-3 after:absolute after:border-t-2 after:block after:z-10 after:border-teal-800 before:absolute before:border-t-2 before:block before:z-10 before:border-teal-800 before:w-3 after:top-1/2 before:top-1/2 after:left-full before:right-full absolute top-0 left-0 right-0 w-20 h-8 p-1 m-auto bg-white border-2 border-teal-800"
+      >
+        Skills
+      </div>
+      <div
+        class="before:absolute before:border-l-2 before:block before:z-10 before:bottom-7 before:h-7 before:right-6 before:border-teal-800 top-11 right-2 absolute w-16 h-8 p-1 bg-white border-2 border-teal-800"
+      >
+        Chart
+      </div>
+    </div>
+  </Hexagon>
+  <Hexagon link="/about">
+    <h3 class="flex justify-center text-xl font-bold">About</h3>
+    <p>This page</p>
+  </Hexagon>
+  <Hexagon link="https: github.com linnstrand">
+    <h3 class="flex justify-center text-xl font-bold">Github</h3>
+    <p>/linnstrand</p>
+  </Hexagon>
+  <Hexagon />
+  <Hexagon />
+  <Hexagon />
+  <Hexagon />
+  <Hexagon class="bg-sky-300" link="/sky" title="Sky view">
+    <Cloud
+      pointer-events-none
+      variant="cloud-1"
+      color="bg-white"
+      class="bottom-2 relative left-0 right-0 w-8/12 m-auto text-lg"
+    >
+      Sky
+    </Cloud>
+  </Hexagon>
+  <Hexagon />
+  <Hexagon />
+  <Hexagon link="/skills" title="Sunburst chart">
+    <IconSunburst>Graph</IconSunburst>
+  </Hexagon>
+  <Hexagon />
+  <Hexagon class="text-sky-600" link="https://www.linkedin.com/in/linn-strand">
+    <h3
+      class="flex justify-center text-2xl font-bold font-sans tracking-wider shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
+    >
+      LinkedIn
+    </h3>
+  </Hexagon>
+  <Hexagon link="/shiny" class="bg-indigo-300" title="Gem animation">
+    <Diamond />
+  </Hexagon>
+</div>
+
+<style is:inline>
+  /* The styling of child elements requires is_inline */
+
+  :root {
+    --side: 9.3em;
+    --hex-space: 8%;
+  }
+
+  .hexy {
+    height: calc(var(--side) * 5);
+    width: calc(var(--side) * 4.5);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    > * {
+      transform: translate(var(--_x, 0), var(--_y, 0));
+      grid-area: 1/1;
+      width: var(--side);
+    }
+
+    /*1st col*/
+    > :nth-child(5) {
+      --_x: calc(-150% - calc(var(--hex-space) * 1.5));
+    }
+
+    /*2nd col*/
+    > :nth-child(6),
+    > :nth-child(14) {
+      --_x: calc(-100% - var(--hex-space));
+    }
+
+    /*3rd col*/
+    > :nth-child(1),
+    > :nth-child(7),
+    > :nth-child(13) {
+      --_x: calc(-50% - calc(var(--hex-space) / 2));
+    }
+
+    /*4th col*/
+    > :nth-child(2),
+    > :nth-child(4) {
+      --_x: 0;
+    }
+
+    /*5th col*/
+    > :nth-child(3),
+    > :nth-child(8),
+    > :nth-child(12) {
+      --_x: calc(50% + calc(var(--hex-space) / 2));
+    }
+
+    /*6th col*/
+    :nth-child(9),
+    :nth-child(11) {
+      --_x: calc(100% + var(--hex-space));
+    }
+
+    /*7th col*/
+    :nth-child(10) {
+      --_x: calc(150% + calc(var(--hex-space) * 1.5));
+    }
+
+    /*First row*/
+    > :nth-child(7),
+    > :nth-child(8) {
+      --_y: calc(-300% - calc(var(--hex-space) * 2));
+    }
+
+    /*Second row*/
+    > :nth-child(2),
+    > :nth-child(6),
+    > :nth-child(9) {
+      --_y: calc(-150% - var(--hex-space));
+    }
+
+    /*Third row*/
+    > :nth-child(1),
+    > :nth-child(3),
+    > :nth-child(5),
+    > :nth-child(10) {
+      --_y: 0;
+    }
+
+    /*Forth row*/
+    > :nth-child(4),
+    > :nth-child(11),
+    > :nth-child(14) {
+      --_y: calc(150% + var(--hex-space));
+    }
+
+    /*Fifth row*/
+    > :nth-child(12),
+    > :nth-child(13) {
+      --_y: calc(300% + calc(var(--hex-space) * 2));
+    }
+  }
+</style>
