@@ -5,7 +5,9 @@ import IconSunburst from "../components/IconSunburst.astro";
 import Diamond from "../components/Diamond.astro";
 ---
 
-<div class="hexy grid place-self-start justify-center items-start">
+<div
+  class="hexy place-content-center place-self-center lg:scale-100 lg:mt-0 lg:row-span-4 relative grid -mt-3 text-lg text-teal-600 scale-90"
+>
   <Hexagon
     link="/fullstack"
     title="Flowchart in css"
@@ -69,101 +71,101 @@ import Diamond from "../components/Diamond.astro";
   <Hexagon link="/shiny" class="bg-indigo-300" title="Gem animation">
     <Diamond />
   </Hexagon>
+
+  <style is:inline>
+    /* The styling of child elements requires is_inline */
+
+    :root {
+      --side: 9.3em;
+      --hex-space: 8%;
+    }
+
+    .hexy {
+      height: calc(var(--side) * 5);
+      width: calc(var(--side) * 4.5);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+      > * {
+        transform: translate(var(--_x, 0), var(--_y, 0));
+        grid-area: 1/1;
+        width: var(--side);
+      }
+
+      /*1st col*/
+      > :nth-child(5) {
+        --_x: calc(-150% - calc(var(--hex-space) * 1.5));
+      }
+
+      /*2nd col*/
+      > :nth-child(6),
+      > :nth-child(14) {
+        --_x: calc(-100% - var(--hex-space));
+      }
+
+      /*3rd col*/
+      > :nth-child(1),
+      > :nth-child(7),
+      > :nth-child(13) {
+        --_x: calc(-50% - calc(var(--hex-space) / 2));
+      }
+
+      /*4th col*/
+      > :nth-child(2),
+      > :nth-child(4) {
+        --_x: 0;
+      }
+
+      /*5th col*/
+      > :nth-child(3),
+      > :nth-child(8),
+      > :nth-child(12) {
+        --_x: calc(50% + calc(var(--hex-space) / 2));
+      }
+
+      /*6th col*/
+      :nth-child(9),
+      :nth-child(11) {
+        --_x: calc(100% + var(--hex-space));
+      }
+
+      /*7th col*/
+      :nth-child(10) {
+        --_x: calc(150% + calc(var(--hex-space) * 1.5));
+      }
+
+      /*First row*/
+      > :nth-child(7),
+      > :nth-child(8) {
+        --_y: calc(-300% - calc(var(--hex-space) * 2));
+      }
+
+      /*Second row*/
+      > :nth-child(2),
+      > :nth-child(6),
+      > :nth-child(9) {
+        --_y: calc(-150% - var(--hex-space));
+      }
+
+      /*Third row*/
+      > :nth-child(1),
+      > :nth-child(3),
+      > :nth-child(5),
+      > :nth-child(10) {
+        --_y: 0;
+      }
+
+      /*Forth row*/
+      > :nth-child(4),
+      > :nth-child(11),
+      > :nth-child(14) {
+        --_y: calc(150% + var(--hex-space));
+      }
+
+      /*Fifth row*/
+      > :nth-child(12),
+      > :nth-child(13) {
+        --_y: calc(300% + calc(var(--hex-space) * 2));
+      }
+    }
+  </style>
 </div>
-
-<style is:inline>
-  /* The styling of child elements requires is_inline */
-
-  :root {
-    --side: 9.3em;
-    --hex-space: 8%;
-  }
-
-  .hexy {
-    height: calc(var(--side) * 5);
-    width: calc(var(--side) * 4.5);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-    > * {
-      transform: translate(var(--_x, 0), var(--_y, 0));
-      grid-area: 1/1;
-      width: var(--side);
-    }
-
-    /*1st col*/
-    > :nth-child(6) {
-      --_x: calc(-150% - calc(var(--hex-space) * 1));
-    }
-
-    /*2nd col*/
-    > :nth-child(3),
-    > :nth-child(10) {
-      --_x: calc(-100% - calc(var(--hex-space) * 0.5));
-    }
-
-    /*3rd col*/
-    > :nth-child(1),
-    > :nth-child(7),
-    > :nth-child(13) {
-      --_x: calc(-50% - calc(var(--hex-space) * 0.25));
-    }
-
-    /*4th col*/
-    > :nth-child(4),
-    > :nth-child(11) {
-      --_x: 0;
-    }
-
-    /*5th col*/
-    > :nth-child(2),
-    > :nth-child(8),
-    > :nth-child(14) {
-      --_x: calc(50% + calc(var(--hex-space) * 0.25));
-    }
-
-    /*6th col*/
-    :nth-child(5),
-    :nth-child(12) {
-      --_x: calc(100% + calc(var(--hex-space) * 0.5));
-    }
-
-    /*7th col*/
-    :nth-child(9) {
-      --_x: calc(150% + calc(var(--hex-space) * 1));
-    }
-
-    /*First row*/
-    > :nth-child(1),
-    > :nth-child(2) {
-      --_y: 50%;
-    }
-
-    /*Second row*/
-    > :nth-child(3),
-    > :nth-child(4),
-    > :nth-child(5) {
-      --_y: calc(200% + var(--hex-space));
-    }
-
-    /*Third row*/
-    > :nth-child(6),
-    > :nth-child(7),
-    > :nth-child(8),
-    > :nth-child(9) {
-      --_y: calc(350% + var(--hex-space) * 2);
-    }
-
-    /*Forth row*/
-    > :nth-child(10),
-    > :nth-child(11),
-    > :nth-child(12) {
-      --_y: calc(500% + calc(var(--hex-space) * 3));
-    }
-    /*Fifth row*/
-
-    > :nth-child(13),
-    > :nth-child(14) {
-      --_y: calc(650% + calc(var(--hex-space) * 4));
-    }
-  }
-</style>
