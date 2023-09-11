@@ -115,13 +115,17 @@ export const SkillGraph = ({ size }: GraphParams) => {
       })
       .attr("fill-opacity", (d) => +labelVisible(d.data.current))
       .attr("transform", (d) => labelTransform(d.data.current))
-      .text((d) => d.data.name);
+      .text((d) =>
+        d.data.name.length >= 15
+          ? `${d.data.name.substring(0, 14)}...`
+          : d.data.name
+      );
 
     container
       .append("text")
       .text(rootNode.data.name)
       .attr("text-anchor", "middle")
-      .attr("font-size", "1.2rem")
+      .attr("font-size", "1.3rem")
       .attr("fill", "#ccc");
 
     const center = container

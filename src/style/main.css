@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Reset */
 *,
 *::before,
@@ -52,14 +51,17 @@ p {
 
 @layer base {
   :root {
+    --color-bg: 229 231 235;
+    --color-strong: 255 255 255;
   }
-  @media (prefers-color-theme: dark) {
 
+  html.theme-light {
+    --color-bg: 229 231 235;
+    --color-strong: 255 255 255;
   }
 
-  @media (prefers-color-theme: light {
-
-  })
-
-  // 
+  html.theme-dark {
+    --color-bg: 31 41 55;
+    --color-strong: 3 7 18;
+  }
 }

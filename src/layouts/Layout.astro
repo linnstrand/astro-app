@@ -6,16 +6,8 @@ import BaseLayout from "./BaseLayout.astro";
   <slot />
 </BaseLayout>
 
-<style is:global>
-  :root {
-    --blue-hsl: 227, 60%, 60%;
-    ---hsl-blue: hsl(var(--blue-hsl));
-  }
+<style>
   body {
-    background: #13151a;
-    /* background:
-      linear-gradient(210deg, hsla(var(--blue-hsl), 0.2), transparent 40%),
-      radial-gradient(hsla(260, 66%, 55%, 0.2), transparent 30%) no-repeat -60vw -10vh /
-        105vw 210vh; */
+    background-color: theme(colors.gray.800);
   }
 </style>

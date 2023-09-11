@@ -4,21 +4,31 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Linn Strand">
-  <main class="absolute m-auto top-0 bottom-0 left-0 right-0">
+  <main class="top-0 bottom-0 left-0 right-0 m-auto">
     <SkillGraph size={1100} client:only="react" />
   </main>
 </Layout>
 
 <style>
-  .tree-container {
-    display: flex;
-    position: relative;
-    flex-direction: row;
-  }
-
-  .lines {
-    fill: none;
-    stroke-opacity: 0.6;
-    stroke-width: 1;
+  main {
+    &:before {
+      content: "";
+      z-index: -10;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background:
+        linear-gradient(210deg, theme(colors.blue.700 / 40%), transparent 20%),
+        radial-gradient(theme(colors.indigo.800 / 50%), transparent 30%)
+          no-repeat -50vw -1vh / 105vw 210vh,
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgb(0 0 0 / 1) 11.46%,
+            50%,
+            rgb(69 168 255 / 0) 100%
+          ) -2px 1px / 100% 100% no-repeat no-repeat;
+    }
   }
 </style>

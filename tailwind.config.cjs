@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: ({ colors }) => ({
+        bkg: "rgb(var(--color-bg) / <alpha-value>)",
+        strong: "rgb(var(--color-strong) / <alpha-value>)",
+      }),
       dropShadow: {
         strong: "4px 4px 4px rgba(31, 41, 55, 0.38)",
       },
