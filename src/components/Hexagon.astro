@@ -7,7 +7,7 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
 
 <div
   class:list={classes}
-  class=`hex relative text-center transition ease-in-out duration-300 drop-shadow-strong saturate-[.3] hover:saturate-100`
+  class="hex relative text-center ease-in-out duration-300 saturate-[.3] transform-gpu hover:saturate-100 drop-shadow-md"
 >
   <div
     class="corner-1 -z-10 bg-inherit absolute top-0 left-0 w-full h-full overflow-hidden rotate-[60deg]"
@@ -35,7 +35,7 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
   {
     gradient && (
       <div
-        class={`-z-[1] w-[inherit] -top-1/2 gradient absolute ${gradient}`}
+        class={`-z-[1] w-[inherit] -top-1/2 gradient absolute box-border ${gradient}`}
       />
     )
   }
@@ -47,6 +47,7 @@ const classes = [{ "bg-white": !className?.includes("bg-") }, className];
     aspect-ratio: calc(2 * sin(60deg)) / 1;
 
     .gradient {
+      height: 200%; /**To fix safari bug */
       aspect-ratio: sin(60deg) / 1;
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
