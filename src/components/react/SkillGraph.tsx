@@ -240,12 +240,8 @@ export const SkillGraph = ({ size }: GraphParams) => {
 
   return (
     <>
-      <div className="flex items-center justify-center h-full">
-        <svg
-          width={`${size}px`}
-          height={`${size}px`}
-          viewBox={`0 0 ${size} ${size}`}
-        >
+      <div className=" flex items-center justify-center">
+        <svg viewBox={`0 0 ${size} ${size}`}>
           <g ref={ref}></g>
         </svg>
       </div>

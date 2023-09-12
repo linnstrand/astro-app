@@ -4,13 +4,13 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Linn Strand">
-  <main class="top-0 bottom-0 left-0 right-0 m-auto">
+  <main class="w-[90vmin] h-[90vmin] mx-auto">
     <SkillGraph size={1100} client:only="react" />
   </main>
 </Layout>
 
 <style>
-  main {
+  body {
     &:before {
       content: "";
       z-index: -10;
